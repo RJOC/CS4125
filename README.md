@@ -8,6 +8,6 @@ Members of this team:
   Ryan O'Connor - 17209382
 
 Meetings: 
-  Team meetings for this project will be on every Monday at 13:30 PM to 14:30 PM
+  Every Monday at 13:30 PM to 14:30 PM
   In this time we will discuss issues related to the project and update on what we have achieved in the week!
   Don't miss this meeting.
