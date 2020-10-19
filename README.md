@@ -9,5 +9,9 @@ Members of this team:
 
 Meetings: 
   Every Monday at 13:30 PM to 14:30 PM
+  
   In this time we will discuss issues related to the project and update on what we have achieved in the week!
   Don't miss this meeting.
+
+Deadline:
+  Monday 14th December 2020 - WEEK 12
