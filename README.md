@@ -17,3 +17,16 @@ Meetings:
 Deadline:
 
     Monday 14th December 2020 - WEEK 12
+
+Meeting attendance:
+    Meeting attendance:
+        19/10/2020 13:30-14:00
+            Everyone
+        26/10/2020 13:30–14:00
+            Everyone
+        02/11/2020 13:30-14:00
+            Everyone
+        09/11/2020 13:30-14:00
+            Everyone
+        16/112020 13:30-14:00
+            Everyone
