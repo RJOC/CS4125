@@ -28,5 +28,7 @@ Meeting attendance:
             Everyone
         09/11/2020 13:30-14:00
             Everyone
-        16/112020 13:30-14:00
+        16/11/2020 13:30-14:00
+            Everyone
+        23/11/2020 13:30-14:00
             Everyone
