@@ -7,6 +7,7 @@ Members of this team:
     Darragh O'Donnell - 17239567 
     Mateusz Tyrkiel - 17204097 
     Ryan O'Connor - 17209382
+    Jonathan Ryley - 17211501
 
 Meetings: 
 
