@@ -32,3 +32,5 @@ Meeting attendance:
             Everyone
         23/11/2020 13:30-14:00
             Everyone
+        27/11/2020 16:00-16:45
+            Ryan & Darragh (Matt had pre-meeting with Ryan)
