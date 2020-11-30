@@ -107,6 +107,7 @@ public class DanceManagerStudioClient extends JFrame implements ActionListener{
             if(source == loginBttn){
                 setVisible(false);
                 //TTTLoginFrame login = new TTTLoginFrame(this);
+                DMSLoginFrame login = new DMSLoginFrame(this);
             }
             if(source == regBttn){
                 setVisible(false);
