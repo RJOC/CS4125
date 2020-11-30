@@ -83,19 +83,19 @@ public class DMSMenuFrame extends JFrame implements ActionListener {
         sec2.add(fill2);
         sec2.add(fill3);
         //create game
-        createBttn = new JButton("Create Game");
+        createBttn = new JButton("Create Class");
         createBttn.addActionListener(this);
         sec2.add(createBttn);
         //join game
-        joinBttn = new JButton("Join Game");
+        joinBttn = new JButton("Create Student");
         joinBttn.addActionListener(this);
         sec2.add(joinBttn);
         //userStats
-        userStats = new JButton("My Stats");
+        userStats = new JButton("Create Teacher");
         userStats.addActionListener(this);
         sec2.add(userStats);
         //leaderboard 
-        leaderBttn = new JButton("Show LeaderBoard");
+        leaderBttn = new JButton("View Reports");
         leaderBttn.addActionListener(this);
         sec2.add(leaderBttn);
         
