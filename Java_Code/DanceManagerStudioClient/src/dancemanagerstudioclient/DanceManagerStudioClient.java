@@ -92,11 +92,12 @@ public class DanceManagerStudioClient extends JFrame implements ActionListener{
      * Main method:
      *      Displays the welcome screen of the game
      *      Allows you to select if you want to login or register.
-     */
+     *
     public static void main(String[] args) throws IOException {
 
         DanceManagerStudioClient myInstance = new DanceManagerStudioClient();
     }
+    */
 
 
     @Override

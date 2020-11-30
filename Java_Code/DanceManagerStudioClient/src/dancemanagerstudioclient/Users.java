@@ -10,11 +10,18 @@ package dancemanagerstudioclient;
  * @author Jono
  */
 public class Users {
-  private int uID;
-  private String uName;
-  private int phoneNum;
+  public int uID;
+  public String uName;
+  public int phoneNum;
  
   Users () {
+    uID = -1;
+    uName = "empty";
+    phoneNum = -1;
+
+  }
+  
+    Users(int uID, String uName,int phoneNum){
     uID = -1;
     uName = "empty";
     phoneNum = -1;
