@@ -1,2 +1,4 @@
 
 Java_Code/DanceManagerStudioClient/nbproject/private/private.properties
+*.properties
+*.class
