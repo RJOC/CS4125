@@ -11,6 +11,8 @@ import java.util.ArrayList;
  */
 public class DanceClass implements CustomDataType {
     private ArrayList<ArrayList<String>> studentList;
+    private String startTime;
+    private String finishTime;
     private String teacherName;
     private int teacherID;
     ///TODO: add rest of relevant fields and Gen get/set

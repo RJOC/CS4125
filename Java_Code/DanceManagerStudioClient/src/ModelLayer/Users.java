@@ -9,7 +9,7 @@ package ModelLayer;
  *
  * @author Jono
  */
-public class Users {
+public class Users implements CustomDataType{
   public int uID;
   public String uName;
   public int phoneNum;
@@ -51,4 +51,10 @@ public class Users {
     public void setPhoneNum(int phoneNum) {
         this.phoneNum = phoneNum;
     }   
+
+    @Override
+    public String dataType() {
+        return("Users");
+    }
+    
 }

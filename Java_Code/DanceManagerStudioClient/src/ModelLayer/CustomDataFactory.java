@@ -10,5 +10,5 @@ package ModelLayer;
  * @author Jono
  */
 public interface CustomDataFactory {
-    public CustomDataType dataFactory(Data data);
+    public CustomDataType buildData(Data data);
 }
