@@ -3,12 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package dancemanagerstudioclient;
+package ModelLayer;
+
 
 /**
  *
  * @author Jono
  */
-public interface CustomDataType {
-    public String dataType();
+public interface DBWrite {
+    public void writeToDB(String instruction, CustomDataType data);
 }

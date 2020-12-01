@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package dancemanagerstudioclient;
+package ModelLayer;
 
 /**
  *
  * @author Jono
  */
-public interface DBRead {
-    public Data readFromDB(String instruction);
+public interface CustomDataFactory {
+    public CustomDataType dataFactory(Data data);
 }

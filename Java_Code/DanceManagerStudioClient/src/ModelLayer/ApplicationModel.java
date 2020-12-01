@@ -3,7 +3,8 @@
  * Holds data model for application
  * Uses the read/write classes that interact with the database // web service.
  */
-package dancemanagerstudioclient;
+package ModelLayer;
+
 import java.util.ArrayList;
 /**
  *
