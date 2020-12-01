@@ -9,6 +9,6 @@ package dancemanagerstudioclient;
  *
  * @author Jono
  */
-public interface DBRead {
-    public Data readFromDB(String instruction);
+public interface CustomDataType {
+    public String dataType();
 }

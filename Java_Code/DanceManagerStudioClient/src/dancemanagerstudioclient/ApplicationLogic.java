@@ -21,6 +21,11 @@ public class ApplicationLogic {
 
         DanceManagerStudioClient myInstance = new DanceManagerStudioClient();
     }
+    
+    
+    
+    
+    
 }
 
 

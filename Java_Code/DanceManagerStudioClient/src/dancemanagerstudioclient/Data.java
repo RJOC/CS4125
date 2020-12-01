@@ -10,10 +10,15 @@ import java.util.ArrayList; // import the ArrayList class
  *
  * @author Jono
  */
-public class Data {
+public class Data implements CustomDataType {
     private ArrayList<ArrayList<String>> data;
 
     public Data() {
         this.data = new ArrayList<ArrayList<String>>();
+    }
+
+    @Override
+    public String dataType() {
+        return "Data";
     }
 }
