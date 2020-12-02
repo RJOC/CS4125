@@ -42,14 +42,14 @@ public class DMSRegFrame extends JFrame implements ActionListener {
         //proxy = ttt.getTTTWebServicePort();
         
         //Frame Setup
-        setTitle("Reistration");
+        setTitle("Registration");
         setLayout(new BorderLayout());
         
         
         //Section 2
         JPanel sec2 = new JPanel();
         sec2.setLayout(new GridLayout(9,1));
-        nameLab = new JLabel("Name: ",JLabel.CENTER);
+        nameLab = new JLabel("Firstname: ",JLabel.CENTER);
         nameLab.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 25));
         name = new JTextField();
         name.setFont(new Font(Font.SANS_SERIF, Font.ITALIC, 20));
