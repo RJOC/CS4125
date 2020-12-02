@@ -1,0 +1,42 @@
+.margin-bottom-20{
+    margin-bottom: 20px;
+}
+.hgroup{
+padding-left: 15px;
+border-bottom: 1px solid #ffb26e;
+}
+.search-result .profile-pic{
+border-radius: 0 !important;
+}
+.search-result:first-child{
+    margin-top: 0 !important;
+}
+.search-result{
+    margin-top: 20px;
+}
+.search-info{
+    border-right: 1px dotted #ffb26e; min-height: 140px;
+}
+.search-result ul{
+    padding-left: 0 !important; list-style: none;
+}
+.search-result ul li{
+    font: 400;
+    line-height: 30px;
+}
+.search-result .col-md-7{
+    position: relative;
+}
+.search-result h3{
+    font: 500 #db7209;
+    margin-top: 0 !important;
+}
+.search-result h3 > a, .search-result i {
+    color: #db7209 !important;
+}
+
+.search-result .searchButtons{
+    position: absolute;
+    right: 0;
+    top: 126px;
+}
