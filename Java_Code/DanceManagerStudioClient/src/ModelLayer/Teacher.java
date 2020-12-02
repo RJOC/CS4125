@@ -3,21 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ApplicationLayer;
-import dancemanagerstudioclient.DanceManagerStudioClient;
-import java.io.IOException;
+package ModelLayer;
 
 /**
  *
  * @author Jono
  */
-public class ApplicationLogic {
+public class Teacher extends Users {
 
-    
-    
-    
+    public Teacher() {
+    }
+
+    public Teacher(int uID, String uName, int phoneNum) {
+        super(uID, uName, phoneNum);
+    }
     
 }
-
-
-

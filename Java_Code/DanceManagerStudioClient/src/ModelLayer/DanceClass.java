@@ -10,7 +10,7 @@ import java.util.ArrayList;
  * @author Jono
  */
 public class DanceClass implements CustomDataType {
-    private ArrayList<ArrayList<String>> studentList;
+    private ArrayList<String> studentList;
     private String startTime;
     private String finishTime;
     private String teacherName;
