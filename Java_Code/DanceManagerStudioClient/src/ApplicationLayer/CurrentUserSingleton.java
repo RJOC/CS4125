@@ -23,8 +23,7 @@ public class CurrentUserSingleton {
         //lazy initialization
         if(currentUser == null){
             currentUser = new Users();
-        }
-            
+        }            
         return currentUser;
     }
     

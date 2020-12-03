@@ -11,4 +11,19 @@ package ApplicationLayer;
  */
 public class TeacherLogic extends ApplicationLogic{
     
+    public void viewOwnClass(){
+        
+    }
+    
+    public void reportIncident(){
+        /// generate incedent report
+    }
+    
+    public void cancelClass(){
+        /// need notify method
+    }
+    
+    public void viewWages(){
+    
+    }
 }
