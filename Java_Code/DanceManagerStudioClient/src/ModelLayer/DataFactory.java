@@ -22,7 +22,7 @@ public class DataFactory implements CustomDataFactory{
     private void buildUser(Data data){
         ///TODO: pull data from database into a Data(); Then build users object with recived values.
         /*
-        if(manager){
+        if(Manager){
             // build and return new manager()
         }
         else if(receptionist){

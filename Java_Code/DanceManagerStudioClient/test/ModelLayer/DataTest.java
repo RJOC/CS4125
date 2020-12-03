@@ -46,10 +46,11 @@ public class DataTest {
         System.out.println("getData");
         Data instance = new Data();
         ArrayList<ArrayList<String>> expResult = null;
+        
+        instance.setData(expResult);
         ArrayList<ArrayList<String>> result = instance.getData();
+        
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -62,6 +63,7 @@ public class DataTest {
         Data instance = new Data();
         instance.setData(data);
         // TODO review the generated test code and remove the default call to fail.
+        // Have no test listener built in yet
         fail("The test case is a prototype.");
     }
 
@@ -72,11 +74,9 @@ public class DataTest {
     public void testGetDataName() {
         System.out.println("getDataName");
         Data instance = new Data();
-        String expResult = "";
+        String expResult = "EmptyDataObject";
         String result = instance.getDataName();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -99,11 +99,9 @@ public class DataTest {
     public void testDataType() {
         System.out.println("dataType");
         Data instance = new Data();
-        String expResult = "";
+        String expResult = "Data";
         String result = instance.dataType();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
     
 }

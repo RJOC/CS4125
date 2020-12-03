@@ -14,19 +14,15 @@ public class Users implements CustomDataType{
   public String uName;
   public int phoneNum;
  
-  Users () {
-    uID = -1;
-    uName = "empty";
-    phoneNum = -1;
-
-  }
+    public Users(){
+        this(-1,"empty",-1);
+    }
   
-    Users(int uID, String uName,int phoneNum){
-    uID = -1;
-    uName = "empty";
-    phoneNum = -1;
-
-  }
+    public Users(int uID, String uName,int phoneNum){
+        this.uID = uID;
+        this.uName = uName;
+        this.phoneNum = phoneNum;
+    }
   
     public int getuID() {
         return uID;
