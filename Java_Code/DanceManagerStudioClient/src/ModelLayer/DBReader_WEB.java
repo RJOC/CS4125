@@ -4,8 +4,8 @@
  * and open the template in the editor.
  */
 package ModelLayer;
-import DMS.darragj.server.DMSWebService;
-import DMS.darragj.server.DMSWebService_Service;
+// import DMS.darragj.server.DMSWebService;
+// import DMS.darragj.server.DMSWebService_Service;
 /**
  *
  * @author Jono
@@ -22,7 +22,6 @@ public class DBReader_WEB implements DBRead{
         //DMS = new DMSWebService_Service();
         //proxy = DMS.getDMSWebServicePort();
         //int value = proxy.login(uname, pword);
-        
         
         
     }

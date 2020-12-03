@@ -15,6 +15,7 @@ public class Data implements CustomDataType {
     private String dataName;
 
     public Data() {
+        this.dataName = "EmptyDataObject";
         this.data = new ArrayList<ArrayList<String>>();
     }
 

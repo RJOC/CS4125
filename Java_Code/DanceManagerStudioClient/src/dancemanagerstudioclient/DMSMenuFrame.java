@@ -42,7 +42,7 @@ public class DMSMenuFrame extends JFrame implements ActionListener {
     
     //Initialisations of variables needed
     private JLabel heading, fill, fill1, fill2, fill3;
-    private JButton createBttn, joinBttn, userStats, leaderBttn, logout;
+    private JButton createClass, createStud, createTch, viewRpt, delClass, delStud, delTch, MonPymt, logout;
     private int ppid; 
     private String uname;
     
@@ -82,22 +82,39 @@ public class DMSMenuFrame extends JFrame implements ActionListener {
         sec2.setLayout(new GridLayout(9,1));
         sec2.add(fill2);
         sec2.add(fill3);
-        //create game
-        createBttn = new JButton("Create Class");
-        createBttn.addActionListener(this);
-        sec2.add(createBttn);
-        //join game
-        joinBttn = new JButton("Create Student");
-        joinBttn.addActionListener(this);
-        sec2.add(joinBttn);
-        //userStats
-        userStats = new JButton("Create Teacher");
-        userStats.addActionListener(this);
-        sec2.add(userStats);
-        //leaderboard 
-        leaderBttn = new JButton("View Reports");
-        leaderBttn.addActionListener(this);
-        sec2.add(leaderBttn);
+        //create Class
+        createClass = new JButton("Create Class");
+        createClass.addActionListener(this);
+        sec2.add(createClass);
+        //Create Student
+        createStud = new JButton("Create Student");
+        createStud.addActionListener(this);
+        sec2.add(createStud);
+        //Create Teacher
+        createTch = new JButton("Create Teacher");
+        createTch.addActionListener(this);
+        sec2.add(createTch);
+        //View Reports 
+        viewRpt = new JButton("View Reports");
+        viewRpt.addActionListener(this);
+        sec2.add(viewRpt);
+        //Delete Class
+        delClass = new JButton("Delete Class");
+        delClass.addActionListener(this);
+        sec2.add(delClass);
+        //Delete student
+        delStud = new JButton("Delete Student");
+        delStud.addActionListener(this);
+        sec2.add(delStud);
+        //Delete Teacher
+        delTch = new JButton("Delete Teacher");
+        delTch.addActionListener(this);
+        sec2.add(delTch);
+        //Monitor Payments
+        MonPymt = new JButton("Monitor Payments");
+        MonPymt.addActionListener(this);
+        sec2.add(MonPymt);
+        
         
         //bottom buttons
         JPanel sec3 = new JPanel();
@@ -113,12 +130,7 @@ public class DMSMenuFrame extends JFrame implements ActionListener {
         setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         
  
-            
-            
-            
-            
-            
-            
+  
             WindowListener exitListener = new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
@@ -134,7 +146,7 @@ public class DMSMenuFrame extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
        Object source = e.getSource();
        
-       if(source == createBttn){
+       if(source == createClass){
            setVisible(false);
            //try {
                //TTTNewGame ngame = new TTTNewGame(ppid,menuParent,uname);
@@ -142,15 +154,31 @@ public class DMSMenuFrame extends JFrame implements ActionListener {
                //Logger.getLogger(TTTMenuFrame.class.getName()).log(Level.SEVERE, null, ex);
            //}
        }
-       if(source == joinBttn){
+       if(source == createStud){
            setVisible(false);
            //TTTJoinGame stats = new TTTJoinGame(ppid, menuParent, uname);
        }
-       if(source == userStats){
+       if(source == createTch){
            setVisible(false);
            //TTTUserStats stats = new TTTUserStats(ppid, menuParent, uname);
        }
-       if(source == leaderBttn){
+       if(source == viewRpt){
+           setVisible(false);
+           //TTTLeaderboardFrame leader = new TTTLeaderboardFrame(ppid, menuParent);
+       }
+       if(source == delClass){
+           setVisible(false);
+           //TTTLeaderboardFrame leader = new TTTLeaderboardFrame(ppid, menuParent);
+       }
+       if(source == delStud){
+           setVisible(false);
+           //TTTLeaderboardFrame leader = new TTTLeaderboardFrame(ppid, menuParent);
+       }
+       if(source == delTch){
+           setVisible(false);
+           //TTTLeaderboardFrame leader = new TTTLeaderboardFrame(ppid, menuParent);
+       }
+       if(source == MonPymt){
            setVisible(false);
            //TTTLeaderboardFrame leader = new TTTLeaderboardFrame(ppid, menuParent);
        }
