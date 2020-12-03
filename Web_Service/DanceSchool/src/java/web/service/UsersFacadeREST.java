@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.dance_entity.service;
+package web.service;
 
-import com.dance_entity.Skill;
 import java.util.List;
+import javax.ejb.EJBException;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -19,33 +19,35 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+import web.Users;
 
 /**
  *
  * @author dcod1
  */
 @Stateless
-@Path("com.dance_entity.skill")
-public class SkillFacadeREST extends AbstractFacade<Skill> {
+@Path("web.users")
+public class UsersFacadeREST extends AbstractFacade<Users> {
 
-    @PersistenceContext(unitName = "DanceManagerPU")
+    @PersistenceContext(unitName = "DanceSchoolPU")
     private EntityManager em;
 
-    public SkillFacadeREST() {
-        super(Skill.class);
+    public UsersFacadeREST() {
+        super(Users.class);
     }
 
     @POST
     @Override
     @Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    public void create(Skill entity) {
+    public void create(Users entity) {
         super.create(entity);
     }
+    
 
     @PUT
     @Path("{id}")
     @Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    public void edit(@PathParam("id") Integer id, Skill entity) {
+    public void edit(@PathParam("id") Integer id, Users entity) {
         super.edit(entity);
     }
 
@@ -58,27 +60,21 @@ public class SkillFacadeREST extends AbstractFacade<Skill> {
     @GET
     @Path("{id}")
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    public Skill find(@PathParam("id") Integer id) {
+    public Users find(@PathParam("id") Integer id) {
         return super.find(id);
     }
-    @GET
-    @Path("{username}")
-    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    public Skill finduser(@PathParam("username") String username) {
-        return super.find(username);
-    }
-      
+
     @GET
     @Override
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    public List<Skill> findAll() {
+    public List<Users> findAll() {
         return super.findAll();
     }
 
     @GET
     @Path("{from}/{to}")
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    public List<Skill> findRange(@PathParam("from") Integer from, @PathParam("to") Integer to) {
+    public List<Users> findRange(@PathParam("from") Integer from, @PathParam("to") Integer to) {
         return super.findRange(new int[]{from, to});
     }
 
@@ -94,4 +90,19 @@ public class SkillFacadeREST extends AbstractFacade<Skill> {
         return em;
     }
     
+    @GET
+    @Path("login/{username}/{password}")
+    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    public Users login(@PathParam("username")String u, @PathParam("password") String p){
+        return super.login(u, p);
+    }
+    
+    @GET
+    @Path("finduser/{username}")
+    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    public Users finduser(@PathParam("username")String u){
+        return super.finduser(u);
+    }
+
+
 }

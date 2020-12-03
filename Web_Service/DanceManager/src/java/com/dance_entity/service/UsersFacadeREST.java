@@ -61,7 +61,14 @@ public class UsersFacadeREST extends AbstractFacade<Users> {
     public Users find(@PathParam("id") Integer id) {
         return super.find(id);
     }
-
+    /*
+    @GET
+    @Path("{username}")
+    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    public Users finduser(@PathParam("username") String username) {
+        return super.find(username);
+    }    
+*/
     @GET
     @Override
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
@@ -86,6 +93,13 @@ public class UsersFacadeREST extends AbstractFacade<Users> {
     @Override
     protected EntityManager getEntityManager() {
         return em;
+    }
+    
+    @GET
+    @Path("login/{username}/{password}")
+    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    public Users login(@PathParam("username")String u, @PathParam("password") String p){
+        return super.login(u, p);
     }
     
 }

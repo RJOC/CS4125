@@ -3,9 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.dance_entity.service;
+package web.service;
 
-import com.dance_entity.Skill;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -19,16 +18,17 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+import web.Skill;
 
 /**
  *
  * @author dcod1
  */
 @Stateless
-@Path("com.dance_entity.skill")
+@Path("web.skill")
 public class SkillFacadeREST extends AbstractFacade<Skill> {
 
-    @PersistenceContext(unitName = "DanceManagerPU")
+    @PersistenceContext(unitName = "DanceSchoolPU")
     private EntityManager em;
 
     public SkillFacadeREST() {
@@ -61,13 +61,7 @@ public class SkillFacadeREST extends AbstractFacade<Skill> {
     public Skill find(@PathParam("id") Integer id) {
         return super.find(id);
     }
-    @GET
-    @Path("{username}")
-    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    public Skill finduser(@PathParam("username") String username) {
-        return super.find(username);
-    }
-      
+
     @GET
     @Override
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})

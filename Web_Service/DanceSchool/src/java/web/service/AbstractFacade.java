@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.dance_entity.service;
+package web.service;
 
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -37,8 +37,6 @@ public abstract class AbstractFacade<T> {
     public T find(Object id) {
         return getEntityManager().find(entityClass, id);
     }
-    
-
 
     public List<T> findAll() {
         javax.persistence.criteria.CriteriaQuery cq = getEntityManager().getCriteriaBuilder().createQuery();
@@ -66,5 +64,12 @@ public abstract class AbstractFacade<T> {
     public T login(String u, String p){
         return(T) getEntityManager().createNamedQuery("Users.login").setParameter("username", u).setParameter("password",p).getSingleResult();
     }
+    
+
+    public T finduser(String u){
+        T result  =(T) getEntityManager().createNamedQuery("Users.findByUsername").setParameter("username", u).getSingleResult();
+        return result;
+    }
+    
     
 }
