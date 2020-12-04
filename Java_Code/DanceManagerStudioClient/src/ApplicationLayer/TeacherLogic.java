@@ -12,7 +12,7 @@ package ApplicationLayer;
 public class TeacherLogic extends ApplicationLogic{
     
     public void viewOwnClass(){
-        
+        /// super.model.getClass();
     }
     
     public void reportIncident(){

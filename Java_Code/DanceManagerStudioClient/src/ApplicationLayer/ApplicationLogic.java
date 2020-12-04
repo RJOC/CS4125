@@ -5,6 +5,7 @@
  */
 package ApplicationLayer;
 import ModelLayer.ApplicationModel;
+import ModelLayer.CurrentUserSingleton;
 
 /**
  *
@@ -17,4 +18,13 @@ public class ApplicationLogic {
         // pass in model? or build model here? build for now.
         model = new ApplicationModel();
     }   
+    
+    public void logIn(){
+    // TODO: define input values.    
+    // CurrentUserSingleton.getInstance(uType, uFName, uLName)
+    }
+    
+    public void logOut(){
+        CurrentUserSingleton.logOut();
+    }
 }

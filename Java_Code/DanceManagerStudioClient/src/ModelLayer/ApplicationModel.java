@@ -24,15 +24,9 @@ public class ApplicationModel {
         this("Default");
     }
     
-    public ApplicationModel(String dbType) {
-        this(dbType, -1);
-    }
-    
-    public ApplicationModel(String dbType, int uID) {
+    public ApplicationModel(String dbReadWriteType) {
         /// could overload once more to split write and read.
-        //userFactory(uID);
-        //dbReadFactory(dbType);
-        //dbWriteFactory(dbType);
+        this.currentUser = CurrentUserSingleton.getInstance();
     }
     
     private void dbReadFactory(String dbType){

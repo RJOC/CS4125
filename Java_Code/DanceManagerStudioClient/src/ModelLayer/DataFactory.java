@@ -19,22 +19,27 @@ public class DataFactory implements CustomDataFactory{
         // }
     }
     
-    private void buildUser(Data data){
+    private CustomDataType buildUser(Data data){
         ///TODO: pull data from database into a Data(); Then build users object with recived values.
-        /*
-        if(Manager){
-            // build and return new manager()
-        }
-        else if(receptionist){
+        CustomDataType build;
         
-        }
-        else if(Teacher){
-
-        }
-        else if(Student) {
+        if(data.getDataName().equals("Manager")){
             
+            build = new Manager(); 
+            //TODO: insert Data elements
         }
-        */
+        else if(data.getDataName().equals("Teacher")){
+
+            build = new Teacher();
+            //TODO: insert Data elements
+        }
+        else {
+            //temp return 
+            build = new Users();
+            //TODO: insert Data elements
+        }
+        
+        return build;  
     }
     
     private void danceClassFactory(String className){
