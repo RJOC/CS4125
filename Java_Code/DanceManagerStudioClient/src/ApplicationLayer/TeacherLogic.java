@@ -5,14 +5,16 @@
  */
 package ApplicationLayer;
 
+import ModelLayer.DanceClass;
+
 /**
  *
  * @author Jono
  */
 public class TeacherLogic extends ApplicationLogic{
     
-    public void viewOwnClass(){
-        /// super.model.getClass();
+    public DanceClass viewOwnClass(){
+        return super.model.getOwnClass();
     }
     
     public void reportIncident(){

@@ -30,6 +30,16 @@ public class ApplicationModel {
         dbWriteFactory(dbReadWriteType);
         // needs different constructors passing in.
         //this.currentUser = CurrentUserSingleton.getInstance();
+        
+        danceClasses = new ArrayList<DanceClass>();
+    }
+    
+    public DanceClass getOwnClass(){
+        DanceClass own = new DanceClass();
+        if(danceClasses.size()!=0){
+            own = danceClasses.get(0);
+        }
+        return own;
     }
     
     private void dbReadFactory(String dbType){
