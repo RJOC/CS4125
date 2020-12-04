@@ -42,9 +42,17 @@ public class DataFactory implements CustomDataFactory{
         return build;  
     }
     
-    private void danceClassFactory(String className){
+    private DanceClass danceClassFactory(String className){
         ///TODO: pull data from database and build into a DanceClass() data object.
-        /// will probably need a return for this one
+        DanceClass build = new DanceClass();
+        ///TODO: use data from database to build Teacher object 
+        Teacher classTeacher = new Teacher(); /// buildUser(data);
+        
+        
+        build.setTeacher(classTeacher);
+        
+        /// temp return
+        return build;
     }
     
     private void allClassesFactory(){
