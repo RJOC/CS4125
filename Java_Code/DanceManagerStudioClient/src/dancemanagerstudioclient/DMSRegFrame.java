@@ -179,7 +179,7 @@ public class DMSRegFrame extends JFrame implements ActionListener {
                     setVisible(false);
                     //Here we need to state to go to a new
                     //int pid = Integer.parseInt(value);
-                    DMSMenuFrame menu = new DMSMenuFrame(pid, parent, usr);
+                    //DMSMenuFrame menu = new DMSMenuFrame(pid, parent, usr);
 
                 }
             }
