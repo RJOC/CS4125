@@ -5,6 +5,9 @@
  */
 package ApplicationLayer;
 
+import ModelLayer.Teacher;
+import ModelLayer.Users;
+
 /**
  *
  * @author Jono
@@ -17,7 +20,17 @@ public class ManagerLogic extends ApplicationLogic{
     
     
     ///TODO: define what inputs are necessary for creating a user; do we generate uID here, or is that done on the webservice?
-    public void registerUser(String userName, String userType){    
+    public void registerUser(String userName, String userType){
+        
+        Users newUser;
+        
+        /// Needs to be changed?
+        if(userType.equals("Teacher")){
+            //// int uID, String uName, int phoneNum
+            newUser = new Teacher(-1,userName,-1);
+            
+            /// 
+        }
     
     }
     
