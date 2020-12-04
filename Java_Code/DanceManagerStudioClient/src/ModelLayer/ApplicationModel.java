@@ -26,7 +26,8 @@ public class ApplicationModel {
     
     public ApplicationModel(String dbReadWriteType) {
         /// could overload once more to split write and read.
-        this.currentUser = CurrentUserSingleton.getInstance();
+        // needs different constructors passing in.
+        //this.currentUser = CurrentUserSingleton.getInstance();
     }
     
     private void dbReadFactory(String dbType){
