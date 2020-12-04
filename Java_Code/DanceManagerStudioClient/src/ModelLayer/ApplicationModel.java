@@ -13,6 +13,9 @@ import java.util.ArrayList;
 public class ApplicationModel {
     
     private ArrayList<CustomDataType> dataModel;
+    
+    private ArrayList<DanceClass> danceClasses;
+    
     private Users currentUser;
     private DBRead dbReader;
     private DBWrite dbWriter;
@@ -39,6 +42,8 @@ public class ApplicationModel {
     private void dbWriteFactory(String dbType){
         //// Build DBReader /// csv || web service (aka default)    
     }
+    
+    public void dbWrite(String instruction, CustomDataType data){
+    
+    }
 }
-
-//// make test for data
