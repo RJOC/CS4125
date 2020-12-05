@@ -14,14 +14,12 @@ import ModelLayer.CurrentUserSingleton;
 public class ApplicationLogic {
     ApplicationModel model;
 
-    public ApplicationLogic() {
-        // pass in model? or build model here? build for now.
+    public ApplicationLogic() {        
         model = new ApplicationModel();
     }   
     
-    public void logIn(){
-    // TODO: define input values.    
-    // CurrentUserSingleton.getInstance(uType, uFName, uLName)
+    public void logIn(String uType, int uID, String uName, String uFName, String uLName){ 
+        CurrentUserSingleton.getInstance(uType, uID, uName, uFName, uLName);
     }
     
     public void logOut(){

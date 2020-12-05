@@ -22,7 +22,7 @@ public class Main {
      */
     public static void main(String[] args) throws IOException {
 
-        ApplicationModel model = new ApplicationModel();
+        // ApplicationModel model = new ApplicationModel();
         /// will need to pass model to logic
         ApplicationLogic logic = new ApplicationLogic();
         /// will need to pass logic to view layer

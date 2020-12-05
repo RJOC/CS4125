@@ -22,13 +22,13 @@ public class ManagerLogic extends ApplicationLogic{
     
     
     ///TODO: define what inputs are necessary for creating a user; do we generate uID here, or is that done on the webservice? (answer: is generated)
-    public void registerUser(String userName, String userType){
+    public void registerUser(String userType, String uName,  String firstName, String lastName){
         
         Users newUser;
         
         if(userType.equals("Teacher")){
             //// int uID, String uName, int phoneNum
-            newUser = new Teacher(-1,userName,-1);
+            newUser = new Teacher(-1,uName,-1);
             
             /// make call to database()  through model layer 
             ///TODO: define instruction
@@ -36,7 +36,7 @@ public class ManagerLogic extends ApplicationLogic{
         }
         else if(userType.equals("Manager")){
             /// int uID, String uName, int phoneNum, String firstName, String lastName 
-            newUser = new Manager(-1,userName,-1, "FirstName", "LastName");
+            newUser = new Manager(-1,uName,-1, firstName, lastName);
             ///TODO: define instruction
             super.model.dbWrite("instruction", newUser);
         }
@@ -48,7 +48,13 @@ public class ManagerLogic extends ApplicationLogic{
     }
     
     public void registerClass(String className, String teacherName){
-        DanceClass newClass = new DanceClass(/*TODO: define constructor*/);
+        DanceClass newClass = new DanceClass();
+        Teacher classTeacher = new Teacher(); 
+        /// temp assignment; TODO: pull teacher from database and build here
+        classTeacher.setuName(teacherName);
+        
+        newClass.setTeacher(classTeacher);
+        
         ///TODO: define instruction
         super.model.dbWrite("instruction", newClass);
     }

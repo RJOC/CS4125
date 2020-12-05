@@ -3,12 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ModelLayer;
+package ModelLayer.DataAccess;
+
+import ModelLayer.Data;
 
 /**
  *
  * @author Jono
  */
-public interface DBRead {
+public interface DBReadBroker {
     public Data readFromDB(String instruction);
 }

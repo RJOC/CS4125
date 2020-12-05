@@ -25,17 +25,19 @@ public class CurrentUserSingleton {
     
     public static Users getInstance(String uType, int uID, String uName, String uFName, String uLName){
         
-        //lazy initialization
+        //lazy initialization #GangOfFour
         if(currentUser == null){
-            if(uType.equals("Manager")){
-                currentUser = new Manager(uID, uName, -1, uFName, uLName);
-            }
-            else if(uType.equals("Teacher")){
-                currentUser = new Teacher(uID, uName, -1);
-            }
-            else{
-                ///TODO: refactor Users constructor
-                currentUser = new Users();
+            switch (uType) {
+                case "Manager":
+                    currentUser = new Manager(uID, uName, -1, uFName, uLName);
+                    break;
+                case "Teacher":
+                    currentUser = new Teacher(uID, uName, -1);
+                    break;
+                default:
+                    ///TODO: refactor Users constructor
+                    currentUser = new Users();
+                    break;
             }
         }            
         return currentUser;

@@ -3,7 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ModelLayer;
+package ModelLayer.DataAccess;
+import ModelLayer.CustomDataType;
+import ModelLayer.Data;
 import java.lang.StringBuffer;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -14,7 +16,7 @@ import java.util.ArrayList;
  *
  * @author Jono
  */
-public class DBWriter_CSV implements DBWrite{
+public class DBWriter_CSV implements DBWriteBroker{
     ArrayList<String> slist;
 
     @Override

@@ -3,14 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ModelLayer;
+package ModelLayer.DataAccess;
 // import DMS.darragj.server.DMSWebService;
 // import DMS.darragj.server.DMSWebService_Service;
+
+import ModelLayer.Data;
+
 /**
  *
  * @author Jono
  */
-public class DBReader_WEB implements DBRead{
+public class DBReader_WEB implements DBReadBroker{
     
     // private DMSWebservice proxy;
 

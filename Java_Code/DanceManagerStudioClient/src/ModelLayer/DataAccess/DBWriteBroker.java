@@ -3,13 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ModelLayer;
+package ModelLayer.DataAccess;
+
+import ModelLayer.CustomDataType;
 
 
 /**
  *
  * @author Jono
  */
-public interface DBWrite {
+public interface DBWriteBroker {
     public void writeToDB(String instruction, CustomDataType data);
 }
