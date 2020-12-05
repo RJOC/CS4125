@@ -48,7 +48,7 @@ public class DMSMenuFrame extends JFrame implements ActionListener {
     
     
     
-    public DMSMenuFrame(int pid, DanceManagerStudioClient dad, String username){
+    public DMSMenuFrame(int pid, DanceManagerStudioClient dad, String username /* ,ApplicationLogic appLogic */){
         ppid = pid;
         uname = username;
         parent = dad;

@@ -35,7 +35,8 @@ public class DanceManagerStudioClient extends JFrame implements ActionListener{
     //JButton initialisations because they are referenced in this whole class
     private JButton regBttn , loginBttn;
    
-    public DanceManagerStudioClient() throws IOException{
+    public DanceManagerStudioClient(/* ApplicationLogic appLogic */) throws IOException{
+        
         //ttt = new TTTWebService_Service();
         //proxy = ttt.getTTTWebServicePort();
         

@@ -36,7 +36,7 @@ public class DMSRegFrame extends JFrame implements ActionListener {
     private DanceManagerStudioClient menu;
     
 
-    public DMSRegFrame(DanceManagerStudioClient dad){
+    public DMSRegFrame(DanceManagerStudioClient dad /* ManagerLogic appLogic */){
         parent = dad;
         //ttt = new TTTWebService_Service();
         //proxy = ttt.getTTTWebServicePort();

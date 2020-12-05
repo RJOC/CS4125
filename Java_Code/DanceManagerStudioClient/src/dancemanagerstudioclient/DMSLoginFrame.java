@@ -39,7 +39,7 @@ public class DMSLoginFrame extends JFrame implements ActionListener{
     //private TTTWebService_Service ttt;
     private DanceManagerStudioClient parent;
     
-    public DMSLoginFrame(DanceManagerStudioClient dad){
+    public DMSLoginFrame(DanceManagerStudioClient dad /* , ApplicationLogic appLogic */){
         parent = dad;
         //ttt = new TTTWebService_Service();
         //proxy = ttt.getTTTWebServicePort();
