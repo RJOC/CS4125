@@ -15,12 +15,12 @@ public class Manager extends Users {
     private int permissions;
     
     public Manager(){
-        this(-1,"Default",-1,"Unknown","Unknown");
+        this(-1,"Default","Unknown","Unknown");
     }
     
-    public Manager(int uID, String uName, int phoneNum, String firstName, String lastName ){
+    public Manager(int uID, String uName, String firstName, String lastName ){
         
-        super(uID, uName, phoneNum);
+        super(uID, uName);
         this.firstName = firstName;
         this.lastName = lastName;
     }

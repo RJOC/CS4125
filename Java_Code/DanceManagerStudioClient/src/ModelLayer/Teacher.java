@@ -14,8 +14,8 @@ public class Teacher extends Users {
     public Teacher() {
     }
 
-    public Teacher(int uID, String uName, int phoneNum) {
-        super(uID, uName, phoneNum);
+    public Teacher(int uID, String uName) {
+        super(uID, uName);
     }
     
 }

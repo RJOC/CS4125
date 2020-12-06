@@ -29,10 +29,10 @@ public class CurrentUserSingleton {
         if(currentUser == null){
             switch (uType) {
                 case "Manager":
-                    currentUser = new Manager(uID, uName, -1, uFName, uLName);
+                    currentUser = new Manager(uID, uName, uFName, uLName);
                     break;
                 case "Teacher":
-                    currentUser = new Teacher(uID, uName, -1);
+                    currentUser = new Teacher(uID, uName);
                     break;
                 default:
                     ///TODO: refactor Users constructor
