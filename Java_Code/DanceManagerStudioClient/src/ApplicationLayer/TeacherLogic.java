@@ -6,6 +6,7 @@
 package ApplicationLayer;
 
 import ModelLayer.DanceClass;
+import java.util.ArrayList;
 
 /**
  *
@@ -13,8 +14,9 @@ import ModelLayer.DanceClass;
  */
 public class TeacherLogic extends ApplicationLogic{
     
-    public DanceClass viewOwnClass(){
-        return super.model.getOwnClass();
+    public ArrayList<DanceClass> viewOwnClasses(){
+        /// TODO: change this to return class(es)
+        return super.model.getOwnClasses();
     }
     
     public void reportIncident(){

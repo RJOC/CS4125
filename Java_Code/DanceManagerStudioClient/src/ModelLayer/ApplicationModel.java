@@ -24,6 +24,7 @@ public class ApplicationModel {
     private DBReadBroker dbReader;
     private DBWriteBroker dbWriter;
     private CustomDataFactory dataFactory;
+    private CustomDataPacker dataPacker;
 
     public ApplicationModel() {
         this("Default");
@@ -33,21 +34,30 @@ public class ApplicationModel {
         /// TODO: function call to Change dbTypes.
         dbReadBrokerFactory(dbReadWriteType);
         dbWriteBrokerFactory(dbReadWriteType);
+        dataPacker = new DataPacker();
         dataFactory = new DataFactory();
         danceClasses = new ArrayList<>();
     }
     
-    public DanceClass getOwnClass(){
-        DanceClass own = new DanceClass();
+    public ArrayList<DanceClass> getOwnClasses(){
+        
+        ArrayList<DanceClass> own = new ArrayList<>();
+              
         if(!danceClasses.isEmpty()){
-            own = danceClasses.get(0);
+            own.addAll(danceClasses);
         }
-        /// TODO: else if(){pass current user to database and read in class}    
+        else{
+            /// TODO: else if(){pass current user to database and read in class}
+            /// use singleton userID as key.
+            /// CurrentUserSingleton.getInstance().getuID();
+        }
+            
         return own;
     }
     
     public DanceClass viewClass(int index){
         if(danceClasses.size() > index){
+            /// TODO: refactor to pass by value.
             return danceClasses.get(index);
         }
         return new DanceClass();
@@ -74,11 +84,8 @@ public class ApplicationModel {
     }
     
     public void dbWrite(String instruction, CustomDataType data){
-        /// Pass to DBBroker
-        
-        // TODO: pass to packing method
-        
-        // this.dbWriter.writeToDB(instruction, data);
+        /// Pack data into a Data object, and Pass to DBBroker
+        this.dbWriter.writeToDB(instruction, dataPacker.packData(data));
     }
     
     public CustomDataType dbRead(String instruction /* more arguments likely required */){

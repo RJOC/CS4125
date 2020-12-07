@@ -20,7 +20,7 @@ public class DataPacker implements CustomDataPacker {
             return packUsers(data);
         }
         else if(data instanceof DanceClass){
-        
+            return packDanceClass((DanceClass)data);
         }
         
         /// Default return == unrecognised or not yet implemented type.
@@ -33,7 +33,7 @@ public class DataPacker implements CustomDataPacker {
         Data packedUser = new Data();
         
         /// initialize the arraylist with empty strings
-        packedUser.getData().add(new ArrayList<String>());
+        packedUser.getData().add(new ArrayList<>());
         //for (int i = 0; i < 5; i++) {
             //packedUser.getData().get(0).add("");
         //}
@@ -55,10 +55,32 @@ public class DataPacker implements CustomDataPacker {
         }
         else{
             /// Default User 
-        }
-        
-        
+        }       
         return packedUser;
     }
     
+    private Data packDanceClass(DanceClass data){
+        
+        Data packedDClass = new Data();
+        packedDClass.setDataName("DanceClass");
+        /// +2 arrays for: Teacher, times && name.  all other lines are students.      
+        for (int i = 0; i < data.getStudentList().size() + 2; i++) {
+            packedDClass.getData().add(new ArrayList<>());
+        }
+        /// Pack Teacher 
+        packedDClass.getData().get(0).add("" + data.getTeacher().getuID());
+        packedDClass.getData().get(0).add(data.getTeacher().getuName());
+        
+        /// Pack Times
+        packedDClass.getData().get(1).add(data.getStartTime());
+        packedDClass.getData().get(1).add(data.getFinishTime());
+        
+        /// Pack Students     
+        for (int i = 0; i < data.getStudentList().size(); i++) {
+            /// first two lines taken -> i + 2
+            packedDClass.getData().get(i + 2).add(data.getStudentList().get(i).getuName());
+        }
+        
+        return packedDClass;
+    }  
 }
