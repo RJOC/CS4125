@@ -7,11 +7,14 @@ package ModelLayer.DataAccess;
 
 import ModelLayer.Data;
 
-
 /**
  *
  * @author Jono
  */
-public interface DBWriteBroker {
-    public void writeToDB(String instruction, Data data);
+public class DBWriter_WEB implements DBWriteBroker{
+
+    @Override
+    public void writeToDB(String instruction, Data data) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

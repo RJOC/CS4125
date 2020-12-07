@@ -46,6 +46,13 @@ public class ApplicationModel {
         return own;
     }
     
+    public DanceClass viewClass(int index){
+        if(danceClasses.size() > index){
+            return danceClasses.get(index);
+        }
+        return new DanceClass();
+    }
+    
     private void dbReadBrokerFactory(String dbType){
         
         if(dbType.equals("Default")){
@@ -68,7 +75,10 @@ public class ApplicationModel {
     
     public void dbWrite(String instruction, CustomDataType data){
         /// Pass to DBBroker
-        this.dbWriter.writeToDB(instruction, data);
+        
+        // TODO: pass to packing method
+        
+        // this.dbWriter.writeToDB(instruction, data);
     }
     
     public CustomDataType dbRead(String instruction /* more arguments likely required */){

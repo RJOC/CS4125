@@ -35,7 +35,6 @@ public class CurrentUserSingleton {
                     currentUser = new Teacher(uID, uName);
                     break;
                 default:
-                    ///TODO: refactor Users constructor
                     currentUser = new Users();
                     break;
             }
