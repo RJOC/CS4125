@@ -32,11 +32,8 @@ public class DataPacker implements CustomDataPacker {
     private Data packUsers(CustomDataType data) {
         Data packedUser = new Data();
         
-        /// initialize the arraylist with empty strings
+        /// initialize the arraylist
         packedUser.getData().add(new ArrayList<>());
-        //for (int i = 0; i < 5; i++) {
-            //packedUser.getData().get(0).add("");
-        //}
         
         if(data instanceof Manager){
             packedUser.setDataName("Manager");
