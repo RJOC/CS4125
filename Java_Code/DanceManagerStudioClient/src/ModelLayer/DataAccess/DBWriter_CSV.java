@@ -20,7 +20,7 @@ public class DBWriter_CSV implements DBWriteBroker{
     ArrayList<String> slist;
 
     @Override
-    public void writeToDB(String instruction, CustomDataType data) {
+    public void writeToDB(String instruction, Data data) {
         String fileName = "forTest.txt";
         
         //String filePath = "data" + System.getProperty("file.separator");;
@@ -28,8 +28,7 @@ public class DBWriter_CSV implements DBWriteBroker{
         
         if(instruction.equals("forTest")){
             // fill slist with data from input      
-            slist = packData(data);
-        
+            slist = packData(data);        
             try {
                 File file=new File(fileName);
                 if(!file.exists())
@@ -49,21 +48,22 @@ public class DBWriter_CSV implements DBWriteBroker{
         }
     }
     /// Temp public, for testing 
-    public ArrayList<String> packData(CustomDataType data){
+    public ArrayList<String> packData(Data data){
         
-        ArrayList<String> packed = new ArrayList<String>();
+        ArrayList<String> packed = new ArrayList<>();
         
-        /// this is messy :/
-        if(data instanceof Data){
-           String contents = "";
-           ArrayList<ArrayList<String>> raw = (((Data) data).getData());
+        /// csv of data
+        String contents = "";
+        ArrayList<ArrayList<String>> raw = (((Data) data).getData());
            
-            for(int i=0;i<raw.size();i++){
-                for(int j=0;j<raw.get(i).size();j++){
+        for(int i=0;i<raw.size();i++){
+            contents = "";
+            for(int j=0;j<raw.get(i).size();j++){
                 contents = contents + raw.get(i).get(j) + ",";
-                }
             }
+            packed.add(contents);
         }
+        
         return packed;
     }
     

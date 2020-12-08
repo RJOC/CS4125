@@ -25,7 +25,7 @@ public class ManagerLogic extends ApplicationLogic{
             //// int uID, String uName, int phoneNum
             newUser = new Teacher(-1,uName);
             
-            /// make call to database()  through model layer 
+            /// make call to database() through DataAcess in model layer 
             super.model.dbWrite("registerTeacher", newUser);
         }
         else if(userType.equals("Manager")){
@@ -58,4 +58,12 @@ public class ManagerLogic extends ApplicationLogic{
         
     }
     
+    public void viewClass(int index){
+        ////TODO: send data to view /// make copy to keep encapsulation?
+        super.model.viewClass(index);
+    }
+    
+    public void viewClasses(){
+        
+    }
 }

@@ -13,6 +13,7 @@ public class DanceClass implements CustomDataType {
     private ArrayList<Student> studentList;
     private String startTime;
     private String finishTime;
+    private String className;
     private Teacher teacher;
 
     public DanceClass() {
@@ -32,6 +33,14 @@ public class DanceClass implements CustomDataType {
         return studentList;
     }
 
+    public String getClassName() {
+        return className;
+    }
+
+    public void setClassName(String className) {
+        this.className = className;
+    }
+    
     public void setStudentList(ArrayList<Student> studentList) {
         this.studentList = studentList;
     }
