@@ -24,7 +24,7 @@ public class Main {
 
         // ApplicationModel model = new ApplicationModel();
         /// will need to pass model to logic
-        ApplicationLogic logic = new ApplicationLogic();
+        //ApplicationLogic logic = new ApplicationLogic();
         /// will need to pass logic to view layer
         DanceManagerStudioClient myInstance = new DanceManagerStudioClient();
     

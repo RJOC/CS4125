@@ -1,7 +1,7 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Project name: Dance Manager studio
+ * File Created by: Ryan O'Connor
+ * Description: Main menu page that is access after inital login
  */
 package dancemanagerstudioclient;
 
@@ -26,35 +26,31 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
-
-/**
- *
- * @author oconn
- */
 public class DMSMenuFrame extends JFrame implements ActionListener {
         //Webserver initialisations  & other frame calls
     //private TTTWebService proxy;
     //private TTTWebService_Service ttt;
     
-
+    //Variables related to the frame
     private DanceManagerStudioClient parent;
     private DMSMenuFrame menuParent;
-    
-    //Initialisations of variables needed
-    private JLabel heading, fill, fill1, fill2, fill3;
-    private JButton createClass, createStud, createTch, viewRpt, delClass, delStud, delTch, MonPymt, logout;
     private int ppid; 
     private String uname;
+    
+    //Initialisations of variables needed for inside the frame
+    private JLabel heading, fill, fill1, fill2, fill3;
+    private JButton createClass, createStud, createTch, viewRpt, delClass, delStud, delTch, MonPymt, logout;
     
     
     
     public DMSMenuFrame(int pid, DanceManagerStudioClient dad, String username /* ,ApplicationLogic appLogic */){
+//setting up the frame variables
         ppid = pid;
         uname = username;
         parent = dad;
         menuParent = this;
         
-        //Proxy for webservice
+//Proxy for webservice
         //ttt = new TTTWebService_Service();
         //proxy = ttt.getTTTWebServicePort();
         
@@ -63,53 +59,62 @@ public class DMSMenuFrame extends JFrame implements ActionListener {
         setSize(650,500);
         setLayout(new BorderLayout());
         
-        
         //Fill variables
         fill = new JLabel("                           ");
         fill1 = new JLabel("                           ");
         fill2 = new JLabel(" ");
         fill3 = new JLabel(" ");
+        
+        
         //Section 1
         heading = new JLabel("Welcome "+ username);
         heading.setHorizontalAlignment(JLabel.CENTER);
         heading.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 40));
         add(heading,BorderLayout.NORTH);
-
         add(fill, BorderLayout.WEST);
         add(fill1, BorderLayout.EAST);
+        
         //Section 2
         JPanel sec2 = new JPanel();
-        sec2.setLayout(new GridLayout(9,1));
+        sec2.setLayout(new GridLayout(6,2));
         sec2.add(fill2);
         sec2.add(fill3);
+        
         //create Class
         createClass = new JButton("Create Class");
         createClass.addActionListener(this);
         sec2.add(createClass);
+        
         //Create Student
         createStud = new JButton("Create Student");
         createStud.addActionListener(this);
         sec2.add(createStud);
+        
         //Create Teacher
         createTch = new JButton("Create Teacher");
         createTch.addActionListener(this);
         sec2.add(createTch);
+        
         //View Reports 
         viewRpt = new JButton("View Reports");
         viewRpt.addActionListener(this);
         sec2.add(viewRpt);
+        
         //Delete Class
         delClass = new JButton("Delete Class");
         delClass.addActionListener(this);
         sec2.add(delClass);
+        
         //Delete student
         delStud = new JButton("Delete Student");
         delStud.addActionListener(this);
         sec2.add(delStud);
+        
         //Delete Teacher
         delTch = new JButton("Delete Teacher");
         delTch.addActionListener(this);
         sec2.add(delTch);
+        
         //Monitor Payments
         MonPymt = new JButton("Monitor Payments");
         MonPymt.addActionListener(this);
@@ -145,46 +150,49 @@ public class DMSMenuFrame extends JFrame implements ActionListener {
      @Override
     public void actionPerformed(ActionEvent e) {
        Object source = e.getSource();
+      
        
        if(source == createClass){
            setVisible(false);
-           //try {
-               //TTTNewGame ngame = new TTTNewGame(ppid,menuParent,uname);
-           //} catch (IOException ex) {
-               //Logger.getLogger(TTTMenuFrame.class.getName()).log(Level.SEVERE, null, ex);
-           //}
+           DMSCreateClassFrame crtClass = new DMSCreateClassFrame(1, parent, "Ryan");
        }
-       if(source == createStud){
+       else if(source == createStud){
            setVisible(false);
            //TTTJoinGame stats = new TTTJoinGame(ppid, menuParent, uname);
        }
-       if(source == createTch){
+       else if(source == createTch){
            setVisible(false);
+           
            //TTTUserStats stats = new TTTUserStats(ppid, menuParent, uname);
        }
-       if(source == viewRpt){
+       else if(source == viewRpt){
            setVisible(false);
            //TTTLeaderboardFrame leader = new TTTLeaderboardFrame(ppid, menuParent);
        }
-       if(source == delClass){
+       else if(source == delClass){
            setVisible(false);
            //TTTLeaderboardFrame leader = new TTTLeaderboardFrame(ppid, menuParent);
        }
-       if(source == delStud){
+       else if(source == delStud){
            setVisible(false);
            //TTTLeaderboardFrame leader = new TTTLeaderboardFrame(ppid, menuParent);
        }
-       if(source == delTch){
+       else if(source == delTch){
            setVisible(false);
            //TTTLeaderboardFrame leader = new TTTLeaderboardFrame(ppid, menuParent);
        }
-       if(source == MonPymt){
+       else if(source == MonPymt){
            setVisible(false);
            //TTTLeaderboardFrame leader = new TTTLeaderboardFrame(ppid, menuParent);
        }
-       if(source == logout){
+       else if(source == logout){
             parent.setVisible(true);
             dispose();
         }
+       else{
+           JOptionPane.showMessageDialog(null, "Program not responding! Bringing you to login screen");
+           parent.setVisible(true);
+           dispose();
+       }
     }
 }

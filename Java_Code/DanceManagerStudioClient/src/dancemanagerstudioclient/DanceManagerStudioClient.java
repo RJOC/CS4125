@@ -1,7 +1,7 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Project name: Dance Manager studio
+ * File Created by: Ryan O'Connor
+ * Description: This file is the frame for the main page of the application
  */
 package dancemanagerstudioclient;
 
@@ -9,7 +9,6 @@ package dancemanagerstudioclient;
 //import ttt.james.server.TTTWebService;
 //import ttt.james.server.TTTWebService_Service;
 import java.awt.BorderLayout;
-import java.awt.Color;
 import java.awt.Font;
 
 import java.awt.GridLayout;
