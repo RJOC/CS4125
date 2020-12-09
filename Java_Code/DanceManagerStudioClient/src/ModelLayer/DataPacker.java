@@ -21,12 +21,9 @@ public class DataPacker implements CustomDataPacker {
         }
         else if(data instanceof DanceClass){
             return packDanceClass((DanceClass)data);
-        }
-        
+        }       
         /// Default return == unrecognised or not yet implemented type.
         return new Data();
-        
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     private Data packUsers(CustomDataType data) {
