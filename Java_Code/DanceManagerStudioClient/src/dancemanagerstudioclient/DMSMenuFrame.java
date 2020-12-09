@@ -154,14 +154,17 @@ public class DMSMenuFrame extends JFrame implements ActionListener {
        
        if(source == createClass){
            setVisible(false);
-           DMSCreateClassFrame crtClass = new DMSCreateClassFrame(1, parent, "Ryan");
+           DMSCreateClassFrame crtClass = new DMSCreateClassFrame(1, menuParent);
        }
        else if(source == createStud){
            setVisible(false);
+        
+           
            //TTTJoinGame stats = new TTTJoinGame(ppid, menuParent, uname);
        }
        else if(source == createTch){
            setVisible(false);
+           DMSCreateTeacherFrame crtTeach = new DMSCreateTeacherFrame(1, menuParent);
            
            //TTTUserStats stats = new TTTUserStats(ppid, menuParent, uname);
        }
