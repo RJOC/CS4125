@@ -9,6 +9,7 @@ import ModelLayer.DanceClass;
 import ModelLayer.Manager;
 import ModelLayer.Teacher;
 import ModelLayer.Users;
+import java.util.ArrayList;
 
 /**
  *
@@ -36,8 +37,14 @@ public class ManagerLogic extends ApplicationLogic{
         
     }
     
-    public void removeUser (String userName, int userID) {
+    public int removeUser (String userName, int userID) {
+        ///TODO: Define instruction
+        String instruction = "";
+        
         ///TODO: implement function
+        super.model.dbRemove(instruction);
+        /// temp return
+        return 1;
     }
     
     public void registerClass(String className, String teacherName, String startTime, String finishTime){
@@ -54,16 +61,30 @@ public class ManagerLogic extends ApplicationLogic{
         ///TODO: define instruction
         super.model.dbWrite("registerClass", newClass);
     }
-    public void removeClass(String className){
+    public int removeClass(String className){
+        ///TODO: Define instruction
+        String instruction = "";
         
+        ///TODO: implement function
+        super.model.dbRemove(instruction);
+        
+        /// temp return
+        return 1;
     }
     
-    public void viewClass(int index){
-        ////TODO: send data to view /// make copy to keep encapsulation?
-        super.model.viewClass(index);
+    public DanceClass viewClass(int index){
+        return super.model.viewClass(index);
     }
     
-    public void viewClasses(){
+    public ArrayList<DanceClass> viewClasses(){
+        ArrayList<DanceClass> classes = new ArrayList<>();
         
+        if(!super.model.getDanceClasses().isEmpty()){
+            classes.addAll(super.model.getDanceClasses());
+        }
+        else{
+            /// TODO: else if(){read in all classes}
+        }          
+        return classes;
     }
 }

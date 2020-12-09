@@ -28,12 +28,13 @@ public class ApplicationLogic {
         CurrentUserSingleton.logOut();
     }
     
-    public void registerStudent(String userType, String uName /*,  String firstName, String lastName*/ ){
+    public void registerStudent(String uName /*,  String firstName, String lastName*/ ){
         Data data = new Data();
         data.setDataName("Student");
         data.getData().add(new ArrayList<>());
         data.getData().get(0).add(uName);
         
-        model.dbWrite(userType, data);
+        String instruction = "";
+        model.dbWrite(instruction, data);
     }
 }

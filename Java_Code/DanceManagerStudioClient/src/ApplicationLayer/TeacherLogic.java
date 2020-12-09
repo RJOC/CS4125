@@ -14,9 +14,19 @@ import java.util.ArrayList;
  */
 public class TeacherLogic extends ApplicationLogic{
     
-    public ArrayList<DanceClass> viewOwnClasses(){
-        /// TODO: change this to return class(es)
-        return super.model.getOwnClasses();
+    public ArrayList<DanceClass> getOwnClasses(){
+        ArrayList<DanceClass> own = new ArrayList<>();
+        
+        if(!super.model.getDanceClasses().isEmpty()){
+            own.addAll(super.model.getDanceClasses());
+        }
+        else{
+            /// TODO: else if(){pass current user to database and read in class}
+            /// use singleton userID as key.
+            /// CurrentUserSingleton.getInstance().getuID();
+        }
+            
+        return own;
     }
     
     public void reportIncident(){

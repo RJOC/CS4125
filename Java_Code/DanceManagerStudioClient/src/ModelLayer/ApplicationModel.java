@@ -16,7 +16,7 @@ import java.util.ArrayList;
  */
 public class ApplicationModel {
     
-    private ArrayList<CustomDataType> dataModel;
+    // private ArrayList<CustomDataType> dataModel;
     
     private ArrayList<DanceClass> danceClasses;
     
@@ -39,22 +39,10 @@ public class ApplicationModel {
         danceClasses = new ArrayList<>();
     }
     
-    public ArrayList<DanceClass> getOwnClasses(){
-        
-        ArrayList<DanceClass> own = new ArrayList<>();
-              
-        if(!danceClasses.isEmpty()){
-            own.addAll(danceClasses);
-        }
-        else{
-            /// TODO: else if(){pass current user to database and read in class}
-            /// use singleton userID as key.
-            /// CurrentUserSingleton.getInstance().getuID();
-        }
-            
-        return own;
+    public ArrayList<DanceClass> getDanceClasses() {
+        return danceClasses;
     }
-    
+      
     public DanceClass viewClass(int index){
         if(danceClasses.size() > index){
             /// TODO: refactor to pass by value.
@@ -86,6 +74,11 @@ public class ApplicationModel {
     public void dbWrite(String instruction, CustomDataType data){
         /// Pack data into a Data object, and Pass to DBBroker
         this.dbWriter.writeToDB(instruction, dataPacker.packData(data));
+    }
+    
+    public int dbRemove(String instruction){
+        /// temp return for compile
+        return 1;
     }
     
     public CustomDataType dbRead(String instruction /* more arguments likely required */){
