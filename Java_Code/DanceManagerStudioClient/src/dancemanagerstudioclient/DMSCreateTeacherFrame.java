@@ -38,11 +38,10 @@ public class DMSCreateTeacherFrame extends JFrame implements ActionListener{
     public DMSCreateTeacherFrame(int pid, DMSMenuFrame dad/* ,ApplicationLogic appLogic */){
          //Setting up the frame variables
         ppid = pid;
-
         parent = dad;
         menuParent = this;
         
-                //Fill variables
+        //Fill variables
         fill = new JLabel("                           ");
         fill1 = new JLabel("                          ");
         fill2 = new JLabel(" ");
@@ -156,7 +155,7 @@ public class DMSCreateTeacherFrame extends JFrame implements ActionListener{
            dispose();
        }else if(source == submit){
            //Create the class call here
-           JOptionPane.showMessageDialog(null,"Class has been created!");
+           JOptionPane.showMessageDialog(null,"Teacher has been created!");
            parent.setVisible(true);
            dispose();
        }

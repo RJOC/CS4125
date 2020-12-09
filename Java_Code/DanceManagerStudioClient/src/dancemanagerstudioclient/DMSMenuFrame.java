@@ -158,7 +158,7 @@ public class DMSMenuFrame extends JFrame implements ActionListener {
        }
        else if(source == createStud){
            setVisible(false);
-        
+           DMSCreateStudentFrame crtStudent = new DMSCreateStudentFrame(1, menuParent);
            
            //TTTJoinGame stats = new TTTJoinGame(ppid, menuParent, uname);
        }
@@ -174,15 +174,16 @@ public class DMSMenuFrame extends JFrame implements ActionListener {
        }
        else if(source == delClass){
            setVisible(false);
-           //TTTLeaderboardFrame leader = new TTTLeaderboardFrame(ppid, menuParent);
+           DMSDeleteFrames delClass = new DMSDeleteFrames(1,"class", menuParent);
        }
        else if(source == delStud){
            setVisible(false);
+           DMSDeleteFrames delStudent = new DMSDeleteFrames(1,"student", menuParent);
            //TTTLeaderboardFrame leader = new TTTLeaderboardFrame(ppid, menuParent);
        }
        else if(source == delTch){
            setVisible(false);
-           //TTTLeaderboardFrame leader = new TTTLeaderboardFrame(ppid, menuParent);
+           DMSDeleteFrames delTeacher = new DMSDeleteFrames(1,"teacher", menuParent);
        }
        else if(source == MonPymt){
            setVisible(false);
