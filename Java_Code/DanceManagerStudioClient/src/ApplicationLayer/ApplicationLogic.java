@@ -6,6 +6,8 @@
 package ApplicationLayer;
 import ModelLayer.ApplicationModel;
 import ModelLayer.CurrentUserSingleton;
+import ModelLayer.Data;
+import java.util.ArrayList;
 
 /**
  *
@@ -24,5 +26,14 @@ public class ApplicationLogic {
     
     public void logOut(){
         CurrentUserSingleton.logOut();
+    }
+    
+    public void registerStudent(String userType, String uName /*,  String firstName, String lastName*/ ){
+        Data data = new Data();
+        data.setDataName("Student");
+        data.getData().add(new ArrayList<>());
+        data.getData().get(0).add(uName);
+        
+        model.dbWrite(userType, data);
     }
 }
