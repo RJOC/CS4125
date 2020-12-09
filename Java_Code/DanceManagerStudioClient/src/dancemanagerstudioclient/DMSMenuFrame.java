@@ -170,7 +170,7 @@ public class DMSMenuFrame extends JFrame implements ActionListener {
        }
        else if(source == viewRpt){
            setVisible(false);
-           //TTTLeaderboardFrame leader = new TTTLeaderboardFrame(ppid, menuParent);
+           DMSViewReportsFrame viewReports = new DMSViewReportsFrame(1,menuParent);
        }
        else if(source == delClass){
            setVisible(false);
