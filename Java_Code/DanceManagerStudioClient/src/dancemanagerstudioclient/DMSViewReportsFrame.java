@@ -41,7 +41,7 @@ public class DMSViewReportsFrame extends JFrame implements ActionListener {
     //Frame development
         //Fill variables
         fill = new JLabel("                           ");
-        fill1 = new JLabel("                          ");
+        fill1 = new JLabel("                           ");
         fill2 = new JLabel(" ");
 
          
@@ -101,7 +101,6 @@ public class DMSViewReportsFrame extends JFrame implements ActionListener {
         
         
         
-        
         //Section 3
         //bottom buttons
         JPanel sec3 = new JPanel();
@@ -111,7 +110,13 @@ public class DMSViewReportsFrame extends JFrame implements ActionListener {
         sec3.add(back);
 
        
-        
+        //Setting all the fields not visiable to clean page
+        tnameLab.setVisible(false);
+        tname.setVisible(false);
+        snameLab.setVisible(false);
+        sname.setVisible(false);
+        descLab.setVisible(false);
+        desc.setVisible(false);
         
         
                  
@@ -139,13 +144,16 @@ public class DMSViewReportsFrame extends JFrame implements ActionListener {
             JComboBox cb = (JComboBox)e.getSource();
             studentName = (String)cb.getSelectedItem();
             updateLabels(studentName);
+            tnameLab.setVisible(true);
+            tname.setVisible(true);
+            snameLab.setVisible(true);
+            sname.setVisible(true);
+            descLab.setVisible(true);
+            desc.setVisible(true);
+            //       tnameLab,tname,snameLab,sname,descLab,desc
             
-        }
-        
-        
-   
-       
-       if(source == back){
+            
+        }else if(source == back){
            parent.setVisible(true);
            dispose();
        }

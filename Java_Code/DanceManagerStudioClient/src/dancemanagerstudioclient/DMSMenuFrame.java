@@ -187,7 +187,7 @@ public class DMSMenuFrame extends JFrame implements ActionListener {
        }
        else if(source == MonPymt){
            setVisible(false);
-           //TTTLeaderboardFrame leader = new TTTLeaderboardFrame(ppid, menuParent);
+           DMSMonitorPayments viewPayments = new DMSMonitorPayments(1,menuParent);
        }
        else if(source == logout){
             parent.setVisible(true);
