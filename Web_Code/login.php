@@ -1,53 +1,32 @@
+<?php 
 
-<?php include('config.php'); ?>
-<?php include('includes/logic/userSignup.php'); ?>
+$servername = "localhost:3306";
+$user = "root";
+$password = "";
 
+$db = new mysqli($servername, $user, $password);
 
+if(isset($_POST['username'])) {
+    $username = $_POST['username'];
+    echo $username;
+}
 
+// Using prepared statements almost eliminates the possibility of SQL Injection.
+$preparedQuery = $db->prepare('SELECT * FROM `users` WHERE `username` = :username');
+$preparedQuery->bind_param(':username', $username);
+$preparedQuery->execute();
 
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <title>UserAccounts - Login</title>
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
-  <!-- Custome styles -->
-  <link rel="stylesheet" href="assets/css/style.css">
-</head>
-<body>
-  <?php include("includes/layouts/navbar.php") ?>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-4 col-md-offset-4">
-        <form class="form" action="login.php" method="post">
-          <h2 class="text-center">Login</h2>
-          <hr>
-          <!-- display form error messages  -->
-          <?php include('includes/layouts/messages.php') ?>
-          <div class="form-group <?php echo isset($errors['username']) ? 'has-error' : '' ?>">
-            <label class="control-label">Username or Email</label>
-            <input type="text" name="username" id="password" value="<?php echo $username; ?>" class="form-control">
-            <?php if (isset($errors['username'])): ?>
-              <span class="help-block"><?php echo $errors['username'] ?></span>
-            <?php endif; ?>
-          </div>
-          <div class="form-group <?php echo isset($errors['password']) ? 'has-error' : '' ?>">
-            <label class="control-label">Password</label>
-            <input type="password" name="password" id="password" class="form-control">
-            <?php if (isset($errors['password'])): ?>
-              <span class="help-block"><?php echo $errors['password'] ?></span>
-            <?php endif; ?>
-          </div>
-          <div class="form-group">
-            <button type="submit" name="login_btn" class="btn btn-success">Login</button>
-          </div>
-          <div class="form-group">
-           <p> forgot password? <a href="reset.php"> Recover !</p>
-          </div>
-          <p>Don't have an account? <a href="signup.php">Sign up</a></p>
-        </form>
-      </div>
-    </div>
-  </div>
-<?php include(INCLUDE_PATH . "/layouts/footer.php") ?>
+// Retrieve the results from the database
+$user = $preparedQuery->fetch(PDO::FETCH_ASSOC);
+
+// If there is a user record print the user & pass... 
+if($username != ''){
+    echo 'match';
+    $_SESSION['username'] = $username;
+} else if ($username == '') {
+    echo 'no match';
+} else {
+    echo 'error';
+}
+
+?>

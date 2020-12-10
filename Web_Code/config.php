@@ -1,15 +1,22 @@
 <?php
 session_start();
-$conn = mysqli_connect("localhost:3306", "17204097", "mMzaj7h7LJXe", "d17204097");
+
+$servername = "localhost:3306";
+$username = "root";
+$password = "";
+
+$conn = new mysqli($servername, $username, $password);
 
 if($conn->connect_error){
     die("Connection failed: " . $conn->connect_error);
 }
 
+echo "Connected successfully";
 
 define ('ROOT_PATH', realpath(dirname(__FILE__))); 
     define ('INCLUDE_PATH', realpath(dirname(__FILE__) . '/includes' )); 
-    define('BASE_URL', 'http://hive.csis.ul.ie/ET4243/group03/');
+    // Add URL definition
+    define('BASE_URL', '');
     
     function getMultipleRecords($sql, $types = null, $params = []) {
         global $conn;
@@ -41,4 +48,3 @@ define ('ROOT_PATH', realpath(dirname(__FILE__)));
         $stmt->close();
         return $result;
       }
-?>

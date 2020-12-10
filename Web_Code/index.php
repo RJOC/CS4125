@@ -1,5 +1,4 @@
 <?php include('config.php'); ?>
-<?php include(INCLUDE_PATH . '/logic/userSignup.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,6 +14,7 @@
   <link href="css/animate.min.css" rel="stylesheet">
   <link href="css/animate.css" rel="stylesheet" />
   <link href="css/style.css" rel="stylesheet">
+  <link href="css/styleCal.css" rel="stylesheet">
 
   <style>
     .centered {
@@ -28,6 +28,36 @@
       padding: 25px;
     }
   </style>
+
+  <!-- Sad attempt at trying to get login AJAX to work -->
+
+    <script>
+    function checkUsername(username) {
+    // check to see if the email exists in the database using PHP and MySQL
+    $.ajax({                                      
+        url: 'login.php',               //the script to call to get data 
+        type: 'post',  
+        data: {
+            email: $('#username').val()
+        }, 
+        dataType: 'json',               //data format      
+        success: function(response) {       //on reception of reply
+            if(response == 'match') {
+                console.log('match');
+            } else if (response == 'no match') {
+                console.log('no match');
+            } else if (response == 'error') {
+                console.log('error');
+            } else {
+                console.log('who knows');
+            }
+        } 
+    });
+
+}
+    
+    </script>
+<!-- /Sad attempt at trying to get login AJAX to work -->
 
 </head>
 
@@ -68,7 +98,7 @@
 
   <div id="home">
     <div class="slider">
-      <img src="img/dance_main.jpg" class="img-responsive" style="opacity:70%"/>
+      <img src="img/dance_main.jpg" class="img-responsive" style="opacity:70%" />
       <div class="container">
         <div class="centered">Welcome to Dance Manager Studio. Work smarter and not harder!</div>
       </div>
@@ -85,7 +115,7 @@
               <div class="section-heading text-center">
                 <h2 class="centered">Log in</h2>
                 <div class="divider-header"></div>
-                <p style="white">Are you our student? Log back in here!</p>
+                <p style="color: white">Are you our student? Log back in here!</p>
               </div>
             </div>
           </div>
@@ -96,14 +126,16 @@
         <div class="row contact-wrap">
           <div class="col-md-8 col-md-offset-2">
             <div id="errormessage"></div>
+            <!--
+            <form class="form" action="login.php" method="GET">
+-->
 
-            <form class="form" action="login.php" method="post">
-
+              <form class="form" action="userAccount.php" method="POST">
               <hr>
               <!-- display form error messages  -->
               <?php include(INCLUDE_PATH . "/layouts/messages.php") ?>
               <div class="form-group <?php echo isset($errors['username']) ? 'has-error' : '' ?>">
-                <input autocomplete="off" type="text" name="username" id="username" value="<?php echo $username; ?>" class="form-control" placeholder="Username or Email">
+                <input autocomplete="off" type="text" name="username" id="username" class="form-control" placeholder="Username or Email">
                 <?php if (isset($errors['username'])) : ?>
                   <span class="help-block"><?php echo $errors['username'] ?></span>
                 <?php endif; ?>
