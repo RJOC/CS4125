@@ -180,7 +180,7 @@ public class DMSRegFrame extends JFrame implements ActionListener {
 *               
  */  
 //This is the old call 
-                int value = manLogic.registerUser("Manager", uname, nam, sur, pass, emai );
+                int value = manLogic.registerUser(3, uname, nam, sur, pass, emai );
                 
                 switch(value){ //The variable "Value" needs to be put here
 

@@ -25,11 +25,21 @@ public class DBWriter_WEB implements DBWriteBroker{
         if(instruction.equals("RegisterUser")){
             //unpack here
             
-            //registerUser();
+            //registerUser(array[0],array[1]);
+        }else if(instruction.equals("RegisterClass")){
+            
         }
     }
     
-    
+    public void unpack(Data data){
+        
+        //Unpack 
+        //unpack into an array
+        //Return the array
+        
+        
+        
+    }
     
     //code below creates a manager user
     private static void registerUser(String email, String fname, String sname, String pword, int perID, String uname) throws IOException{
