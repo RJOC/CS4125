@@ -5,6 +5,7 @@
  */
 package dancemanagerstudioclient;
 
+import ApplicationLayer.ManagerLogic;
 import java.awt.BorderLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
@@ -31,8 +32,13 @@ public class DMSDeleteFrames extends JFrame implements ActionListener{
     private JLabel teachLab;
     private String delLabel, deletedVar;
     private String[] delChoices = { "Magic Mat","BigDongDar", "RYANSMALLPP","JONO","CHOICE 5","CHOICE 6"};
+    private ManagerLogic manLogic;
     
-     public DMSDeleteFrames(int pid, String delVar, DMSMenuFrame dad/* ,ApplicationLogic appLogic */){
+    
+     public DMSDeleteFrames(int pid, String delVar, DMSMenuFrame dad , ManagerLogic manLogic ){
+        this.manLogic = manLogic;
+         
+         
         //Setting up the frame variables
         ppid = pid;
         parent = dad;
@@ -44,6 +50,7 @@ public class DMSDeleteFrames extends JFrame implements ActionListener{
          //It sets variables appropiately
         if(delVar == "student"){
             delLabel = "Select a student to delete:";
+            
             //delChoices = { "Magic Mat","BigDongDar", "RYANSMALLPP","JONO","CHOICE 5","CHOICE 6"};
         }else if(delVar == "teacher"){
             delLabel = "Select a teacher to delete:";

@@ -5,6 +5,7 @@
  */
 package dancemanagerstudioclient;
 
+import ApplicationLayer.ManagerLogic;
 import java.awt.BorderLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
@@ -32,10 +33,11 @@ public class DMSCreateTeacherFrame extends JFrame implements ActionListener{
     private DMSMenuFrame parent;
     private DMSCreateTeacherFrame menuParent;
     private int ppid; 
-    private String uname;
+    private String uName, fName, lName, pass, emai;
+    private ManagerLogic manLogic;
     
-    
-    public DMSCreateTeacherFrame(int pid, DMSMenuFrame dad/* ,ApplicationLogic appLogic */){
+    public DMSCreateTeacherFrame(int pid, DMSMenuFrame dad ,ManagerLogic manLogic ){
+        this.manLogic = manLogic;
          //Setting up the frame variables
         ppid = pid;
         parent = dad;
@@ -154,15 +156,25 @@ public class DMSCreateTeacherFrame extends JFrame implements ActionListener{
            parent.setVisible(true);
            dispose();
        }else if(source == submit){
+           
+            uName=usrname.getText();
+            fName=fname.getText();
+            lName=sname.getText();
+            pass=pword.getText();
+            emai=email.getText();
            //Create the class call here
-           int value = manLogic.registerUser(3, uname, nam, sur, pass, emai );
+           int success = manLogic.registerUser(2, uName, fName, lName, pass, emai );
            
-           
-           
-           
-           JOptionPane.showMessageDialog(null,"Teacher has been created!");
-           parent.setVisible(true);
-           dispose();
+           if(success == 1){//it worked
+                JOptionPane.showMessageDialog(null,"Teacher has been created!");
+                parent.setVisible(true);
+                dispose();
+           }else{
+                JOptionPane.showMessageDialog(null,"Teacher has not been created! There was an error!");
+                parent.setVisible(true);
+                dispose();
+           }
+   
        }
         
     }

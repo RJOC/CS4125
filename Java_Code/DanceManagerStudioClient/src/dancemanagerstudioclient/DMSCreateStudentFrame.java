@@ -5,6 +5,7 @@
  */
 package dancemanagerstudioclient;
 
+import ApplicationLayer.ApplicationLogic;
 import java.awt.BorderLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
@@ -15,6 +16,7 @@ import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 
 import javax.swing.*;
+import static org.eclipse.persistence.sdo.helper.extension.SDOUtil.className;
 
 public class DMSCreateStudentFrame extends JFrame implements ActionListener{
  
@@ -28,10 +30,12 @@ public class DMSCreateStudentFrame extends JFrame implements ActionListener{
     //Frame Related variables
     private DMSMenuFrame parent;
     private DMSCreateStudentFrame menuParent;
-    private int ppid; 
-    private String uname;
+    private int ppid, success; 
+    private String uName, fName, lName, pWord, maile;
+    private ApplicationLogic appLogic;
    
-    public DMSCreateStudentFrame(int pid, DMSMenuFrame dad/* ,ApplicationLogic appLogic */){
+    public DMSCreateStudentFrame(int pid, DMSMenuFrame dad ,ApplicationLogic appLogic ){
+        this.appLogic = appLogic;
         //Frame configuration
         ppid = pid;
         parent = dad;
@@ -105,7 +109,7 @@ public class DMSCreateStudentFrame extends JFrame implements ActionListener{
         emailLab = new JLabel("Student email: ");
         emailLab.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 25));
         sec2.add(emailLab);
-        email = new JPasswordField();
+        email = new JTextField();
         email.setFont(new Font(Font.SANS_SERIF, Font.ITALIC,20 ));
         email.setHorizontalAlignment(JTextField.CENTER);
         sec2.add(email);
@@ -157,10 +161,23 @@ public class DMSCreateStudentFrame extends JFrame implements ActionListener{
            parent.setVisible(true);
            dispose();
        }else if(source == submit){
-           //Create the class call here
-           JOptionPane.showMessageDialog(null,"Student has been created!");
-           parent.setVisible(true);
-           dispose();
+          
+            uName = usrname.getText();
+            fName =fname.getText();
+            lName = sname.getText();
+            pWord = pword.getText();
+            maile = email.getText();
+            success = appLogic.registerStudent(uName, fName, lName, pWord, maile);
+            
+            if(success == 1){//it worked
+                JOptionPane.showMessageDialog(null,"Student has been created!");
+                parent.setVisible(true);
+                dispose();
+           }else{
+                JOptionPane.showMessageDialog(null,"Student has not been created! There was an error!");
+                parent.setVisible(true);
+                dispose();
+           }
        }
         
     }

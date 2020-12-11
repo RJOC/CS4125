@@ -177,15 +177,15 @@ public class DMSCreateClassFrame extends JFrame implements ActionListener {
            }else{
                skillID = 3;
            }
-           
-        className = cname.getText();
-        teacherName = teachBox.getSelectedItem().toString();
-        teacherID = manLogic.getTeacherIDFromName(teacherName);
-        classDes =  descr.getText();
-        maxAttend = Integer.parseInt(attnd.getText());
+   
+            className = cname.getText();
+            teacherName = teachBox.getSelectedItem().toString();
+            teacherID = manLogic.getTeacherIDFromName(teacherName);
+            classDes =  descr.getText();
+            maxAttend = Integer.parseInt(attnd.getText());
            
            //Create the class call here maxAttend, skillID, teacherID, className
-           success = manLogic.registerClass(3,className, teacherID, skillID, classDes, maxAttend); 
+           success = manLogic.registerClass(className, teacherID, skillID, classDes, maxAttend); 
            if(success == 1){//it worked
                 JOptionPane.showMessageDialog(null,"Class has been created!");
                 parent.setVisible(true);

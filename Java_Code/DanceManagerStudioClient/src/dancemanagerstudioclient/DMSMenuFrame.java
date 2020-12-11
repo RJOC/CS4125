@@ -157,14 +157,12 @@ public class DMSMenuFrame extends JFrame implements ActionListener {
        else if(source == createStud){
            setVisible(false);
            DMSCreateStudentFrame crtStudent = new DMSCreateStudentFrame(1, menuParent, manLogic);
-           
-           //TTTJoinGame stats = new TTTJoinGame(ppid, menuParent, uname);
+
        }
        else if(source == createTch){
            setVisible(false);
            DMSCreateTeacherFrame crtTeach = new DMSCreateTeacherFrame(1, menuParent, manLogic);
-           
-           //TTTUserStats stats = new TTTUserStats(ppid, menuParent, uname);
+
        }
        else if(source == viewRpt){
            setVisible(false);
@@ -177,7 +175,7 @@ public class DMSMenuFrame extends JFrame implements ActionListener {
        else if(source == delStud){
            setVisible(false);
            DMSDeleteFrames delStudent = new DMSDeleteFrames(1,"student", menuParent, manLogic);
-           //TTTLeaderboardFrame leader = new TTTLeaderboardFrame(ppid, menuParent);
+
        }
        else if(source == delTch){
            setVisible(false);

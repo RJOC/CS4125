@@ -9,6 +9,10 @@ import ModelLayer.CurrentUserSingleton;
 import ModelLayer.Data;
 import java.util.ArrayList;
 
+
+//manager =3 
+//teacher =2
+//student =1
 /**
  *
  * @author Jono
@@ -32,14 +36,17 @@ public class ApplicationLogic {
         CurrentUserSingleton.logOut();
     }
     
-    public int registerStudent(String uName /*,  String firstName, String lastName*/ ){
-        Data data = new Data();
-        data.setDataName("Student");
-        data.getData().add(new ArrayList<>());
-        data.getData().get(0).add(uName);
+    public int registerStudent(String uname, String fName, String lName, String pWord, String email ){
+        int permissionID = 1;
         
-        String instruction = "";
-        model.dbWrite(instruction, data);
+//        
+//        Data data = new Data();
+//        data.setDataName("Student");
+//        data.getData().add(new ArrayList<>());
+//        data.getData().get(0).add(uName);
+//        
+//        String instruction = "";
+//        model.dbWrite(instruction, data);
 
         return 1;
 

@@ -11,6 +11,10 @@ import ModelLayer.Teacher;
 import ModelLayer.Users;
 import java.util.ArrayList;
 
+
+//manager =3 
+//teacher =2
+//student =1
 /**
  *
  * @author Jono
@@ -27,10 +31,11 @@ public class ManagerLogic extends ApplicationLogic{
         
         if(userType == 2){
             //// int uID, String uName, int phoneNum
-            newUser = new Teacher(2,uName);
+   //          newUser = new Teacher(2,uName);
             
             /// make call to database() through DataAcess in model layer 
-            super.model.dbWrite("registerTeacher", newUser);
+   //         super.model.dbWrite("registerTeacher", newUser);
+        return 1;
         }
         else if(userType == 3){
             /// int uID, String uName, String firstName, String lastName 
@@ -53,7 +58,7 @@ public class ManagerLogic extends ApplicationLogic{
         return 1;
     }
     
-    public int registerClass(int userType, String className,  int teacherID, int skillID, String classDesc, int maxAttend){
+    public int registerClass(String className,  int teacherID, int skillID, String classDesc, int maxAttend){
         //problem, database created with no times or dates. Not sure if we can get it
          
 //        DanceClass newClass = new DanceClass();
