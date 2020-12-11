@@ -20,12 +20,17 @@ import java.net.URL;
 public class DBWriter_WEB implements DBWriteBroker{
 
     @Override
-    public void writeToDB(String instruction, Data data) {
+    public void writeToDB(String instruction, Data data) throws IOException {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         if(instruction.equals("RegisterUser")){
             //unpack here
+            if(data.getDataName().equals("Manager")){
+                /// email, firstName, LastName, password, perID, username
+                registerUser("email", data.getData().get(0).get(2), data.getData().get(0).get(3), "pword", Integer.parseInt(data.getData().get(0).get(0)), data.getData().get(0).get(1));
+            }else if(data.getDataName().equals("Teacher")){
+                registerUser("email", "firstName", "lastName", "pword", Integer.parseInt(data.getData().get(0).get(0)), data.getData().get(0).get(1));
+            }
             
-            //registerUser(array[0],array[1]);
         }else if(instruction.equals("RegisterClass")){
             
         }

@@ -6,6 +6,7 @@
 package ModelLayer.DataAccess;
 
 import ModelLayer.Data;
+import java.io.IOException;
 
 
 /**
@@ -13,5 +14,5 @@ import ModelLayer.Data;
  * @author Jono
  */
 public interface DBWriteBroker {
-    public void writeToDB(String instruction, Data data);
+    public void writeToDB(String instruction, Data data) throws IOException;
 }
