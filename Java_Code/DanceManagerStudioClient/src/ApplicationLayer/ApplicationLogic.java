@@ -20,8 +20,12 @@ public class ApplicationLogic {
         model = new ApplicationModel();
     }   
     
-    public void logIn(String uType, int uID, String uName, String uFName, String uLName){ 
-        CurrentUserSingleton.getInstance(uType, uID, uName, uFName, uLName);
+    public boolean logIn(String uName, String pWord){ 
+        //call to database
+        //return for singleton
+        //CurrentUserSingleton.getInstance(uType, uID, uName, uFName, uLName);
+        
+        return true;
     }
     
     public void logOut(){

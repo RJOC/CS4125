@@ -72,10 +72,10 @@ public class DanceManagerStudioClient extends JFrame implements ActionListener{
             sec3.setLayout(new GridLayout(1,2));
             loginBttn = new JButton("Login");
             loginBttn.addActionListener(this);
-            regBttn = new JButton("Register");
-            regBttn.addActionListener(this);
-            regBttn.setSize(50,50);
-            sec3.add(regBttn);
+//            regBttn = new JButton("Register Manager");
+//            regBttn.addActionListener(this);
+//            regBttn.setSize(50,50);
+//            sec3.add(regBttn);
             sec3.add(loginBttn);
 
                 
@@ -114,10 +114,10 @@ public class DanceManagerStudioClient extends JFrame implements ActionListener{
                 //TTTLoginFrame login = new TTTLoginFrame(this);
                 DMSLoginFrame login = new DMSLoginFrame(this, appLogic);
             }
-            if(source == regBttn){
-                setVisible(false);
-                DMSRegFrame login = new DMSRegFrame(this, new ManagerLogic() );
-            }
+//            if(source == regBttn){
+//                setVisible(false);
+//                DMSRegFrame login = new DMSRegFrame(this, new ManagerLogic() );
+//            }
         }catch(Exception ee){
             System.err.print(ee.getMessage());
         }

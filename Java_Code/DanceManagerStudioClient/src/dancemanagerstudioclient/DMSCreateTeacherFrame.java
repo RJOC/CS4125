@@ -155,6 +155,11 @@ public class DMSCreateTeacherFrame extends JFrame implements ActionListener{
            dispose();
        }else if(source == submit){
            //Create the class call here
+           int value = manLogic.registerUser(3, uname, nam, sur, pass, emai );
+           
+           
+           
+           
            JOptionPane.showMessageDialog(null,"Teacher has been created!");
            parent.setVisible(true);
            dispose();

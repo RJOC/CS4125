@@ -7,9 +7,8 @@ package dancemanagerstudioclient;
 
 //import ttt.james.server.TTTWebService;
 //import ttt.james.server.TTTWebService_Service;
-import ApplicationLayer.ApplicationLogic;
 import ApplicationLayer.ManagerLogic;
-
+import ApplicationLayer.ApplicationLogic;
 
 import java.awt.BorderLayout;
 import java.awt.Font;
@@ -37,6 +36,7 @@ public class DMSRegFrame extends JFrame implements ActionListener {
     private JButton back, submit, clear;
     private DanceManagerStudioClient menu;
     ManagerLogic manLogic;
+    private ApplicationLogic appLogic;
 
     public DMSRegFrame(DanceManagerStudioClient dad,  ManagerLogic manLogic ){
         this.manLogic = manLogic;
@@ -181,7 +181,7 @@ public class DMSRegFrame extends JFrame implements ActionListener {
  */  
 //This is the old call 
                 int value = manLogic.registerUser(3, uname, nam, sur, pass, emai );
-                
+                value= 1;
                 switch(value){ //The variable "Value" needs to be put here
 
                 case 0:
@@ -199,7 +199,11 @@ public class DMSRegFrame extends JFrame implements ActionListener {
                     password.setText("");
                     email.requestFocusInWindow();
                     setVisible(false);
-                    DMSMenuFrame menu = new DMSMenuFrame(parent, nam );
+                    
+                    
+                    
+                    //CALL TO ANOTHER SCREEN
+                    //DMSMenuFrame login = new DMSLoginFrame(this, new ApplicationLogic() );
                     
 /*
 *
