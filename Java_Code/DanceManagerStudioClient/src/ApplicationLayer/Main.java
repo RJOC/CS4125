@@ -22,11 +22,10 @@ public class Main {
      */
     public static void main(String[] args) throws IOException {
 
-        // ApplicationModel model = new ApplicationModel();
         /// will need to pass model to logic
-        //ApplicationLogic logic = new ApplicationLogic();
+        ApplicationLogic logic = new ApplicationLogic();
         /// will need to pass logic to view layer
-        DanceManagerStudioClient myInstance = new DanceManagerStudioClient();
+        DanceManagerStudioClient myInstance = new DanceManagerStudioClient(logic);
     
     }
 }

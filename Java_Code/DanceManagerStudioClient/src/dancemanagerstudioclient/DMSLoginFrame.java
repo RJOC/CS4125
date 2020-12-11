@@ -8,6 +8,7 @@ package dancemanagerstudioclient;
 
 //import ttt.james.server.TTTWebService;
 //import ttt.james.server.TTTWebService_Service;
+import ApplicationLayer.ApplicationLogic;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -39,7 +40,7 @@ public class DMSLoginFrame extends JFrame implements ActionListener{
     //private TTTWebService_Service ttt;
     private DanceManagerStudioClient parent;
     
-    public DMSLoginFrame(DanceManagerStudioClient dad /* , ApplicationLogic appLogic */){
+    public DMSLoginFrame(DanceManagerStudioClient dad  , ApplicationLogic appLogic ){
         parent = dad;
         //ttt = new TTTWebService_Service();
         //proxy = ttt.getTTTWebServicePort();
@@ -112,7 +113,7 @@ public class DMSLoginFrame extends JFrame implements ActionListener{
         if(source  == submit){
             String uname = username.getText();
             String pword = password.getText();
-            //int value = proxy.login(uname, pword);
+            //int value = appLogic.loginFunct(uname, pword);
             switch(1){ //value needs to be put in here
                 case 0:
                     JOptionPane.showMessageDialog(null,"Error connecting to database! Its our end not yours!");
@@ -133,7 +134,7 @@ public class DMSLoginFrame extends JFrame implements ActionListener{
                     username.requestFocusInWindow();
                     setVisible(false);
                     //int pid = value;
-                    DMSMenuFrame menu = new DMSMenuFrame(1, parent, "Ryan");
+                    DMSMenuFrame menu = new DMSMenuFrame(parent, "Ryan"); //pass 1 or 2 depending on if its a student or a teacher
             }
         }
         if(source == back){

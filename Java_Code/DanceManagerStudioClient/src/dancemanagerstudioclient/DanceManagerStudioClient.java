@@ -8,6 +8,8 @@ package dancemanagerstudioclient;
 
 //import ttt.james.server.TTTWebService;
 //import ttt.james.server.TTTWebService_Service;
+import ApplicationLayer.ApplicationLogic;
+import ApplicationLayer.ManagerLogic;
 import java.awt.BorderLayout;
 import java.awt.Font;
 
@@ -34,8 +36,11 @@ public class DanceManagerStudioClient extends JFrame implements ActionListener{
     //JButton initialisations because they are referenced in this whole class
     private JButton regBttn , loginBttn;
    
-    public DanceManagerStudioClient(/* ApplicationLogic appLogic */) throws IOException{
+    private ApplicationLogic appLogic;
+    
+    public DanceManagerStudioClient( ApplicationLogic appLogic ) throws IOException{
         
+        this.appLogic = appLogic;
         //ttt = new TTTWebService_Service();
         //proxy = ttt.getTTTWebServicePort();
         
@@ -107,11 +112,11 @@ public class DanceManagerStudioClient extends JFrame implements ActionListener{
             if(source == loginBttn){
                 setVisible(false);
                 //TTTLoginFrame login = new TTTLoginFrame(this);
-                DMSLoginFrame login = new DMSLoginFrame(this);
+                DMSLoginFrame login = new DMSLoginFrame(this, appLogic);
             }
             if(source == regBttn){
                 setVisible(false);
-                DMSRegFrame login = new DMSRegFrame(this);
+                DMSRegFrame login = new DMSRegFrame(this, new ManagerLogic() );
             }
         }catch(Exception ee){
             System.err.print(ee.getMessage());

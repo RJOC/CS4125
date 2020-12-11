@@ -7,6 +7,10 @@ package dancemanagerstudioclient;
 
 //import ttt.james.server.TTTWebService;
 //import ttt.james.server.TTTWebService_Service;
+import ApplicationLayer.ApplicationLogic;
+import ApplicationLayer.ManagerLogic;
+
+
 import java.awt.BorderLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
@@ -32,9 +36,11 @@ public class DMSRegFrame extends JFrame implements ActionListener {
     private JLabel heading, nameLab, surnameLab,unameLab, emailLab, passLab;
     private JButton back, submit, clear;
     private DanceManagerStudioClient menu;
-    
+    ManagerLogic manLogic;
 
-    public DMSRegFrame(DanceManagerStudioClient dad /* ManagerLogic appLogic */){
+    public DMSRegFrame(DanceManagerStudioClient dad,  ManagerLogic manLogic ){
+        this.manLogic = manLogic;
+        
         parent = dad;
         //ttt = new TTTWebService_Service();
         //proxy = ttt.getTTTWebServicePort();
@@ -152,7 +158,7 @@ public class DMSRegFrame extends JFrame implements ActionListener {
             String sur = surname.getText();
             String uname = username.getText();
             String emai = email.getText();
-            String pas = password.getText();
+            String pass = password.getText();
             //Check to see if there is data in each of the fields
             if(nam.equals("")){
                 JOptionPane.showMessageDialog(null, "No Name Entered");
@@ -164,7 +170,7 @@ public class DMSRegFrame extends JFrame implements ActionListener {
                 JOptionPane.showMessageDialog(null, "No email Entered");
             } else if(!(emai.contains("@")&& emai.contains("."))) {
                 JOptionPane.showMessageDialog(null, "Email entered not valid");
-            } else if(pas.equals("")) {
+            } else if(pass.equals("")) {
                 JOptionPane.showMessageDialog(null, "No password Entered");
             } else {
 /*
@@ -173,33 +179,13 @@ public class DMSRegFrame extends JFrame implements ActionListener {
 *
 *               
  */  
-//This is the old call here
-                //String value = proxy.register(usr, pas, nam, sur); Fix this when the proxy is setup
+//This is the old call 
+                int value = manLogic.registerUser("Manager", uname, nam, sur, pass, emai );
                 
-                switch(""){ //The variable "Value" needs to be put here
-                case "ERROR-REPEAT":
-                    JOptionPane.showMessageDialog(null, "The email already exists");
-                    email.setText("");
-                    password.setText("");
-                    email.requestFocusInWindow();
-                    break;
-                    
-                case "ERROR-INSERT":
-                    JOptionPane.showMessageDialog(null, "Could not add data to user table!");
-                    email.setText("");
-                    password.setText("");
-                    email.requestFocusInWindow();
-                    break;
-                    
-                case "ERROR-RETRIEVE":
-                    JOptionPane.showMessageDialog(null, "Could not retrieve the newly inserted data from the users table!");
-                    email.setText("");
-                    password.setText("");
-                    email.requestFocusInWindow();
-                    break;
-                    
-                case "ERROR-DB":
-                    JOptionPane.showMessageDialog(null, "Could not find the database!");
+                switch(value){ //The variable "Value" needs to be put here
+
+                case 0:
+                    JOptionPane.showMessageDialog(null, "There was an error!");
                     email.setText("");
                     password.setText("");
                     email.requestFocusInWindow();
@@ -213,7 +199,7 @@ public class DMSRegFrame extends JFrame implements ActionListener {
                     password.setText("");
                     email.requestFocusInWindow();
                     setVisible(false);
-                    
+                    DMSMenuFrame menu = new DMSMenuFrame(parent, nam,  );
                     
 /*
 *
