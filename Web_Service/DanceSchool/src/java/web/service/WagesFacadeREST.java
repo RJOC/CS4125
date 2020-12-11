@@ -88,4 +88,12 @@ public class WagesFacadeREST extends AbstractFacade<Wages> {
         return em;
     }
     
+    @GET
+    @Path("WagesFromID/{id}")
+    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    public List<Wages> findWagesbyTeacherID(@PathParam("id") Integer id) {
+        List<Wages> test = super.findClassesbyTeacherID(id);
+        return test;
+    }
+    
 }

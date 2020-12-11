@@ -56,12 +56,25 @@ public class UsersFacadeREST extends AbstractFacade<Users> {
     public void remove(@PathParam("id") Integer id) {
         super.remove(super.find(id));
     }
+    
+    @DELETE
+    @Path("users/delete/{username}")
+    public void removeUser(@PathParam("username") String username) {
+        super.remove(super.finduser(username));
+    }
 
     @GET
     @Path("{id}")
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
     public Users find(@PathParam("id") Integer id) {
         return super.find(id);
+    }
+    
+    @GET
+    @Path("countAttend/{id}")
+    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    public int countByID(@PathParam("id") Integer id) {
+        return super.countbyID(id);
     }
 
     @GET
@@ -92,17 +105,20 @@ public class UsersFacadeREST extends AbstractFacade<Users> {
     
     @GET
     @Path("login/{username}/{password}")
-    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
     public Users login(@PathParam("username")String u, @PathParam("password") String p){
         return super.login(u, p);
     }
     
     @GET
     @Path("finduser/{username}")
-    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
     public Users finduser(@PathParam("username")String u){
         return super.finduser(u);
     }
+    
+
+    
 
 
 }

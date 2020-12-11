@@ -54,6 +54,13 @@ public class AttendanceFacadeREST extends AbstractFacade<Attendance> {
     public void remove(@PathParam("id") Integer id) {
         super.remove(super.find(id));
     }
+    
+    @GET
+    @Path("findAttendee/{classID}/{StudentID}")
+    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    public Attendance findAttendee(@PathParam("classID") Integer classID, @PathParam("StudentID") Integer studentID){
+        return super.findAttendee(classID, studentID);
+    }
 
     @GET
     @Path("{id}")

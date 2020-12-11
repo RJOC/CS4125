@@ -8,7 +8,7 @@ import web.Attendance;
 import web.Skill;
 import web.Users;
 
-@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2020-12-03T17:53:04")
+@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2020-12-11T23:37:39")
 @StaticMetamodel(Class.class)
 public class Class_ { 
 

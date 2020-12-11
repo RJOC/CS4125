@@ -21,11 +21,12 @@ public class register {
     
     public static void main(String[] args) throws IOException{
        //register.postTest(); 
-       register.getTest("tester");
+       register.getTest();
+       //register.deleteTest();
     }
     //code below creates a manager user
     private static void postTest() throws IOException{
-        final String POST_PARAMS = "{\"email\":\"testers@test.com\",\"firstname\":\"testjava\",\"lastname\":\"bean\",\"password\":\"test\",\"permissionID\":{\"permID\":3},\"username\":\"testerjava\"}";
+        final String POST_PARAMS = "{\"email\":\"testers@test.com\",\"firstname\":\"testjava\",\"lastname\":\"bean\",\"password\":\"test\",\"permissionID\":{\"permID\":2},\"username\":\"testdelete\"}";
         System.out.println(POST_PARAMS);
         URL obj = new URL ("http://localhost:9699/DanceSchool/webresources/web.users?");
         HttpURLConnection postConn = (HttpURLConnection) obj.openConnection();
@@ -57,8 +58,9 @@ public class register {
         }
     }
 
-    private static void getTest(String username) throws IOException{
-        URL URLgetRequest = new URL ("http://localhost:9699/DanceSchool/webresources/web.users/finduser/" + username + "");
+    private static void getTest() throws IOException{
+        System.out.println("http://localhost:9699/DanceSchool/webresources/web.class/ClassesFromID/20?");
+        URL URLgetRequest = new URL ("http://localhost:9699/DanceSchool/webresources/web.class/ClassesFromID/20?");
         String readLine = null;
         HttpURLConnection getConn = (HttpURLConnection) URLgetRequest.openConnection();
         getConn.setRequestMethod("GET");
@@ -73,11 +75,43 @@ public class register {
             } in.close();
             String result = response.toString();
 
-            System.out.println("JSON String Result " + result);
+            System.out.println("JSON String Result " + response);
             
         } else {
             System.out.println("GET failed");
         }
     }
     
+        private static void deleteTest() throws IOException{
+        final String POST_PARAMS = "{\"username\":\"testerjava\"}";
+        System.out.println(POST_PARAMS);
+        URL obj = new URL ("http://localhost:9699/DanceSchool/webresources/web.users/users/delete/testdelete");
+        HttpURLConnection postConn = (HttpURLConnection) obj.openConnection();
+        postConn.setRequestMethod("DELETE");
+        postConn.setRequestProperty("Content-Type", "application/json");
+        
+        postConn.setDoOutput(true);
+        OutputStream os = postConn.getOutputStream();
+        os.write(POST_PARAMS.getBytes());
+        os.flush();
+        os.close();
+        
+        int responseCode = postConn.getResponseCode();
+        System.out.println("POST Response Code : " + responseCode);
+        System.out.println("POST Response Message : " + postConn.getResponseMessage());
+        
+        if (responseCode == 204) {
+            BufferedReader in = new BufferedReader(new InputStreamReader(postConn.getInputStream()));
+            String inputline;
+            StringBuffer response = new StringBuffer();
+            
+            while((inputline = in.readLine()) != null){
+                response.append(inputline);
+            }   in.close();
+            
+            System.out.println(response.toString());
+        } else {
+            System.out.println("Delete NOT WORKED");
+        }
+    }
 }

@@ -7,6 +7,9 @@ package web.service;
 
 import java.util.List;
 import javax.persistence.EntityManager;
+import javax.persistence.Query;
+import web.Attendance;
+import web.Users;
 
 /**
  *
@@ -61,15 +64,35 @@ public abstract class AbstractFacade<T> {
         return ((Long) q.getSingleResult()).intValue();
     }
     
-    public T login(String u, String p){
-        return(T) getEntityManager().createNamedQuery("Users.login").setParameter("username", u).setParameter("password",p).getSingleResult();
+    public int countbyID(int id) {
+      return ( (Long) getEntityManager().createNamedQuery("Users.findAttendanceCountbyStudentID").setParameter("studentID", id).getSingleResult()).intValue();
+    }
+    
+    public Users login(String u, String p){
+        return(Users) getEntityManager().createNamedQuery("Users.login").setParameter("username", u).setParameter("password",p).getSingleResult();
     }
     
 
-    public T finduser(String u){
-        T result  =(T) getEntityManager().createNamedQuery("Users.findByUsername").setParameter("username", u).getSingleResult();
+    public Users finduser(String u){
+        Users result  =(Users) getEntityManager().createNamedQuery("Users.findByUsername").setParameter("username", u).getSingleResult();
         return result;
     }
+    
+    public Attendance findAttendee(int c, int s){
+        Attendance result = (Attendance) getEntityManager().createNamedQuery("Attendance.findByStudentClassID").setParameter("classID", c).setParameter("studentID", s).getSingleResult();
+        return result;
+    }
+    
+    public List<T> findClassesbyTeacherID(int id){
+        List<T> result = getEntityManager().createNamedQuery("Users.findClassbyTeacherID").setParameter("teacherID", id).getResultList();
+        return result;
+    }
+    
+    public List<T> findWagesbyTeacherID(int id){
+        List<T> result = getEntityManager().createNamedQuery("Users.findWagesbyTeacherID").setParameter("teacherID", id).getResultList();
+        return result;
+    } 
+    
     
     
 }

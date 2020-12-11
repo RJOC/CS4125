@@ -19,6 +19,7 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import web.Class;
+import web.Users;
 
 /**
  *
@@ -75,6 +76,15 @@ public class ClassFacadeREST extends AbstractFacade<Class> {
     public List<Class> findRange(@PathParam("from") Integer from, @PathParam("to") Integer to) {
         return super.findRange(new int[]{from, to});
     }
+    
+    @GET
+    @Path("ClassesFromID/{id}")
+    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    public List<Class> findClassesbyTeacherID(@PathParam("id") Integer id) {
+        List<Class> test = super.findClassesbyTeacherID(id);
+        return test;
+    }
+
 
     @GET
     @Path("count")
@@ -82,6 +92,7 @@ public class ClassFacadeREST extends AbstractFacade<Class> {
     public String countREST() {
         return String.valueOf(super.count());
     }
+
 
     @Override
     protected EntityManager getEntityManager() {

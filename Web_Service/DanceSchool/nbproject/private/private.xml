@@ -4,8 +4,13 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/dcod1/Documents/NetBeansProjects/DanceSchool/src/java/web/Users.java</file>
+            <file>file:/C:/Users/dcod1/Documents/NetBeansProjects/DanceSchool/src/java/web/Report.java</file>
+            <file>file:/C:/Users/dcod1/Documents/NetBeansProjects/DanceSchool/src/java/web/service/ClassFacadeREST.java</file>
             <file>file:/C:/Users/dcod1/Documents/NetBeansProjects/DanceSchool/src/java/web/service/AbstractFacade.java</file>
+            <file>file:/C:/Users/dcod1/Documents/NetBeansProjects/DanceSchool/src/java/web/Permissions.java</file>
             <file>file:/C:/Users/dcod1/Documents/NetBeansProjects/DanceSchool/src/java/web/register.java</file>
+            <file>file:/C:/Users/dcod1/Documents/NetBeansProjects/DanceSchool/src/java/web/service/WagesFacadeREST.java</file>
+            <file>file:/C:/Users/dcod1/Documents/NetBeansProjects/DanceSchool/src/java/web/Class.java</file>
             <file>file:/C:/Users/dcod1/Documents/NetBeansProjects/DanceSchool/src/java/web/service/UsersFacadeREST.java</file>
         </group>
     </open-files>
