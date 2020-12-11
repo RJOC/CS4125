@@ -5,6 +5,7 @@
  */
 package dancemanagerstudioclient;
 
+import ApplicationLayer.ManagerLogic;
 import java.awt.BorderLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
@@ -30,17 +31,19 @@ public class DMSCreateClassFrame extends JFrame implements ActionListener {
     private JTextField cname, descr, attnd;
 
     private JButton back, submit;
-    
     //Frame Related variables
     private DMSMenuFrame parent;
     private DMSCreateClassFrame menuParent;
-    private int ppid; 
-    private String uname;
+    private int ppid, maxAttend, skillID, teacherID, success;  
+    private String className,  classDes, teacherName, skillValue;
+    private String[] teacherChoices;
+    final JComboBox<String> teachBox;
+    final JComboBox<String> skillBox;
     
+    private ManagerLogic manLogic;
     
-  
-    
-    public DMSCreateClassFrame(int pid, DMSMenuFrame dad /* ,ApplicationLogic appLogic */){
+    public DMSCreateClassFrame(int pid, DMSMenuFrame dad  ,ManagerLogic manLogic ){
+        this.manLogic = manLogic;
         //Setting up the frame variables
         ppid = pid;
 
@@ -72,6 +75,8 @@ public class DMSCreateClassFrame extends JFrame implements ActionListener {
         sec2.setLayout(new GridLayout(12,1));
         sec2.add(fill2);
     
+        
+        
        
         //Class name
         cnameLab = new JLabel("Class name: ");
@@ -87,8 +92,9 @@ public class DMSCreateClassFrame extends JFrame implements ActionListener {
         teachLab.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 25));
         sec2.add(teachLab);
         
-        String[] teacherChoices = { "Magic Mat","BigDongDar", "RYANSMALLPP","JONO","CHOICE 5","CHOICE 6"};
-        final JComboBox<String> teachBox = new JComboBox<String>(teacherChoices);
+
+        teacherChoices = manLogic.getAllTeachers();
+        teachBox = new JComboBox<String>(teacherChoices);
         sec2.add(teachBox);
         
         //How to get value from the JComboBox
@@ -100,8 +106,8 @@ public class DMSCreateClassFrame extends JFrame implements ActionListener {
         skillLab.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 25));
         sec2.add(skillLab);
         
-        String[] skillChoices = { "CHOICE 1","CHOICE 2", "CHOICE 3","CHOICE 4","CHOICE 5","CHOICE 6"};
-        final JComboBox<String> skillBox = new JComboBox<String>(skillChoices);
+        String[] skillChoices = { "Beginner","Intermediate", "Hard"};
+        skillBox = new JComboBox<String>(skillChoices);
         sec2.add(skillBox);
         
         //JOptionPane.showMessageDialog(null,teachBox.getSelectedItem().toString());
@@ -143,7 +149,7 @@ public class DMSCreateClassFrame extends JFrame implements ActionListener {
         getContentPane().add(sec3,BorderLayout.SOUTH);
         setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         
- 
+
   
             WindowListener exitListener = new WindowAdapter() {
             @Override
@@ -158,15 +164,39 @@ public class DMSCreateClassFrame extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
        Object source = e.getSource();
-       
        if(source == back){
            parent.setVisible(true);
            dispose();
        }else if(source == submit){
-           //Create the class call here
-           JOptionPane.showMessageDialog(null,"Class has been created!");
-           parent.setVisible(true);
-           dispose();
+           
+           skillValue = skillBox.getSelectedItem().toString();
+           if(skillValue.equals("Beginner")){
+               skillID = 1;
+           }else if(skillValue.equals("Intermediate")){
+               skillID = 2;
+           }else{
+               skillID = 3;
+           }
+           
+        className = cname.getText();
+        teacherName = teachBox.getSelectedItem().toString();
+        teacherID = manLogic.getTeacherIDFromName(teacherName);
+        classDes =  descr.getText();
+        maxAttend = Integer.parseInt(attnd.getText());
+           
+           //Create the class call here maxAttend, skillID, teacherID, className
+           success = manLogic.registerClass(3,className, teacherID, skillID, classDes, maxAttend); 
+           if(success == 1){//it worked
+                JOptionPane.showMessageDialog(null,"Class has been created!");
+                parent.setVisible(true);
+                dispose();
+           }else{
+                JOptionPane.showMessageDialog(null,"Class has not been created! There was an error!");
+                parent.setVisible(true);
+                dispose();
+           }
+                
+           
        }
         
     }

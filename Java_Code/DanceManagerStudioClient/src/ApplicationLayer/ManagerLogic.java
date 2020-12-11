@@ -53,19 +53,23 @@ public class ManagerLogic extends ApplicationLogic{
         return 1;
     }
     
-    public void registerClass(String className, String teacherName, String startTime, String finishTime){
-        DanceClass newClass = new DanceClass();
-        newClass.setStartTime(startTime);
-        newClass.setFinishTime(finishTime);
+    public int registerClass(int userType, String className,  int teacherID, int skillID, String classDesc, int maxAttend){
+        //problem, database created with no times or dates. Not sure if we can get it
+         
+//        DanceClass newClass = new DanceClass();
+//        newClass.setStartTime(startTime);
+//        newClass.setFinishTime(finishTime);
+//        
+//        Teacher classTeacher = new Teacher(); 
+//        /// temp assignment; TODO: pull teacher from database and build here?
+//        classTeacher.setuName(teacherName);
+//        
+//        newClass.setTeacher(classTeacher);
+//        
+//        ///TODO: define instruction
+//        super.model.dbWrite("registerClass", newClass);
         
-        Teacher classTeacher = new Teacher(); 
-        /// temp assignment; TODO: pull teacher from database and build here?
-        classTeacher.setuName(teacherName);
-        
-        newClass.setTeacher(classTeacher);
-        
-        ///TODO: define instruction
-        super.model.dbWrite("registerClass", newClass);
+        return 1;// return 1 if successful
     }
     public int removeClass(String className){
         ///TODO: Define instruction
@@ -93,4 +97,19 @@ public class ManagerLogic extends ApplicationLogic{
         }          
         return classes;
     }
+    
+    //Need the code to pull all the teachers names (First names are fine)
+    public String[] getAllTeachers(){
+        String teacherList [] ={"Teacher1","Teacher2"};
+ 
+        return teacherList;
+    }
+    
+    public int getTeacherIDFromName(String tName){
+        int teacherID =12;
+        
+        return teacherID;
+    }
 }
+
+

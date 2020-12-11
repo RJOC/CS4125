@@ -129,11 +129,13 @@ public class DMSLoginFrame extends JFrame implements ActionListener{
                     username.requestFocusInWindow();
                     setVisible(false);
                     //int pid = value;
-                    
-                    if(CurrentUserSingleton.getInstance() instanceof Manager){ //manager
+//FIX HERE!!!       
+                    if(1==1 /*CurrentUserSingleton.getInstance() instanceof Manager*/){ //manager
                         DMSMenuFrame menu = new DMSMenuFrame(parent, uname, new ManagerLogic()); //put manLogic here
                     }else{//teacher
-                        DMSMenuFrame menu = new DMSMenuFrame(parent, uname, new TeacherLogic()); //put TeachLogic here
+//FIX HERE!!!
+                        //new teacher menu frame is needed
+                        //DMSMenuFrame menu = new DMSMenuFrame(parent, uname, new TeacherLogic()); //put TeachLogic here
                     }
                     
             }else{

@@ -8,6 +8,7 @@ package dancemanagerstudioclient;
 
 //import ttt.james.server.TTTWebService;
 //import ttt.james.server.TTTWebService_Service;
+import ApplicationLayer.ManagerLogic;
 import java.awt.BorderLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
@@ -16,15 +17,11 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
-import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.SwingConstants;
 
 public class DMSMenuFrame extends JFrame implements ActionListener {
         //Webserver initialisations  & other frame calls
@@ -40,10 +37,11 @@ public class DMSMenuFrame extends JFrame implements ActionListener {
     //Initialisations of variables needed for inside the frame
     private JLabel heading, fill, fill1, fill2, fill3;
     private JButton createClass, createStud, createTch, viewRpt, delClass, delStud, delTch, MonPymt, logout;
+    private ManagerLogic manLogic;
     
     
-    
-    public DMSMenuFrame( DanceManagerStudioClient dad, String username  ,ManagerLogic manLogic){
+    public DMSMenuFrame( DanceManagerStudioClient dad, String username ,ManagerLogic manLogic){
+        this.manLogic = manLogic;
 //setting up the frame variables
 
         uname = username;
@@ -154,40 +152,40 @@ public class DMSMenuFrame extends JFrame implements ActionListener {
        
        if(source == createClass){
            setVisible(false);
-           DMSCreateClassFrame crtClass = new DMSCreateClassFrame(1, menuParent);
+           DMSCreateClassFrame crtClass = new DMSCreateClassFrame(1, menuParent, manLogic);
        }
        else if(source == createStud){
            setVisible(false);
-           DMSCreateStudentFrame crtStudent = new DMSCreateStudentFrame(1, menuParent);
+           DMSCreateStudentFrame crtStudent = new DMSCreateStudentFrame(1, menuParent, manLogic);
            
            //TTTJoinGame stats = new TTTJoinGame(ppid, menuParent, uname);
        }
        else if(source == createTch){
            setVisible(false);
-           DMSCreateTeacherFrame crtTeach = new DMSCreateTeacherFrame(1, menuParent);
+           DMSCreateTeacherFrame crtTeach = new DMSCreateTeacherFrame(1, menuParent, manLogic);
            
            //TTTUserStats stats = new TTTUserStats(ppid, menuParent, uname);
        }
        else if(source == viewRpt){
            setVisible(false);
-           DMSViewReportsFrame viewReports = new DMSViewReportsFrame(1,menuParent);
+           DMSViewReportsFrame viewReports = new DMSViewReportsFrame(1,menuParent, manLogic);
        }
        else if(source == delClass){
            setVisible(false);
-           DMSDeleteFrames delClass = new DMSDeleteFrames(1,"class", menuParent);
+           DMSDeleteFrames delClass = new DMSDeleteFrames(1,"class", menuParent, manLogic);
        }
        else if(source == delStud){
            setVisible(false);
-           DMSDeleteFrames delStudent = new DMSDeleteFrames(1,"student", menuParent);
+           DMSDeleteFrames delStudent = new DMSDeleteFrames(1,"student", menuParent, manLogic);
            //TTTLeaderboardFrame leader = new TTTLeaderboardFrame(ppid, menuParent);
        }
        else if(source == delTch){
            setVisible(false);
-           DMSDeleteFrames delTeacher = new DMSDeleteFrames(1,"teacher", menuParent);
+           DMSDeleteFrames delTeacher = new DMSDeleteFrames(1,"teacher", menuParent, manLogic);
        }
        else if(source == MonPymt){
            setVisible(false);
-           DMSMonitorPayments viewPayments = new DMSMonitorPayments(1,menuParent);
+           DMSMonitorPayments viewPayments = new DMSMonitorPayments(1,menuParent, manLogic);
        }
        else if(source == logout){
             parent.setVisible(true);
