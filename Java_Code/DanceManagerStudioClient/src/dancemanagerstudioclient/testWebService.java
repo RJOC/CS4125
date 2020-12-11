@@ -15,7 +15,7 @@ public class testWebService {
 
     
     public static void main(String[] args) throws IOException{
-       //testWebService.testWebService("cocks@gmail.com","Ryan","OConnor","password",3,"rockie"); 
+       //testWebService.testWebService("donkey@gmail.com","Jono","pp","password",3,"jono123"); 
        //testWebService.getTest("Student1");
        
        testWebService.deleteTest();
@@ -24,7 +24,7 @@ public class testWebService {
         
         
     private static void deleteTest() throws IOException{
-        final String POST_PARAMS = "{\"username\":\"testerjava\"}";
+        final String POST_PARAMS = "{\"username\":\"jono123\"}";
         System.out.println(POST_PARAMS);
         URL obj = new URL ("http://localhost:8080/DanceSchool/webresources/web.users/users/delete/testerjava");
         HttpURLConnection postConn = (HttpURLConnection) obj.openConnection();

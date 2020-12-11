@@ -199,7 +199,7 @@ public class DMSRegFrame extends JFrame implements ActionListener {
                     password.setText("");
                     email.requestFocusInWindow();
                     setVisible(false);
-                    DMSMenuFrame menu = new DMSMenuFrame(parent, nam,  );
+                    DMSMenuFrame menu = new DMSMenuFrame(parent, nam );
                     
 /*
 *
