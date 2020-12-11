@@ -13,39 +13,68 @@ public class DataFactory implements CustomDataFactory{
 
     @Override
     public CustomDataType buildData(Data data) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        /// if(//data in data is userType){
+        CustomDataType builtData = data;
+         
+        switch (data.getDataName()) {
         //  userFactory()
-        // }
-    }
-    
-    private void buildUser(Data data){
-        ///TODO: pull data from database into a Data(); Then build users object with recived values.
-        /*
-        if(Manager){
-            // build and return new manager()
+            case "Manager": builtData = buildUser(data);
+                break;
+            case "Teacher": builtData = buildUser(data);
+                break;
+            case "DanceClass": builtData = danceClassFactory(data); 
+                break;
+            default:
+                break;
         }
-        else if(receptionist){
         
-        }
-        else if(Teacher){
-
-        }
-        else if(Student) {
-            
-        }
-        */
+        return builtData;
     }
     
-    private void danceClassFactory(String className){
+    private CustomDataType buildUser(Data data){
+        ///TODO: pull data from database into a Data(); Then build users object with recived values.
+        CustomDataType build;
+        
+        switch (data.getDataName()) {
+            case "Manager":
+                build = new Manager();
+                //int uID, String uName, String firstName, String lastName
+                ((Manager)build).setuID(Integer.parseInt(data.getData().get(0).get(0)));
+                ((Manager)build).setuName(data.getData().get(0).get(1));
+                ((Manager)build).setFirstName(data.getData().get(0).get(2));
+                ((Manager)build).setLastName(data.getData().get(0).get(3));
+                break;
+            case "Teacher":
+                build = new Teacher();
+                ((Teacher)build).setuID(Integer.parseInt(data.getData().get(0).get(0)));
+                ((Teacher)build).setuName(data.getData().get(0).get(1));
+                break;
+            default:
+                //temp return
+                build = new Users();
+                break;
+        }
+        
+        return build;  
+    }
+    
+    private DanceClass danceClassFactory(Data data){
         ///TODO: pull data from database and build into a DanceClass() data object.
-        /// will probably need a return for this one
-    }
-    
-    private void allClassesFactory(){
-        /// for
-        ///     add danceClassFactory(".....")
-        /// will need to know names of all classes?
-        /// more thought needed for this method.
+        DanceClass build = new DanceClass();
+        
+        /// Treat first part of data as teacher object and construct teacher
+        data.setDataName("Teacher");
+        /// Cast return to teacher and insert into DanceClass
+        Teacher classTeacher = (Teacher)buildUser(data);        
+        build.setTeacher(classTeacher);
+        /// Set start and finish times.
+        build.setStartTime(data.getData().get(1).get(0));
+        build.setFinishTime(data.getData().get(1).get(1));
+        
+        // Loop over student list // position 0 and 1 taken by teacher and times
+        for(int i=2;i<data.getData().size();i++){
+            build.addStudent(new Student(data.getData().get(i).get(0)));
+        }
+        
+        return build;
     }
 }

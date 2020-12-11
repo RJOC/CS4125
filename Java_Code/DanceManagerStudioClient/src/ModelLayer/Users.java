@@ -10,18 +10,16 @@ package ModelLayer;
  * @author Jono
  */
 public class Users implements CustomDataType{
-  public int uID;
-  public String uName;
-  public int phoneNum;
+  private int uID;
+  private String uName;
  
     public Users(){
-        this(-1,"empty",-1);
+        this(-1,"empty");
     }
   
-    public Users(int uID, String uName,int phoneNum){
+    public Users(int uID, String uName){
         this.uID = uID;
         this.uName = uName;
-        this.phoneNum = phoneNum;
     }
   
     public int getuID() {
@@ -32,10 +30,6 @@ public class Users implements CustomDataType{
         return uName;
     }
 
-    public int getPhoneNum() {
-        return phoneNum;
-    }
-
     public void setuID(int uID) {
         this.uID = uID;
     }
@@ -43,10 +37,6 @@ public class Users implements CustomDataType{
     public void setuName(String uName) {
         this.uName = uName;
     }
-
-    public void setPhoneNum(int phoneNum) {
-        this.phoneNum = phoneNum;
-    }   
 
     @Override
     public String dataType() {

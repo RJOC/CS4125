@@ -1,13 +1,18 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Project name: Dance Manager studio
+ * File Created by: Ryan O'Connor
+ * Description: This is the login frame
  */
 package dancemanagerstudioclient;
 
 
 //import ttt.james.server.TTTWebService;
 //import ttt.james.server.TTTWebService_Service;
+import ApplicationLayer.ApplicationLogic;
+import ApplicationLayer.ManagerLogic;
+import ApplicationLayer.TeacherLogic;
+import ModelLayer.CurrentUserSingleton;
+import ModelLayer.Manager;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -38,11 +43,15 @@ public class DMSLoginFrame extends JFrame implements ActionListener{
     //private TTTWebService proxy;
     //private TTTWebService_Service ttt;
     private DanceManagerStudioClient parent;
+    private ApplicationLogic appLogic;
+
     
-    public DMSLoginFrame(DanceManagerStudioClient dad){
+    public DMSLoginFrame(DanceManagerStudioClient dad  , ApplicationLogic appLogic ){
         parent = dad;
         //ttt = new TTTWebService_Service();
         //proxy = ttt.getTTTWebServicePort();
+        
+        this.appLogic = appLogic;
         
          //Frame Setup
         setBounds(20,20,300,200);
@@ -112,29 +121,30 @@ public class DMSLoginFrame extends JFrame implements ActionListener{
         if(source  == submit){
             String uname = username.getText();
             String pword = password.getText();
-            //int value = proxy.login(uname, pword);
-            switch(1){ //value needs to be put in here
-                case 0:
-                    JOptionPane.showMessageDialog(null,"Error connecting to database! Its our end not yours!");
-                    username.setText("");
-                    password.setText("");
-                    username.requestFocusInWindow();
-                break;
-                
-                case -1:
-                    JOptionPane.showMessageDialog(null,"Username or Password is incorrect");
-                    username.setText("");
-                    password.setText("");
-                break;
-                
-                default:
-                    username.setText("");
+            boolean value = appLogic.logIn(uname, pword);
+            
+            if(value){
+                username.setText("");
                     password.setText("");
                     username.requestFocusInWindow();
                     setVisible(false);
                     //int pid = value;
-                    DMSMenuFrame menu = new DMSMenuFrame(1, parent, "Ryan");
+//FIX HERE!!!       
+                    if(1==1 /*CurrentUserSingleton.getInstance() instanceof Manager*/){ //manager
+                        DMSMenuFrame menu = new DMSMenuFrame(parent, uname, new ManagerLogic()); //put manLogic here
+                    }else{//teacher
+//FIX HERE!!!
+                        //new teacher menu frame is needed
+                        //DMSMenuFrame menu = new DMSMenuFrame(parent, uname, new TeacherLogic()); //put TeachLogic here
+                    }
+                    
+            }else{
+                    JOptionPane.showMessageDialog(null,"There has been an error");
+                    username.setText("");
+                    password.setText("");
+                    username.requestFocusInWindow();
             }
+
         }
         if(source == back){
             parent.setVisible(true);
@@ -144,3 +154,5 @@ public class DMSLoginFrame extends JFrame implements ActionListener{
     }
     
 }
+
+

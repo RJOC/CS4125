@@ -8,4 +8,13 @@ Java_Code/DanceManagerStudioClient/nbproject/private/private.properties
 /Web_Service/DanceManager/build/
 /Web_Service/DanceManager/dist/
 /Web_Service/DanceManager/nbproject/private/
+<<<<<<< HEAD
 /Web_Service/DanceSchool/danceClient1/nbproject/private/
+=======
+*.xml
+*.xml
+Java_Code/DanceManagerStudioClient/nbproject/private/private.properties
+Java_Code/DanceManagerStudioClient/nbproject/private/private.properties
+Java_Code/DanceManagerStudioClient/nbproject/private/private.xml
+/Java_Code/DanceManagerStudioClient/dist/
+>>>>>>> bd78f0aaa2d8bb2819a84d853dc40ce403939684

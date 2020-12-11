@@ -54,20 +54,6 @@ public class DataTest {
     }
 
     /**
-     * Test of setData method, of class Data.
-     */
-    @org.junit.Test
-    public void testSetData() {
-        System.out.println("setData");
-        ArrayList<ArrayList<String>> data = null;
-        Data instance = new Data();
-        instance.setData(data);
-        // TODO review the generated test code and remove the default call to fail.
-        // Have no test listener built in yet
-        fail("The test case is a prototype.");
-    }
-
-    /**
      * Test of getDataName method, of class Data.
      */
     @org.junit.Test
@@ -77,19 +63,6 @@ public class DataTest {
         String expResult = "EmptyDataObject";
         String result = instance.getDataName();
         assertEquals(expResult, result);
-    }
-
-    /**
-     * Test of setDataName method, of class Data.
-     */
-    @org.junit.Test
-    public void testSetDataName() {
-        System.out.println("setDataName");
-        String dataName = "";
-        Data instance = new Data();
-        instance.setDataName(dataName);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**

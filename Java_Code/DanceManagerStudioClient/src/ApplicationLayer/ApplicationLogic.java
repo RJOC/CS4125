@@ -5,7 +5,14 @@
  */
 package ApplicationLayer;
 import ModelLayer.ApplicationModel;
+import ModelLayer.CurrentUserSingleton;
+import ModelLayer.Data;
+import java.util.ArrayList;
 
+
+//manager =3 
+//teacher =2
+//student =1
 /**
  *
  * @author Jono
@@ -13,8 +20,35 @@ import ModelLayer.ApplicationModel;
 public class ApplicationLogic {
     ApplicationModel model;
 
-    public ApplicationLogic() {
-        // pass in model? or build model here? build for now.
+    public ApplicationLogic() {        
         model = new ApplicationModel();
     }   
+    
+    public boolean logIn(String uName, String pWord){ 
+        //call to database
+        //return for singleton
+        //CurrentUserSingleton.getInstance(uType, uID, uName, uFName, uLName);
+        
+        return true;
+    }
+    
+    public void logOut(){
+        CurrentUserSingleton.logOut();
+    }
+    
+    public int registerStudent(String uname, String fName, String lName, String pWord, String email ){
+        int permissionID = 1;
+        
+//        
+//        Data data = new Data();
+//        data.setDataName("Student");
+//        data.getData().add(new ArrayList<>());
+//        data.getData().get(0).add(uName);
+//        
+//        String instruction = "";
+//        model.dbWrite(instruction, data);
+
+        return 1;
+
+    }
 }
