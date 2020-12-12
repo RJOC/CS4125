@@ -23,13 +23,13 @@ public class DMSMenuFrameTeach extends JFrame implements ActionListener {
     
     //Variables related to the frame
     private DanceManagerStudioClient parent;
-    private DMSMenuFrameTech menuParent;
+    private DMSMenuFrameTeach menuParent;
     private int ppid; 
     private String uname;
     
     //Initialisations of variables needed for inside the frame
     private JLabel heading, fill, fill1, fill2, fill3;
-    private JButton createClass, createStud, createTch, viewRpt, delClass, delStud, delTch, MonPymt, logout;
+    private JButton viewClass, cancelClass, viewWage, GenReport, logout;
     private TeacherLogic techLogic;
     
     
@@ -43,9 +43,6 @@ public class DMSMenuFrameTeach extends JFrame implements ActionListener {
         parent = dad;
         menuParent = this;
         
-//Proxy for webservice
-        //ttt = new TTTWebService_Service();
-        //proxy = ttt.getTTTWebServicePort();
         
         //JFrame Setup
         setTitle("Main-Menu");
@@ -69,49 +66,30 @@ public class DMSMenuFrameTeach extends JFrame implements ActionListener {
         
         //Section 2
         JPanel sec2 = new JPanel();
-        sec2.setLayout(new GridLayout(6,2));
+        sec2.setLayout(new GridLayout(6,1));
         sec2.add(fill2);
-        sec2.add(fill3);
+ 
         
-        //create Class
-        createClass = new JButton("Generate Report");
-        createClass.addActionListener(this);
-        sec2.add(createClass);
+        //View Class
+        viewClass = new JButton("View Classes");
+        viewClass.addActionListener(this);
+        sec2.add(viewClass);
         
-        //Create Student
-        createStud = new JButton("Cancel Class");
-        createStud.addActionListener(this);
-        sec2.add(createStud);
+        //Cancel Class
+        cancelClass = new JButton("Cancel Class");
+        cancelClass.addActionListener(this);
+        sec2.add(cancelClass);
         
-        //Create Teacher
-        createTch = new JButton("View Wage Data");
-        createTch.addActionListener(this);
-        sec2.add(createTch);
+        //View Wage Data
+        viewWage = new JButton("View Wage Data");
+        viewWage.addActionListener(this);
+        sec2.add(viewWage);
         
-        //View Reports 
-        viewRpt = new JButton("View Reports");
-        viewRpt.addActionListener(this);
-        sec2.add(viewRpt);
-        
-        //Delete Class
-        delClass = new JButton("Delete Class");
-        delClass.addActionListener(this);
-        sec2.add(delClass);
-        
-        //Delete student
-        delStud = new JButton("Delete Student");
-        delStud.addActionListener(this);
-        sec2.add(delStud);
-        
-        //Delete Teacher
-        delTch = new JButton("Delete Teacher");
-        delTch.addActionListener(this);
-        sec2.add(delTch);
-        
-        //Monitor Payments
-        MonPymt = new JButton("Monitor Payments");
-        MonPymt.addActionListener(this);
-        sec2.add(MonPymt);
+        //Generate Report
+        GenReport = new JButton("Generate Report");
+        GenReport.addActionListener(this);
+        sec2.add(GenReport);
+
         
         
         //bottom buttons
@@ -145,46 +123,27 @@ public class DMSMenuFrameTeach extends JFrame implements ActionListener {
        Object source = e.getSource();
       
        
-       if(source == createClass){
+       if(source == viewClass){
            setVisible(false);
-           DMSCreateClassFrame crtClass = new DMSCreateClassFrame(1, menuParent, manLogic);
+           DMSViewClasses viewClass = new DMSViewClasses();
        }
-       else if(source == createStud){
+       else if(source == cancelClass){
            setVisible(false);
-           DMSCreateStudentFrame crtStudent = new DMSCreateStudentFrame(1, menuParent, manLogic);
-
+           DMSCancelClass cancelClass = new DMSCancelClass();
        }
-       else if(source == createTch){
+       else if(source == viewWage){
            setVisible(false);
-           DMSCreateTeacherFrame crtTeach = new DMSCreateTeacherFrame(1, menuParent, manLogic);
-
+           DMSViewWage viewWage = new DMSViewWage();
        }
-       else if(source == viewRpt){
+       else if(source == GenReport){
            setVisible(false);
-           DMSViewReportsFrame viewReports = new DMSViewReportsFrame(1,menuParent, manLogic);
-       }
-       else if(source == delClass){
+           DMSGenReport generateReport = new DMSGenReport();
+       }else if(source == logout){
            setVisible(false);
-           DMSDeleteFrames delClass = new DMSDeleteFrames(1,"class", menuParent, manLogic);
-       }
-       else if(source == delStud){
-           setVisible(false);
-           DMSDeleteFrames delStudent = new DMSDeleteFrames(1,"student", menuParent, manLogic);
-
-       }
-       else if(source == delTch){
-           setVisible(false);
-           DMSDeleteFrames delTeacher = new DMSDeleteFrames(1,"teacher", menuParent, manLogic);
-       }
-       else if(source == MonPymt){
-           setVisible(false);
-           DMSMonitorPayments viewPayments = new DMSMonitorPayments(1,menuParent, manLogic);
-       }
-       else if(source == logout){
-            parent.setVisible(true);
-            dispose();
-        }
-       else{
+           parent.setVisible(true);
+           dispose();
+           //DMSViewReportsFrame viewReports = new DMSViewReportsFrame(1,menuParent, manLogic);
+       }else{
            JOptionPane.showMessageDialog(null, "Program not responding! Bringing you to login screen");
            parent.setVisible(true);
            dispose();

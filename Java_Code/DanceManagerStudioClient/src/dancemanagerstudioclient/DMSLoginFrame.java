@@ -130,7 +130,7 @@ public class DMSLoginFrame extends JFrame implements ActionListener{
                     setVisible(false);
                     //int pid = value;
 //FIX HERE!!!  This checks if the user is tryping to log in as a manager or teacher using singleton     
-                    if(1==0 /*CurrentUserSingleton.getInstance() instanceof Manager*/){ //manager
+                    if(1==1 /*CurrentUserSingleton.getInstance() instanceof Manager*/){ //manager
                         DMSMenuFrame menu = new DMSMenuFrame(parent, uname, new ManagerLogic()); //put manLogic here
                     }else{//teacher
 //FIX HERE!!!

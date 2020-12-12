@@ -3,14 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ModelLayer.DataAccess;
-
-import ModelLayer.Data;
+package dancemanagerstudioclient;
 
 /**
  *
- * @author Jono
+ * @author oconn
  */
-public interface DBReadBroker {
-    public Data readFromDB(String instruction, String keyWords);
+public class DMSViewClasses {
+    
 }

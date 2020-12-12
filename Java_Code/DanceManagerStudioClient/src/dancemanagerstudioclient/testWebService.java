@@ -17,8 +17,8 @@ public class testWebService {
     public static void main(String[] args) throws IOException{
        //testWebService.testWebService("donkey@gmail.com","Jono","pp","password",3,"jono123"); 
        //testWebService.getTest("Student1");
-       
-       testWebService.deleteTest();
+       getTest("jono123");
+       //testWebService.deleteTest();
        
     }
         

@@ -38,17 +38,17 @@ public class ApplicationLogic {
         CurrentUserSingleton.logOut();
     }
     
-    public int registerStudent(String uname, String fName, String lName, String pWord, String email ){
+    public int registerStudent(String uName, String fName, String lName, String pWord, String email ){
         int permissionID = 1;
+                
+        Data data = new Data();
+        data.setDataName("Student");
+        data.getData().add(new ArrayList<>());
+        data.getData().get(0).add(uName);
         
-//        
-//        Data data = new Data();
-//        data.setDataName("Student");
-//        data.getData().add(new ArrayList<>());
-//        data.getData().get(0).add(uName);
-//        
-//        String instruction = "";
-//        model.dbWrite(instruction, data);
+        /// additional instruction to add student to specific class?
+        String instruction = "registerStudent";
+        model.dbWrite(instruction, data);
 
         return 1;
 
