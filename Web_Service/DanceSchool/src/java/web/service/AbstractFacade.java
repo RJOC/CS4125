@@ -69,6 +69,11 @@ public abstract class AbstractFacade<T> {
       return test;
     }
     
+    public int countAttendbyClassID(int id) {
+      int test = getEntityManager().createNamedQuery("Class.findAttendanceByClassID").setParameter("classID", id).getResultList().size();
+      return test;
+    }
+    
     public Users login(String u, String p){
         return(Users) getEntityManager().createNamedQuery("Users.login").setParameter("username", u).setParameter("password",p).getSingleResult();
     }

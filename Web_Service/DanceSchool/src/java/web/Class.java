@@ -37,6 +37,7 @@ import javax.xml.bind.annotation.XmlTransient;
     , @NamedQuery(name = "Class.findById", query = "SELECT c FROM Class c WHERE c.id = :id")
     , @NamedQuery(name = "Class.findByName", query = "SELECT c FROM Class c WHERE c.name = :name") 
     , @NamedQuery(name = "Class.findByClassDesc", query = "SELECT c FROM Class c WHERE c.classDesc = :classDesc")
+    , @NamedQuery(name = "Class.findAttendanceByClassID", query = "select a from Class c join c.attendanceCollection a where c.id = :classID")
     , @NamedQuery(name = "Class.findByMaxAttend", query = "SELECT c FROM Class c WHERE c.maxAttend = :maxAttend")})
 public class Class implements Serializable {
 
