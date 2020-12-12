@@ -127,7 +127,14 @@ public class ManagerLogic extends ApplicationLogic{
     }
     
     public String[] getAllClasses(){
-        String classList [] ={"class1","class2"};
+        /// call local function
+        ArrayList<DanceClass> allClasses = viewClasses();
+        String classList [] =  new String[allClasses.size()];//{"class1","class2"};
+        
+        /// fill array with class names
+        for(int i=0; i< classList.length; i++){
+            classList[i] = allClasses.get(i).getClassName();
+        }
         
         return classList;
     }
