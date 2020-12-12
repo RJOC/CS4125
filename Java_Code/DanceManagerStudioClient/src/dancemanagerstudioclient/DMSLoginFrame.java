@@ -121,9 +121,9 @@ public class DMSLoginFrame extends JFrame implements ActionListener{
         if(source  == submit){
             String uname = username.getText();
             String pword = password.getText();
-            boolean value = appLogic.logIn(uname, pword);
+            boolean value = true; //appLogic.logIn(uname, pword);
             
-            if(value){
+            if(1 == 2){
                 username.setText("");
                     password.setText("");
                     username.requestFocusInWindow();
@@ -140,7 +140,7 @@ public class DMSLoginFrame extends JFrame implements ActionListener{
                     }
                     
             }else{
-                    JOptionPane.showMessageDialog(null,"There has been an error");
+                    JOptionPane.showMessageDialog(null,"There has been an error!");
                     username.setText("");
                     password.setText("");
                     username.requestFocusInWindow();
