@@ -5,6 +5,7 @@
  */
 package dancemanagerstudioclient;
 
+import ApplicationLayer.ManagerLogic;
 import java.awt.BorderLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
@@ -13,12 +14,12 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
 
 public class DMSMonitorPayments extends JFrame implements ActionListener {
     //Frame variables
@@ -28,14 +29,17 @@ public class DMSMonitorPayments extends JFrame implements ActionListener {
     
     //Variable declopations
     private JLabel heading, fill, fill1, fill2, fill3, choiceLab, person ;
-    private JComboBox<String> choiceBox, teacherBox, studentBox;
+    private JComboBox<String> choiceBox, tRsBox, teacherbox, studentbox;
     private JButton back, submit;
     private String choice;
     private String[] wageRpayment = { "Student Payments","Teacher Wages"};
-    private String[] teachers = { "Teacher1","Teacher2"};
-    private String[] students = { "students1","students2"};
+    private String[] teachersRstudents ={"Select from above first"};
     
-    public DMSMonitorPayments(int pid, DMSMenuFrame dad/* ,ApplicationLogic appLogic */){
+    private ManagerLogic manLogic;
+    
+    public DMSMonitorPayments(int pid, DMSMenuFrame dad, ManagerLogic manLogic ){
+        this.manLogic = manLogic;
+        
         //Frame variable
         ppid = pid;
         parent = dad;
@@ -80,14 +84,9 @@ public class DMSMonitorPayments extends JFrame implements ActionListener {
         person = new JLabel("Select person:");
         person.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 25));
         sec2.add(person);
-        teacherBox = new JComboBox<String>(teachers);
-        sec2.add(teacherBox);
-        teacherBox.addActionListener(this);
-        
-        studentBox = new JComboBox<String>(students);
-        sec2.add(studentBox);
-        studentBox.addActionListener(this);
-        
+        tRsBox = new JComboBox<String>(teachersRstudents);
+        sec2.add(tRsBox);
+        tRsBox.addActionListener(this);
         
         
         //Section 3
@@ -100,8 +99,8 @@ public class DMSMonitorPayments extends JFrame implements ActionListener {
         
         //Setting all the fields not visiable to clean page
         person.setVisible(false);
-        teacherBox.setVisible(false);
-        studentBox.setVisible(false);
+        tRsBox.setVisible(false);
+        
         
         
         
@@ -131,34 +130,21 @@ public class DMSMonitorPayments extends JFrame implements ActionListener {
            parent.setVisible(true);
            dispose();
        }else if(source == choiceBox){
-            JComboBox cb = (JComboBox)e.getSource();
-            choice = (String)cb.getSelectedItem();
-            if(choice == "Student Payments"){
-                studentOptions();
-            }else if(choice == "Teacher Wages"){
-                teacherOptions();
+           tRsBox.setVisible(true);
+           person.setVisible(true);
+            if(choiceBox.getSelectedItem().toString().equals("Student Payments")){
+                DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>( manLogic.getAllTeachers());
+                tRsBox.setModel(model);;
+                tRsBox.revalidate();
+                tRsBox.repaint();
             }else{
-                //An error has occured
+      
+                DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>( manLogic.getStudentList());
+                tRsBox.setModel( model );
+                tRsBox.revalidate();
+                tRsBox.repaint();
             }
-       }else if(source ==choiceBox2){
-           
+    
        }
-
     }
-    
-     protected void studentOptions() {
-            person.setVisible(true);
-            person.setText("Select a student:");
-            
-            teacherBox2.setVisible(true);
-                    
-        }
-     
-          protected void teacherOptions() {
-            person.setVisible(true);
-            person.setText("Select a teacher:");
-            
-            teacherBox.setVisible(true);   
-        }
-    
 }

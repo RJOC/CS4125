@@ -1,14 +1,7 @@
-/*
- * Project name: Dance Manager studio
- * File Created by: Ryan O'Connor
- * Description: Main menu page that is access after inital login
- */
+
 package dancemanagerstudioclient;
 
-
-//import ttt.james.server.TTTWebService;
-//import ttt.james.server.TTTWebService_Service;
-import ApplicationLayer.ManagerLogic;
+import ApplicationLayer.TeacherLogic;
 import java.awt.BorderLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
@@ -23,25 +16,27 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-public class DMSMenuFrame extends JFrame implements ActionListener {
+public class DMSMenuFrameTeach extends JFrame implements ActionListener {
         //Webserver initialisations  & other frame calls
     //private TTTWebService proxy;
     //private TTTWebService_Service ttt;
     
     //Variables related to the frame
     private DanceManagerStudioClient parent;
-    private DMSMenuFrame menuParent;
+    private DMSMenuFrameTech menuParent;
     private int ppid; 
     private String uname;
     
     //Initialisations of variables needed for inside the frame
     private JLabel heading, fill, fill1, fill2, fill3;
     private JButton createClass, createStud, createTch, viewRpt, delClass, delStud, delTch, MonPymt, logout;
-    private ManagerLogic manLogic;
+    private TeacherLogic techLogic;
     
     
-    public DMSMenuFrame( DanceManagerStudioClient dad, String username ,ManagerLogic manLogic){
-        this.manLogic = manLogic;
+    public DMSMenuFrameTeach( DanceManagerStudioClient dad, String username ,TeacherLogic techLogic){
+        
+        
+        this.techLogic = techLogic;
 //setting up the frame variables
 
         uname = username;
@@ -79,17 +74,17 @@ public class DMSMenuFrame extends JFrame implements ActionListener {
         sec2.add(fill3);
         
         //create Class
-        createClass = new JButton("Create Class");
+        createClass = new JButton("Generate Report");
         createClass.addActionListener(this);
         sec2.add(createClass);
         
         //Create Student
-        createStud = new JButton("Create Student");
+        createStud = new JButton("Cancel Class");
         createStud.addActionListener(this);
         sec2.add(createStud);
         
         //Create Teacher
-        createTch = new JButton("Create Teacher");
+        createTch = new JButton("View Wage Data");
         createTch.addActionListener(this);
         sec2.add(createTch);
         

@@ -28,12 +28,14 @@ public class DMSViewReportsFrame extends JFrame implements ActionListener {
     //Other variable 
     private JLabel heading, fill, fill1, fill2, fill3,tnameLab,tname,snameLab,sname,descLab,desc;
     private JLabel teachLab;
-    private String delLabel, studentName;
+    private String delLabel, studentName, updatedTname, updatedSname, updatesDesc;
     private JButton back, submit;
-    private String[] studentList = { "Student1","Student2", "Student3","Student4","Student5","Student6"};
+    private String[] studentList, updateLabels;
     private JComboBox<String> reportBox;
     private ManagerLogic manLogic;
     
+    
+
     public DMSViewReportsFrame(int pid, DMSMenuFrame dad ,ManagerLogic manLogic ){
         this.manLogic = manLogic;
         //Frame variable
@@ -71,6 +73,7 @@ public class DMSViewReportsFrame extends JFrame implements ActionListener {
         teachLab.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 25));
         sec2.add(teachLab);
         
+        studentList = manLogic.returnStudentsInReports();
         //Student Name combination box thing
         reportBox = new JComboBox<String>(studentList);
         sec2.add(reportBox);
@@ -170,9 +173,14 @@ public class DMSViewReportsFrame extends JFrame implements ActionListener {
     }
     
         protected void updateLabels(String name) {
-            tname.setText("This is a temp value");
-            sname.setText("The rest needs to be pulled from database");
-            desc.setText("Ask jono to help with this");
+            updateLabels = manLogic.caseData(studentName);
+            updatedTname = updateLabels[0];
+            updatedSname = updateLabels[1];
+            updatesDesc = updateLabels[2];
+            
+            tname.setText(updatedTname);
+            sname.setText(updatedSname);
+            desc.setText(updatesDesc);
                     
         }
 }
