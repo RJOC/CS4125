@@ -13,6 +13,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -23,18 +25,29 @@ public class DBReader_WEB implements DBReadBroker{
     // private DMSWebservice proxy;
 
     @Override
-    public Data readFromDB(String instruction) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        
+    public Data readFromDB(String instruction, String keyWords) {
+        Data data = new Data();
         
         //DMS = new DMSWebService_Service();
         //proxy = DMS.getDMSWebServicePort();
         //int value = proxy.login(uname, pword);
         
+        if(instruction.equals("GetUser")){
+            try {
+                
+                ///TODO: implement return value from getUser() func
+                
+                getUser(keyWords);
+            } catch (IOException ex) {
+                Logger.getLogger(DBReader_WEB.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
+        return data;
         
     }
     
-        private static void getUser(String username) throws IOException{
+    private static void getUser(String username) throws IOException{
         URL URLgetRequest = new URL ("http://localhost:8080/DanceSchool/webresources/web.users/finduser/" + username + "");
         String readLine = null;
         HttpURLConnection getConn = (HttpURLConnection) URLgetRequest.openConnection();

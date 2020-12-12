@@ -34,11 +34,8 @@ public class ManagerLogic extends ApplicationLogic{
             //Hard code a wage for display purposes
             //Say 300$ on creation
             
-            //// int uID, String uName, int phoneNum
-   //          newUser = new Teacher(2,uName);
-            
-            /// make call to database() through DataAcess in model layer 
-   //         super.model.dbWrite("registerTeacher", newUser);
+            //// int uID, String uName
+            newUser = new Teacher(2,uName);
         }
         else if(userType == 3){
             /// int uID, String uName, String firstName, String lastName 
@@ -66,18 +63,19 @@ public class ManagerLogic extends ApplicationLogic{
     public int registerClass(String className,  int teacherID, int skillID, String classDesc, int maxAttend){
         //problem, database created with no times or dates. Not sure if we can get it
          
-//        DanceClass newClass = new DanceClass();
+        DanceClass newClass = new DanceClass();
+     
 //        newClass.setStartTime(startTime);
 //        newClass.setFinishTime(finishTime);
 //        
-//        Teacher classTeacher = new Teacher(); 
-//        /// temp assignment; TODO: pull teacher from database and build here?
+        Teacher classTeacher = new Teacher(); 
+        /// temp assignment; TODO: pull teacher from database and build here?
 //        classTeacher.setuName(teacherName);
 //        
-//        newClass.setTeacher(classTeacher);
+        newClass.setTeacher(classTeacher);
 //        
 //        ///TODO: define instruction
-//        super.model.dbWrite("registerClass", newClass);
+        super.model.dbWrite("RegisterClass", newClass);
         
         return 1;// return 1 if successful
     }
@@ -130,7 +128,7 @@ public class ManagerLogic extends ApplicationLogic{
     public String[] getAllClasses(){
         /// call local function
         ArrayList<DanceClass> allClasses = viewClasses();
-        String classList [] =  new String[allClasses.size()];//{"class1","class2"};
+        String classList [] =  new String[allClasses.size()];
         
         /// fill array with class names
         for(int i=0; i< classList.length; i++){
