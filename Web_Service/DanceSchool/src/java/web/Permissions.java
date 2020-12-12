@@ -32,6 +32,7 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Permissions.findAll", query = "SELECT p FROM Permissions p")
     , @NamedQuery(name = "Permissions.findByPermID", query = "SELECT p FROM Permissions p WHERE p.permID = :permID")
     , @NamedQuery(name = "Permissions.findUserTeacher", query = "select u from Permissions p Join p.usersCollection u where p.permID = 2")
+    , @NamedQuery(name = "Permissions.findUserStudent", query = "select u from Permissions p Join p.usersCollection u where p.permID = 1")
     , @NamedQuery(name = "Permissions.findByuserID", query = "select p from Permissions p Join p.usersCollection u where u.id = :userID")
     , @NamedQuery(name = "Permissions.findByPermDesc", query = "SELECT p FROM Permissions p WHERE p.permDesc = :permDesc")})
 public class Permissions implements Serializable {
