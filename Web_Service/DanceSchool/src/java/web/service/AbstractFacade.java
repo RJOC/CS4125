@@ -114,6 +114,10 @@ public abstract class AbstractFacade<T> {
         List<T> result = getEntityManager().createNamedQuery("Users.findReportbyStudentID").setParameter("studentID", id).getResultList();
         return result;
     }
+    
+    public List<Users> findTeacherUsers(){
+        return getEntityManager().createNamedQuery("Permissions.findUserTeacher").getResultList();
+    }
  
     public List<T> AttendingbyID(int id) {
        return getEntityManager().createNamedQuery("Users.findAttendanceCountbyStudentID").setParameter("studentID", id).getResultList();

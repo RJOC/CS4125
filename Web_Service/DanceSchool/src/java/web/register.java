@@ -12,21 +12,31 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import static javax.ws.rs.client.Entity.json;
+import org.w3c.dom.*;
+import javax.xml.parsers.*;
+import java.io.*;
 
 /**
  *
  * @author dcod1
  */
 public class register {
+
+    private static void parseXML(StringBuffer response) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    String username;
+    String userID;
+    String permID;
     
     public static void main(String[] args) throws IOException{
        //register.postTest(); 
-       register.getTest();
+       register.login("testdLogin", "test");
        //register.deleteTest();
     }
     //code below creates a manager user
     private static void postTest() throws IOException{
-        final String POST_PARAMS = "{\"email\":\"testers@test.com\",\"firstname\":\"testjava\",\"lastname\":\"bean\",\"password\":\"test\",\"permissionID\":{\"permID\":2},\"username\":\"testdelete\"}";
+        final String POST_PARAMS = "{\"email\":\"testers@test.com\",\"firstname\":\"testjava\",\"lastname\":\"bean\",\"password\":\"test\",\"permissionID\":{\"permID\":2},\"username\":\"testdLogin\"}";
         System.out.println(POST_PARAMS);
         URL obj = new URL ("http://localhost:9699/DanceSchool/webresources/web.users?");
         HttpURLConnection postConn = (HttpURLConnection) obj.openConnection();
@@ -58,9 +68,9 @@ public class register {
         }
     }
 
-    private static void getTest() throws IOException{
-        System.out.println("http://localhost:9699/DanceSchool/webresources/web.class/ClassesFromID/20?");
-        URL URLgetRequest = new URL ("http://localhost:9699/DanceSchool/webresources/web.class/ClassesFromID/20?");
+    public static boolean login(String username, String password) throws IOException{
+        System.out.println("http://localhost:9699/DanceSchool/webresources/web.users/login/"+username+"/"+password+"?");
+        URL URLgetRequest = new URL ("http://localhost:9699/DanceSchool/webresources/web.users?");
         String readLine = null;
         HttpURLConnection getConn = (HttpURLConnection) URLgetRequest.openConnection();
         getConn.setRequestMethod("GET");
@@ -73,12 +83,57 @@ public class register {
             while((readLine = in.readLine()) !=null){
                 response.append(readLine);
             } in.close();
-            String result = response.toString();
+            String test = response.toString();
+            
+            try {
+         DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+         DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+         Document doc = dBuilder.parse(new URL(URLgetRequest.toString()).openStream());;
+         doc.getDocumentElement().normalize();
+         System.out.println("Root element :" + doc.getDocumentElement().getNodeName());
+         NodeList nList = doc.getElementsByTagName("users");
+         System.out.println("----------------------------");
+         
+         for (int temp = 0; temp < nList.getLength(); temp++) {
+            Node nNode = nList.item(temp);
+            System.out.println("\nCurrent Element :" + nNode.getNodeName());
+            
+            if (nNode.getNodeType() == Node.ELEMENT_NODE) {
+               Element eElement = (Element) nNode;
+               System.out.println("email : " 
+                  + eElement.getAttribute("email"));
+               System.out.println("First Name : " 
+                  + eElement
+                  .getElementsByTagName("firstname")
+                  .item(0)
+                  .getTextContent());
+               System.out.println("Last Name : " 
+                  + eElement
+                  .getElementsByTagName("lastname")
+                  .item(0)
+                  .getTextContent());
+               System.out.println("Username : " 
+                  + eElement
+                  .getElementsByTagName("username")
+                  .item(0)
+                  .getTextContent());
+               System.out.println("ID : " 
+                  + eElement
+                  .getElementsByTagName("id")
+                  .item(0)
+                  .getTextContent());
+            }
+         }
+      } catch (Exception e) {
+         e.printStackTrace();
+      }
+            
 
             System.out.println("JSON String Result " + response);
-            
+            return true;
         } else {
             System.out.println("GET failed");
+            return false;
         }
     }
     

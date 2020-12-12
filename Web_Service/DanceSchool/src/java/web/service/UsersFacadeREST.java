@@ -111,6 +111,13 @@ public class UsersFacadeREST extends AbstractFacade<Users> {
         return super.finduser(u);
     }
     
+    @GET
+    @Path("findTeachers")
+    @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
+    public List<Users> findTeacherUsers(){
+        return super.findTeacherUsers();
+    }
+    
 
     
 
