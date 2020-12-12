@@ -5,6 +5,7 @@
  */
 package dancemanagerstudioclient;
 
+import ApplicationLayer.ManagerLogic;
 import java.awt.BorderLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
@@ -31,8 +32,10 @@ public class DMSViewReportsFrame extends JFrame implements ActionListener {
     private JButton back, submit;
     private String[] studentList = { "Student1","Student2", "Student3","Student4","Student5","Student6"};
     private JComboBox<String> reportBox;
+    private ManagerLogic manLogic;
     
-    public DMSViewReportsFrame(int pid, DMSMenuFrame dad/* ,ApplicationLogic appLogic */){
+    public DMSViewReportsFrame(int pid, DMSMenuFrame dad ,ManagerLogic manLogic ){
+        this.manLogic = manLogic;
         //Frame variable
         ppid = pid;
         parent = dad;

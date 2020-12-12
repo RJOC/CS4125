@@ -30,10 +30,11 @@ public class DMSDeleteFrames extends JFrame implements ActionListener{
     private JLabel heading, fill, fill1, fill2, fill3;
     private JButton back, submit;
     private JLabel teachLab;
-    private String delLabel, deletedVar;
-    private String[] delChoices = { "Magic Mat","BigDongDar", "RYANSMALLPP","JONO","CHOICE 5","CHOICE 6"};
+    private String delLabel, deletedVar,valueSelected, message;
+    private String[] delChoices;
     private ManagerLogic manLogic;
-    
+    private int success;
+    private final JComboBox<String> teachBox;
     
      public DMSDeleteFrames(int pid, String delVar, DMSMenuFrame dad , ManagerLogic manLogic ){
         this.manLogic = manLogic;
@@ -50,14 +51,14 @@ public class DMSDeleteFrames extends JFrame implements ActionListener{
          //It sets variables appropiately
         if(delVar == "student"){
             delLabel = "Select a student to delete:";
-            
+            delChoices = manLogic.getStudentList();
             //delChoices = { "Magic Mat","BigDongDar", "RYANSMALLPP","JONO","CHOICE 5","CHOICE 6"};
         }else if(delVar == "teacher"){
             delLabel = "Select a teacher to delete:";
-            //delChoices = { "Magic Mat","BigDongDar", "RYANSMALLPP","JONO","CHOICE 5","CHOICE 6"};
+            delChoices = manLogic.getAllTeachers();
         }else if(delVar == "class"){
             delLabel = "Select a class to delete";
-            //delChoices = { "Magic Mat","BigDongDar", "RYANSMALLPP","JONO","CHOICE 5","CHOICE 6"};
+            delChoices = manLogic.getAllClasses();
         }else{
             //There has been an error
         }
@@ -95,7 +96,7 @@ public class DMSDeleteFrames extends JFrame implements ActionListener{
         teachLab.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 25));
         sec2.add(teachLab);
   
-        final JComboBox<String> teachBox = new JComboBox<String>(delChoices);
+        teachBox = new JComboBox<String>(delChoices);
         sec2.add(teachBox);
         
         
@@ -141,10 +142,21 @@ public class DMSDeleteFrames extends JFrame implements ActionListener{
            parent.setVisible(true);
            dispose();
        }else if(source == submit){
-           //Create the class call here
-           JOptionPane.showMessageDialog(null,deletedVar + " has been deleted!");
-           parent.setVisible(true);
-           dispose();
+           valueSelected = teachBox.getSelectedItem().toString();
+           success = manLogic.deleteSTC(deletedVar, valueSelected);
+            if(success == 1){//it worked
+                message = deletedVar + " has been deleted!";
+                JOptionPane.showMessageDialog(null,message);
+                parent.setVisible(true);
+                dispose();
+           }else{
+                message = deletedVar + " has not been created! There was an error!";
+                JOptionPane.showMessageDialog(null,message);
+                parent.setVisible(true);
+                dispose();
+           }
+           
+
        }
         
     }

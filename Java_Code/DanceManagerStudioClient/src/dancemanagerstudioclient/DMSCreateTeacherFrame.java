@@ -111,7 +111,7 @@ public class DMSCreateTeacherFrame extends JFrame implements ActionListener{
         emailLab = new JLabel("Teachers email: ");
         emailLab.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 25));
         sec2.add(emailLab);
-        email = new JPasswordField();
+        email = new JTextField();
         email.setFont(new Font(Font.SANS_SERIF, Font.ITALIC,20 ));
         email.setHorizontalAlignment(JTextField.CENTER);
         sec2.add(email);

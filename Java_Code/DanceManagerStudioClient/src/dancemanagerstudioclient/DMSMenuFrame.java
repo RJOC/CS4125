@@ -183,7 +183,7 @@ public class DMSMenuFrame extends JFrame implements ActionListener {
        }
        else if(source == MonPymt){
            setVisible(false);
-           DMSMonitorPayments viewPayments = new DMSMonitorPayments(1,menuParent, manLogic);
+           DMSMonitorPayments viewPayments = new DMSMonitorPayments(1,menuParent);
        }
        else if(source == logout){
             parent.setVisible(true);
