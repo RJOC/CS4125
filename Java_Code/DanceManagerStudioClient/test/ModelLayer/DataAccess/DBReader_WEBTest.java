@@ -44,29 +44,16 @@ public class DBReader_WEBTest {
     @org.junit.Test
     public void testReadFromDB() {
         System.out.println("readFromDB");
-        String instruction = "";
-        String keyWords = "";
+        String instruction = "GetUser";
+        String keyWords = "student1";
         DBReader_WEB instance = new DBReader_WEB();
-        Data expResult = null;
+        Data expResult = new Data();
+        expResult.setDataName("Student");
         Data result = instance.readFromDB(instruction, keyWords);
-        assertEquals(expResult, result);
+        assertEquals(expResult.getDataName(), result.getDataName());
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        // fail("The test case is a prototype.");
     }
 
-    /**
-     * Test of login method, of class DBReader_WEB.
-     */
-    @org.junit.Test
-    public void testLogin() throws Exception {
-        System.out.println("login");
-        String username = "";
-        String password = "";
-        boolean expResult = false;
-        boolean result = DBReader_WEB.login(username, password);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
     
 }
