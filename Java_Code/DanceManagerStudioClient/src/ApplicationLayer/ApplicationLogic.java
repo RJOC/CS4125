@@ -7,6 +7,9 @@ package ApplicationLayer;
 import ModelLayer.ApplicationModel;
 import ModelLayer.CurrentUserSingleton;
 import ModelLayer.Data;
+import ModelLayer.DataAccess.DBReader_WEB;
+import ModelLayer.DataAccess.DBWriter_WEB;
+import java.io.IOException;
 import java.util.ArrayList;
 
 
@@ -26,12 +29,16 @@ public class ApplicationLogic {
         model = new ApplicationModel();
     }   
     
-    public boolean logIn(String uName, String pWord){ 
+    public boolean logIn(String uName, String pWord) throws IOException{ 
         //call to database
         //return for singleton
         //CurrentUserSingleton.getInstance(uType, uID, uName, uFName, uLName);
-        
+        boolean testlog = DBReader_WEB.login(uName, pWord);
+        if(testlog == true){
         return true;
+        } else{
+        return false;
+        }
     }
     
     public void logOut(){

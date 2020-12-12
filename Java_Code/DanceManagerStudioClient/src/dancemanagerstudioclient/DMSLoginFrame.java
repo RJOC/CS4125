@@ -23,6 +23,9 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -121,7 +124,12 @@ public class DMSLoginFrame extends JFrame implements ActionListener{
         if(source  == submit){
             String uname = username.getText();
             String pword = password.getText();
-            boolean value = appLogic.logIn(uname, pword);
+            boolean value = false;
+            try {
+                value = appLogic.logIn(uname, pword);
+            } catch (IOException ex) {
+                Logger.getLogger(DMSLoginFrame.class.getName()).log(Level.SEVERE, null, ex);
+            }
             
             if(value){
                 username.setText("");
@@ -130,7 +138,7 @@ public class DMSLoginFrame extends JFrame implements ActionListener{
                     setVisible(false);
                     //int pid = value;
 //FIX HERE!!!  This checks if the user is tryping to log in as a manager or teacher using singleton     
-                    if(1==1 /*CurrentUserSingleton.getInstance() instanceof Manager*/){ //manager
+                    if(value /*CurrentUserSingleton.getInstance() instanceof Manager*/){ //manager
                         DMSMenuFrame menu = new DMSMenuFrame(parent, uname, new ManagerLogic()); //put manLogic here
                     }else{//teacher
 //FIX HERE!!!

@@ -46,7 +46,32 @@ public class DBReader_WEB implements DBReadBroker{
         return data;
         
     }
-    
+        
+        public static boolean login(String username, String password) throws IOException{
+        System.out.println("http://localhost:9699/DanceSchool/webresources/web.users/login/"+username+"/"+password+"?");
+        URL URLgetRequest = new URL ("http://localhost:9699/DanceSchool/webresources/web.users/login/"+username+"/"+password+"?");
+        String readLine = null;
+        HttpURLConnection getConn = (HttpURLConnection) URLgetRequest.openConnection();
+        getConn.setRequestMethod("GET");
+        getConn.setRequestProperty("Content-Type", "application/json");
+        int responseCode = getConn.getResponseCode();
+        System.out.println(responseCode);
+        if(responseCode == 200){
+            BufferedReader in = new BufferedReader(new InputStreamReader(getConn.getInputStream()));
+            StringBuffer response = new StringBuffer();
+            while((readLine = in.readLine()) !=null){
+                response.append(readLine);
+            } in.close();
+            String result = response.toString();
+
+            System.out.println("JSON String Result " + response);
+            return true;
+        } else {
+            System.out.println("GET failed");
+            return false;
+        }
+    }
+        
     private static void getUser(String username) throws IOException{
         URL URLgetRequest = new URL ("http://localhost:8080/DanceSchool/webresources/web.users/finduser/" + username + "");
         String readLine = null;

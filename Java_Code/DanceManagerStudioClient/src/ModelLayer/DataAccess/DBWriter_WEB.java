@@ -18,6 +18,9 @@ import java.net.URL;
  * @author Jono
  */
 public class DBWriter_WEB implements DBWriteBroker{
+    
+    
+    
 
     @Override
     public void writeToDB(String instruction, Data data) throws IOException {
@@ -35,6 +38,7 @@ public class DBWriter_WEB implements DBWriteBroker{
             /// TODO: implement method.
         }
     }
+
     
     //code below creates a user
     private static void registerUser(String email, String fname, String sname, String pword, int perID, String uname) throws IOException{
