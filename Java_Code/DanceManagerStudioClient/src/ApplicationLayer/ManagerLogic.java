@@ -30,6 +30,10 @@ public class ManagerLogic extends ApplicationLogic{
         Users newUser;
         
         if(userType == 2){
+            
+            //Hard code a wage for display purposes
+            //Say 300$ on creation
+            
             //// int uID, String uName, int phoneNum
    //          newUser = new Teacher(2,uName);
             
@@ -114,6 +118,27 @@ public class ManagerLogic extends ApplicationLogic{
         int teacherID =12;
         
         return teacherID;
+    }
+    
+    public String[] getStudentList(){
+        String studentList [] ={"student1","student2"};
+        
+        return studentList;
+    }
+    
+    public String[] getAllClasses(){
+        String classList [] ={"class1","class2"};
+        
+        return classList;
+    }
+    
+    //To delete a student a teacher or a class
+    public int deleteSTC(String delVar, String delValue){ //delVar is the type and value is the value
+        //delVar can be
+            //"student" "teacher" "class"
+            
+            
+            return 1;
     }
 }
 

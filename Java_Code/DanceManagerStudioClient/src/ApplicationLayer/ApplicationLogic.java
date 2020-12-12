@@ -10,6 +10,8 @@ import ModelLayer.Data;
 import java.util.ArrayList;
 
 
+//Count funtions from db return strings
+//we need to parse back to an int
 //manager =3 
 //teacher =2
 //student =1
