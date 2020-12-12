@@ -153,6 +153,40 @@ public class DBWriter_WEB implements DBWriteBroker{
 
   
     }
+    
+    
+    public static void deleteUser(String User) throws IOException{
+        final String POST_PARAMS = "{\"username\":\""+User+"\"}";
+        System.out.println(POST_PARAMS);
+        URL obj = new URL ("http://localhost:8080/DanceSchool/webresources/web.users/users/delete/"+User);
+        HttpURLConnection postConn = (HttpURLConnection) obj.openConnection();
+        postConn.setRequestMethod("DELETE");
+        postConn.setRequestProperty("Content-Type", "application/json");
+        
+        postConn.setDoOutput(true);
+        OutputStream os = postConn.getOutputStream();
+        os.write(POST_PARAMS.getBytes());
+        os.flush();
+        os.close();
+        
+        int responseCode = postConn.getResponseCode();
+        System.out.println("POST Response Code : " + responseCode);
+        System.out.println("POST Response Message : " + postConn.getResponseMessage());
+        
+        if (responseCode == 204) {
+            BufferedReader in = new BufferedReader(new InputStreamReader(postConn.getInputStream()));
+            String inputline;
+            StringBuffer response = new StringBuffer();
+            
+            while((inputline = in.readLine()) != null){
+                response.append(inputline);
+            }   in.close();
+            
+            System.out.println(response.toString());
+        } else {
+            System.out.println("Delete NOT WORKED");
+        }
+    }
 
         
 

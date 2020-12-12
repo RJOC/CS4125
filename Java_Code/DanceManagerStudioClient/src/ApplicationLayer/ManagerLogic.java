@@ -124,7 +124,7 @@ public class ManagerLogic extends ApplicationLogic{
     
     //Need the code to pull all the teachers names (First names are fine)
     public String[] getAllTeachers(){
-        String teacherList [] ={"Teacher1","Teacher2"};
+        String teacherList [] ={"jjcol","Teacher2"};
  
         return teacherList;
     }
@@ -136,7 +136,7 @@ public class ManagerLogic extends ApplicationLogic{
     }
     
     public String[] getStudentList(){
-        String studentList [] ={"student1","student2"};
+        String studentList [] ={"cock","ryan"};
        
         return studentList;
     }
@@ -155,10 +155,10 @@ public class ManagerLogic extends ApplicationLogic{
     }
     
     //To delete a student a teacher or a class
-    public int deleteSTC(String delVar, String delValue){ //delVar is the type and value is the value
+    public int deleteSTC( String delValue) throws IOException{ //delVar is the type and value is the value
         //delVar can be
             //"student" "teacher" "class"
-            
+            DBWriter_WEB.deleteUser(delValue);
             
             return 1;
     }
