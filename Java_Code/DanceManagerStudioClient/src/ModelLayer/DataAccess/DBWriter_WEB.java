@@ -36,17 +36,7 @@ public class DBWriter_WEB implements DBWriteBroker{
         }
     }
     
-    public void unpack(Data data){
-        
-        //Unpack 
-        //unpack into an array
-        //Return the array
-        
-        
-        
-    }
-    
-    //code below creates a manager user
+    //code below creates a user
     private static void registerUser(String email, String fname, String sname, String pword, int perID, String uname) throws IOException{
         final String POST_PARAMS = "{\"email\":\""+ email +"\",\"firstname\":\""+ fname +"\",\"lastname\":\""+ sname +"\",\"password\":\""+ pword +"\",\"permissionID\":{\"permID\":"+ perID +"},\"username\":\""+ uname +"\"}";
         System.out.println(POST_PARAMS);

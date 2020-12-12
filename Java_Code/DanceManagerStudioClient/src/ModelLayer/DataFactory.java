@@ -5,6 +5,8 @@
  */
 package ModelLayer;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Jono
@@ -31,7 +33,6 @@ public class DataFactory implements CustomDataFactory{
     }
     
     private CustomDataType buildUser(Data data){
-        ///TODO: pull data from database into a Data(); Then build users object with recived values.
         CustomDataType build;
         
         switch (data.getDataName()) {
@@ -58,7 +59,6 @@ public class DataFactory implements CustomDataFactory{
     }
     
     private DanceClass danceClassFactory(Data data){
-        ///TODO: pull data from database and build into a DanceClass() data object.
         DanceClass build = new DanceClass();
         
         /// Treat first part of data as teacher object and construct teacher
@@ -72,9 +72,15 @@ public class DataFactory implements CustomDataFactory{
         
         // Loop over student list // position 0 and 1 taken by teacher and times
         for(int i=2;i<data.getData().size();i++){
-            build.addStudent(new Student(data.getData().get(i).get(0)));
+            build.addStudent(buildStudent(data.getData().get(i)));
         }
         
         return build;
+    }
+    
+    private Student buildStudent(ArrayList<String> raw){
+        ///TODO: refactor to add more detail to the student class.
+        Student student = new Student(raw.get(0));
+        return student;
     }
 }
