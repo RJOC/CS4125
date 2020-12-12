@@ -49,6 +49,9 @@ public class DataFactory implements CustomDataFactory{
                 ((Teacher)build).setuID(Integer.parseInt(data.getData().get(0).get(0)));
                 ((Teacher)build).setuName(data.getData().get(0).get(1));
                 break;
+            case "UsersList":
+                //// users list should not pass through this method
+                //// error.
             default:
                 //temp return
                 build = new Users();
