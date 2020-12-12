@@ -6,11 +6,9 @@
 package ApplicationLayer;
 import ModelLayer.ApplicationModel;
 import ModelLayer.CurrentUserSingleton;
-import ModelLayer.Data;
 import ModelLayer.DataAccess.DBReader_WEB;
 import ModelLayer.DataAccess.DBWriter_WEB;
 import java.io.IOException;
-import java.util.ArrayList;
 
 
 //Count funtions from db return strings
@@ -45,19 +43,16 @@ public class ApplicationLogic {
         CurrentUserSingleton.logOut();
     }
     
-    public int registerStudent(String uName, String fName, String lName, String pWord, String email ){
-        int permissionID = 1;
-                
-        Data data = new Data();
-        data.setDataName("Student");
-        data.getData().add(new ArrayList<>());
-        data.getData().get(0).add(uName);
-        
-        /// additional instruction to add student to specific class?
-        String instruction = "registerStudent";
-        model.dbWrite(instruction, data);
+    public int registerStudent(String uName, String fName, String lName, String pWord, String email ) throws IOException{
+   
+        boolean success = DBWriter_WEB.CreateUser( email,  fName,  lName,  pWord,  1,  uName);
+            if(success){
+                return 1;
+            }else{
+                return 0;
+            }
 
-        return 1;
+ 
 
     }
 }

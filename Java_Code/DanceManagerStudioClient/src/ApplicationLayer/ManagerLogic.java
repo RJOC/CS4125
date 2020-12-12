@@ -36,6 +36,8 @@ public class ManagerLogic extends ApplicationLogic{
             boolean success = DBWriter_WEB.CreateUser( email,  firstName,  lastName,  password,  2,  uName);
             if(success){
                 return 1;
+            }else{
+                return 0;
             }
             //Hard code a wage for display purposes
             //Say 300$ on creation
@@ -48,6 +50,8 @@ public class ManagerLogic extends ApplicationLogic{
             boolean success = DBWriter_WEB.CreateUser( email,  firstName,  lastName,  password,  1,  uName);
             if(success){
                 return 1;
+            }else{
+                return 0;
             }
             /// int uID, String uName, String firstName, String lastName 
             //newUser = new Manager(3,uName, firstName, lastName);

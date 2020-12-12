@@ -14,9 +14,12 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.swing.*;
-import static org.eclipse.persistence.sdo.helper.extension.SDOUtil.className;
+
 
 public class DMSCreateStudentFrame extends JFrame implements ActionListener{
  
@@ -167,7 +170,11 @@ public class DMSCreateStudentFrame extends JFrame implements ActionListener{
             lName = sname.getText();
             pWord = pword.getText();
             maile = email.getText();
-            success = appLogic.registerStudent(uName, fName, lName, pWord, maile);
+           try {
+               success = appLogic.registerStudent(uName, fName, lName, pWord, maile);
+           } catch (IOException ex) {
+               Logger.getLogger(DMSCreateStudentFrame.class.getName()).log(Level.SEVERE, null, ex);
+           }
             
             if(success == 1){//it worked
                 JOptionPane.showMessageDialog(null,"Student has been created!");
