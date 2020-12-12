@@ -85,7 +85,7 @@ public class register {
             } in.close();
             String test = response.toString();
             
-            try {
+         try {
          DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
          DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
          Document doc = dBuilder.parse(new URL(URLgetRequest.toString()).openStream());;
@@ -100,18 +100,6 @@ public class register {
             
             if (nNode.getNodeType() == Node.ELEMENT_NODE) {
                Element eElement = (Element) nNode;
-               System.out.println("email : " 
-                  + eElement.getAttribute("email"));
-               System.out.println("First Name : " 
-                  + eElement
-                  .getElementsByTagName("firstname")
-                  .item(0)
-                  .getTextContent());
-               System.out.println("Last Name : " 
-                  + eElement
-                  .getElementsByTagName("lastname")
-                  .item(0)
-                  .getTextContent());
                System.out.println("Username : " 
                   + eElement
                   .getElementsByTagName("username")
@@ -120,6 +108,11 @@ public class register {
                System.out.println("ID : " 
                   + eElement
                   .getElementsByTagName("id")
+                  .item(0)
+                  .getTextContent());
+               System.out.println("permID : " 
+                  + eElement
+                  .getElementsByTagName("permID")
                   .item(0)
                   .getTextContent());
             }
