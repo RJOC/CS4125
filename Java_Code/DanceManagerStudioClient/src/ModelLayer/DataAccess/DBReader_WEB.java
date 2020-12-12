@@ -135,6 +135,8 @@ public class DBReader_WEB implements DBReadBroker {
                     }
                 }else if(data.getData().size()>1){
                     data.setDataName("UsersList");
+                }else{
+                    data.setDataName("Student");
                 }
                 
                 
