@@ -10,6 +10,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.Query;
 import web.Attendance;
 import web.Users;
+import web.Wages;
 
 /**
  *
@@ -99,6 +100,16 @@ public abstract class AbstractFacade<T> {
         return result;
     } 
     
+    public List<T> findReportbyTeacherID(int id){
+        List<T> result = getEntityManager().createNamedQuery("Users.findReportbyTeacherID").setParameter("teacherID", id).getResultList();
+        return result;
+    } 
+    
+    public List<T> findReportbyStudentID(int id){
+        List<T> result = getEntityManager().createNamedQuery("Users.findReportbyStudentID").setParameter("studentID", id).getResultList();
+        return result;
+    } 
+   
     
     
 }

@@ -122,5 +122,6 @@ public class Wages implements Serializable {
     public String toString() {
         return "web.Wages[ id=" + id + " ]";
     }
+
     
 }

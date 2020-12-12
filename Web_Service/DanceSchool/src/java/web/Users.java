@@ -45,7 +45,7 @@ import javax.xml.bind.annotation.XmlTransient;
     , @NamedQuery(name = "Users.findByFirstname", query = "SELECT u FROM Users u WHERE u.firstname = :firstname")
     , @NamedQuery(name = "Users.findByLastname", query = "SELECT u FROM Users u WHERE u.lastname = :lastname")
     , @NamedQuery(name = "Users.findByPassword", query = "SELECT u FROM Users u WHERE u.password = :password")
-    , @NamedQuery(name = "Users.findWagesbyTeacherID", query = "SELECT distinct w from Users u join u.wagesCollection w where u.id = :teacherID")
+    , @NamedQuery(name = "Users.findWagesbyTeacherID", query = "SELECT w from Users u join u.wagesCollection w where u.id = :teacherID")
     , @NamedQuery(name = "Users.findClassbyTeacherID", query = "SELECT distinct c from Users u join u.classCollection c where u.id = :teacherID")
     , @NamedQuery(name = "Users.findReportbyTeacherID", query = "SELECT distinct r from Users u join u.reportCollection r where u.id = :teacherID")
     , @NamedQuery(name = "Users.findReportbyStudentID", query = "SELECT distinct r from Users u join u.reportCollection1 r where u.id = :studentID")

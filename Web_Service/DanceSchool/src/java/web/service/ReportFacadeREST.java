@@ -88,4 +88,20 @@ public class ReportFacadeREST extends AbstractFacade<Report> {
         return em;
     }
     
+    @GET
+    @Path("ReportFromTeacherID/{id}")
+    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    public List<Report> findReportbyTeacherID(@PathParam("id") Integer id) {
+        List<Report> test = super.findReportbyTeacherID(id);
+        return test;
+    }
+    
+    @GET
+    @Path("ReportFromStudentID/{id}")
+    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    public List<Report> findReportbyStudentID(@PathParam("id") Integer id) {
+        List<Report> test = super.findReportbyStudentID(id);
+        return test;
+    }
+    
 }
