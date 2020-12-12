@@ -65,7 +65,8 @@ public abstract class AbstractFacade<T> {
     }
     
     public int countbyID(int id) {
-      return ( (Long) getEntityManager().createNamedQuery("Users.findAttendanceCountbyStudentID").setParameter("studentID", id).getSingleResult()).intValue();
+      int test = getEntityManager().createNamedQuery("Users.findAttendanceCountbyStudentID").setParameter("studentID", id).getResultList().size();
+      return test;
     }
     
     public Users login(String u, String p){

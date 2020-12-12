@@ -49,7 +49,7 @@ import javax.xml.bind.annotation.XmlTransient;
     , @NamedQuery(name = "Users.findClassbyTeacherID", query = "SELECT distinct c from Users u join u.classCollection c where u.id = :teacherID")
     , @NamedQuery(name = "Users.findReportbyTeacherID", query = "SELECT distinct r from Users u join u.reportCollection r where u.id = :teacherID")
     , @NamedQuery(name = "Users.findReportbyStudentID", query = "SELECT distinct r from Users u join u.reportCollection1 r where u.id = :studentID")
-    , @NamedQuery(name = "Users.findAttendanceCountbyStudentID", query = "select count (a) from Users u join u.attendanceCollection a where u.id = :studentID")
+    , @NamedQuery(name = "Users.findAttendanceCountbyStudentID", query = "select a from Users u join u.attendanceCollection a where u.id = :studentID")
     , @NamedQuery(name = "Users.findByEmail", query = "SELECT u FROM Users u WHERE u.email = :email")})
 public class Users implements Serializable {
 
