@@ -70,12 +70,6 @@ public class UsersFacadeREST extends AbstractFacade<Users> {
         return super.find(id);
     }
     
-    @GET
-    @Path("countAttend/{id}")
-    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    public String countByID(@PathParam("id") Integer id) {
-        return String.valueOf(super.countbyID(id));
-    }
 
     @GET
     @Override
