@@ -7,8 +7,6 @@ package ApplicationLayer;
 
 import ModelLayer.DanceClass;
 import ModelLayer.DataAccess.DBWriter_WEB;
-import ModelLayer.Manager;
-import ModelLayer.Teacher;
 import ModelLayer.Users;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -77,22 +75,23 @@ public class ManagerLogic extends ApplicationLogic{
         return 1;
     }
     
-    public int registerClass(String className,  int teacherID, int skillID, String classDesc, int maxAttend){
+    public int registerClass(String className,  int teacherID, int skillID, String classDesc, int maxAttend) throws IOException{
         //problem, database created with no times or dates. Not sure if we can get it
-         
-        DanceClass newClass = new DanceClass();
-     
-//        newClass.setStartTime(startTime);
-//        newClass.setFinishTime(finishTime);
-//        
-        Teacher classTeacher = new Teacher(); 
-        /// temp assignment; TODO: pull teacher from database and build here?
-//        classTeacher.setuName(teacherName);
-//        
-        newClass.setTeacher(classTeacher);
-//        
-//        ///TODO: define instruction
-        super.model.dbWrite("RegisterClass", newClass);
+         //CreateClass(String className,  int teacherID, int skillID, String classDesc, int maxAttend) throws IOException
+        DBWriter_WEB.CreateClass(className,teacherID, skillID, classDesc,maxAttend  );
+//        DanceClass newClass = new DanceClass();
+//     
+////        newClass.setStartTime(startTime);
+////        newClass.setFinishTime(finishTime);
+////        
+//        Teacher classTeacher = new Teacher(); 
+//        /// temp assignment; TODO: pull teacher from database and build here?
+////        classTeacher.setuName(teacherName);
+////        
+//        newClass.setTeacher(classTeacher);
+////        
+////        ///TODO: define instruction
+//        super.model.dbWrite("RegisterClass", newClass);
         
         return 1;// return 1 if successful
     }
