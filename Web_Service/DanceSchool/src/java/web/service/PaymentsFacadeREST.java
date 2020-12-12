@@ -88,4 +88,12 @@ public class PaymentsFacadeREST extends AbstractFacade<Payments> {
         return em;
     }
     
+    @GET
+    @Path("PaymentsFromID/{id}")
+    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    public List<Payments> findPaybyStudentID(@PathParam("id") Integer id) {
+        List<Payments> test = super.findPaybyStudentID(id);
+        return test;
+    }
+    
 }
