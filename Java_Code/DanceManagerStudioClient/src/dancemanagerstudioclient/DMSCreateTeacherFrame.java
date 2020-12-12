@@ -14,6 +14,9 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.swing.*;
 
@@ -149,7 +152,7 @@ public class DMSCreateTeacherFrame extends JFrame implements ActionListener{
     }
     
     @Override
-    public void actionPerformed(ActionEvent e) {
+    public void actionPerformed(ActionEvent e){
        Object source = e.getSource();
        
        if(source == back){
@@ -163,7 +166,19 @@ public class DMSCreateTeacherFrame extends JFrame implements ActionListener{
             pass=pword.getText();
             emai=email.getText();
            //Create the class call here
-           int success = manLogic.registerUser(2, uName, fName, lName, pass, emai );
+           
+           //int userType, String uName,  String firstName, String lastName, String password, String email
+    
+               // statement(s) that handle an exception
+               // examples, closing a connection, closing
+               // file, exiting the process after writing
+               // details to a log fil
+           int success=0;
+           try {
+               success = manLogic.registerUser(2, uName, fName, lName, pass, emai );
+           } catch (IOException ex) {
+               Logger.getLogger(DMSCreateTeacherFrame.class.getName()).log(Level.SEVERE, null, ex);
+           }
            
            if(success == 1){//it worked
                 JOptionPane.showMessageDialog(null,"Teacher has been created!");

@@ -61,7 +61,7 @@ public class testWebService {
     
     
 //code below creates a manager user
-    private static void testWebService(String email, String fname, String sname, String pword, int perID, String uname) throws IOException{
+    private static void CreateUser(String email, String fname, String sname, String pword, int perID, String uname) throws IOException{
         final String POST_PARAMS = "{\"email\":\""+ email +"\",\"firstname\":\""+ fname +"\",\"lastname\":\""+ sname +"\",\"password\":\""+ pword +"\",\"permissionID\":{\"permID\":"+ perID +"},\"username\":\""+ uname +"\"}";
         System.out.println(POST_PARAMS);
         URL obj = new URL ("http://localhost:8080/DanceSchool/webresources/web.users?");
