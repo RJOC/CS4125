@@ -122,7 +122,7 @@ public class ManagerLogic extends ApplicationLogic{
     
     public String[] getStudentList(){
         String studentList [] ={"student1","student2"};
-        
+       
         return studentList;
     }
     
@@ -140,6 +140,23 @@ public class ManagerLogic extends ApplicationLogic{
             
             return 1;
     }
+    
+    //This data is related to the Reports Frame or functions
+    public String[] returnStudentsInReports(){
+        //I need a list of all the students inside the reports list in db
+        String[] reportStudents = {"Student1","Student2"};
+        
+        return reportStudents;
+    }
+    
+    public String[] caseData(String studentName){ //needs to return information related to a case based on a student name
+        String [] caseData = {"Ryan the Teacher", "Dar the student","He was a bold boy"};
+   
+    return caseData;
+    }
+    
+    
+    
 }
 
 
