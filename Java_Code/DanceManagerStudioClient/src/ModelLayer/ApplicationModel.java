@@ -9,7 +9,11 @@ import ModelLayer.DataAccess.DBReadBroker;
 import ModelLayer.DataAccess.DBWriteBroker;
 import ModelLayer.DataAccess.DBWriter_CSV;
 import ModelLayer.DataAccess.DBReader_WEB;
+import ModelLayer.DataAccess.DBWriter_WEB;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 /**
  *
  * @author Jono
@@ -19,8 +23,6 @@ public class ApplicationModel {
     // private ArrayList<CustomDataType> dataModel;
     
     private ArrayList<DanceClass> danceClasses;
-    
-    // private Users currentUser;  is static singleton // could hold pointer here.
     private DBReadBroker dbReader;
     private DBWriteBroker dbWriter;
     private CustomDataFactory dataFactory;
@@ -64,7 +66,7 @@ public class ApplicationModel {
     private void dbWriteBrokerFactory(String dbType){
 
         if(dbType.equals("Default")){
-            //dbWriter = new DBWriter_WEB();
+            dbWriter = new DBWriter_WEB();
         }
         else if(dbType.equals("CSV")){
             dbWriter = new DBWriter_CSV();
@@ -72,8 +74,12 @@ public class ApplicationModel {
     }
     
     public void dbWrite(String instruction, CustomDataType data){
-        /// Pack data into a Data object, and Pass to DBBroker
-        this.dbWriter.writeToDB(instruction, dataPacker.packData(data));
+        try {
+            /// Pack data into a Data object, and Pass to DBBroker
+            this.dbWriter.writeToDB(instruction, dataPacker.packData(data));
+        } catch (IOException ex) {
+            Logger.getLogger(ApplicationModel.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     public int dbRemove(String instruction){
