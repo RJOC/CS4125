@@ -2,19 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/Users/dcod1/Documents/GitHub/CS4125/Web_Service/DanceSchool/src/java/web/Class.java</file>
-            <file>file:/C:/Users/dcod1/Documents/GitHub/CS4125/Web_Service/DanceSchool/src/java/web/Wages.java</file>
-            <file>file:/C:/Users/dcod1/Documents/GitHub/CS4125/Web_Service/DanceSchool/src/java/web/service/ClassFacadeREST.java</file>
-            <file>file:/C:/Users/dcod1/Documents/GitHub/CS4125/Web_Service/DanceSchool/src/java/web/Payments.java</file>
-            <file>file:/C:/Users/dcod1/Documents/GitHub/CS4125/Web_Service/DanceSchool/src/java/web/Report.java</file>
-            <file>file:/C:/Users/dcod1/Documents/GitHub/CS4125/Web_Service/DanceSchool/src/java/web/service/AttendanceFacadeREST.java</file>
-            <file>file:/C:/Users/dcod1/Documents/GitHub/CS4125/Web_Service/DanceSchool/src/java/web/service/ReportFacadeREST.java</file>
-            <file>file:/C:/Users/dcod1/Documents/GitHub/CS4125/Web_Service/DanceSchool/src/java/web/Users.java</file>
-            <file>file:/C:/Users/dcod1/Documents/GitHub/CS4125/Web_Service/DanceSchool/src/java/web/service/PaymentsFacadeREST.java</file>
-            <file>file:/C:/Users/dcod1/Documents/GitHub/CS4125/Web_Service/DanceSchool/src/java/web/service/AbstractFacade.java</file>
-            <file>file:/C:/Users/dcod1/Documents/GitHub/CS4125/Web_Service/DanceSchool/src/java/web/service/UsersFacadeREST.java</file>
-            <file>file:/C:/Users/dcod1/Documents/GitHub/CS4125/Web_Service/DanceSchool/src/java/web/service/WagesFacadeREST.java</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>
