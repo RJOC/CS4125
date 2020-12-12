@@ -14,6 +14,9 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.swing.*;
 /**
@@ -143,9 +146,13 @@ public class DMSDeleteFrames extends JFrame implements ActionListener{
            dispose();
        }else if(source == submit){
            valueSelected = teachBox.getSelectedItem().toString();
-           success = manLogic.deleteSTC(deletedVar, valueSelected);
+           try {
+               success = manLogic.deleteSTC(valueSelected);
+           } catch (IOException ex) {
+               Logger.getLogger(DMSDeleteFrames.class.getName()).log(Level.SEVERE, null, ex);
+           }
             if(success == 1){//it worked
-                message = deletedVar + " has been deleted!";
+                message = valueSelected + " has been deleted!";
                 JOptionPane.showMessageDialog(null,message);
                 parent.setVisible(true);
                 dispose();

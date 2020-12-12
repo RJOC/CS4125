@@ -14,6 +14,9 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.*;
@@ -184,8 +187,12 @@ public class DMSCreateClassFrame extends JFrame implements ActionListener {
             classDes =  descr.getText();
             maxAttend = Integer.parseInt(attnd.getText());
            
-           //Create the class call here maxAttend, skillID, teacherID, className
-           success = manLogic.registerClass(className, teacherID, skillID, classDes, maxAttend); 
+           try {
+               //Create the class call here maxAttend, skillID, teacherID, className
+               success = manLogic.registerClass(className, teacherID, skillID, classDes, maxAttend);
+           } catch (IOException ex) {
+               Logger.getLogger(DMSCreateClassFrame.class.getName()).log(Level.SEVERE, null, ex);
+           }
            if(success == 1){//it worked
                 JOptionPane.showMessageDialog(null,"Class has been created!");
                 parent.setVisible(true);

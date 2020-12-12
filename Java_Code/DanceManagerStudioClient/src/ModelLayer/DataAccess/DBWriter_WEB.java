@@ -113,4 +113,81 @@ public class DBWriter_WEB implements DBWriteBroker{
             return false;
         }
     }
+    
+    
+        //code below creates a manager user
+    public static boolean CreateClass(String className,  int teacherID, int skillID, String classDesc, int maxAttend) throws IOException{
+         final String POST_PARAMS = "{\"classDesc\":\""+classDesc+"\",\"maxAttend\":"+maxAttend+",\"name\":\""+className+"\",\"skillID\":{\"id\":"+skillID+"},\"teacherID\":{\"id\":"+teacherID+"}}";
+        System.out.println(POST_PARAMS);
+
+        URL obj = new URL ("http://localhost:8080/DanceSchool/webresources/web.class?");
+        HttpURLConnection postConn = (HttpURLConnection) obj.openConnection();
+        postConn.setRequestMethod("POST");
+        postConn.setRequestProperty("Content-Type", "application/json");
+        
+        postConn.setDoOutput(true);
+        OutputStream os = postConn.getOutputStream();
+        os.write(POST_PARAMS.getBytes());
+        os.flush();
+        os.close();
+        
+        int responseCode = postConn.getResponseCode();
+        System.out.println("POST Response Code : " + responseCode);
+        System.out.println("POST Response Message : " + postConn.getResponseMessage());
+        
+        if (responseCode == 204) {
+            BufferedReader in = new BufferedReader(new InputStreamReader(postConn.getInputStream()));
+            String inputline;
+            StringBuffer response = new StringBuffer();
+            
+            while((inputline = in.readLine()) != null){
+                response.append(inputline);
+            }   in.close();
+            
+            System.out.println(response.toString());
+            return true;
+        } else {
+            System.out.println("POST NOT WORKED");
+            return false;
+        }
+
+  
+    }
+    
+    
+    public static void deleteUser(String User) throws IOException{
+        final String POST_PARAMS = "{\"username\":\""+User+"\"}";
+        System.out.println(POST_PARAMS);
+        URL obj = new URL ("http://localhost:8080/DanceSchool/webresources/web.users/users/delete/"+User);
+        HttpURLConnection postConn = (HttpURLConnection) obj.openConnection();
+        postConn.setRequestMethod("DELETE");
+        postConn.setRequestProperty("Content-Type", "application/json");
+        
+        postConn.setDoOutput(true);
+        OutputStream os = postConn.getOutputStream();
+        os.write(POST_PARAMS.getBytes());
+        os.flush();
+        os.close();
+        
+        int responseCode = postConn.getResponseCode();
+        System.out.println("POST Response Code : " + responseCode);
+        System.out.println("POST Response Message : " + postConn.getResponseMessage());
+        
+        if (responseCode == 204) {
+            BufferedReader in = new BufferedReader(new InputStreamReader(postConn.getInputStream()));
+            String inputline;
+            StringBuffer response = new StringBuffer();
+            
+            while((inputline = in.readLine()) != null){
+                response.append(inputline);
+            }   in.close();
+            
+            System.out.println(response.toString());
+        } else {
+            System.out.println("Delete NOT WORKED");
+        }
+    }
+
+        
+
 }

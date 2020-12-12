@@ -48,8 +48,8 @@ public class DBReader_WEB implements DBReadBroker{
     }
         
         public static boolean login(String username, String password) throws IOException{
-        System.out.println("http://localhost:9699/DanceSchool/webresources/web.users/login/"+username+"/"+password+"?");
-        URL URLgetRequest = new URL ("http://localhost:9699/DanceSchool/webresources/web.users/login/"+username+"/"+password+"?");
+        System.out.println("http://localhost:8080/DanceSchool/webresources/web.users/login/"+username+"/"+password+"?");
+        URL URLgetRequest = new URL ("http://localhost:8080/DanceSchool/webresources/web.users/login/"+username+"/"+password+"?");
         String readLine = null;
         HttpURLConnection getConn = (HttpURLConnection) URLgetRequest.openConnection();
         getConn.setRequestMethod("GET");
