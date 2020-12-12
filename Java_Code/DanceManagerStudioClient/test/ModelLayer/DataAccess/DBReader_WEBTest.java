@@ -6,6 +6,7 @@
 package ModelLayer.DataAccess;
 
 import ModelLayer.Data;
+import java.util.ArrayList;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -45,12 +46,29 @@ public class DBReader_WEBTest {
     public void testReadFromDB() {
         System.out.println("readFromDB");
         String instruction = "GetUser";
-        String keyWords = "student1";
+        String keyWords = "jono123";
         DBReader_WEB instance = new DBReader_WEB();
         Data expResult = new Data();
-        expResult.setDataName("Student");
+        expResult.setDataName("Manager");
+        
         Data result = instance.readFromDB(instruction, keyWords);
         assertEquals(expResult.getDataName(), result.getDataName());
+        
+        expResult.getData().add(new ArrayList<>());
+        
+        /// int uID, String uName, String firstName, String lastName
+        expResult.getData().get(0).add("");
+        expResult.getData().get(0).add("jono123");
+        expResult.getData().get(0).add("Jono");
+        expResult.getData().get(0).add("pp");
+        
+        assertEquals(expResult.getData().get(0).get(1), result.getData().get(0).get(1));
+        
+
+        
+        
+        
+        
         // TODO review the generated test code and remove the default call to fail.
         // fail("The test case is a prototype.");
     }
