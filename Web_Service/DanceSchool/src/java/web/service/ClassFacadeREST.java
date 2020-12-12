@@ -69,6 +69,13 @@ public class ClassFacadeREST extends AbstractFacade<Class> {
     public List<Class> findAll() {
         return super.findAll();
     }
+    
+    @GET
+    @Path("countAttendbyClassID/{id}")
+    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    public String countAttendByID(@PathParam("id") Integer id) {
+        return String.valueOf(super.countAttendbyClassID(id));
+    }
 
     @GET
     @Path("{from}/{to}")
