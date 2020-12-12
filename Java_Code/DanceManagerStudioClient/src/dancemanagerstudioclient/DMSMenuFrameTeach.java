@@ -43,9 +43,6 @@ public class DMSMenuFrameTeach extends JFrame implements ActionListener {
         parent = dad;
         menuParent = this;
         
-//Proxy for webservice
-        //ttt = new TTTWebService_Service();
-        //proxy = ttt.getTTTWebServicePort();
         
         //JFrame Setup
         setTitle("Main-Menu");
