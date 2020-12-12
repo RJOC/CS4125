@@ -32,7 +32,7 @@ public class DBWriter_WEB implements DBWriteBroker{
             }
             
         }else if(instruction.equals("RegisterClass")){
-            
+            /// TODO: implement method.
         }
     }
     

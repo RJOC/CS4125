@@ -12,5 +12,5 @@ import ModelLayer.Data;
  * @author Jono
  */
 public interface DBReadBroker {
-    public Data readFromDB(String instruction);
+    public Data readFromDB(String instruction, String keyWords);
 }
