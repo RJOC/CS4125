@@ -5,8 +5,10 @@
  */
 package ApplicationLayer;
 
+import ModelLayer.CustomDataType;
 import ModelLayer.DanceClass;
 import ModelLayer.DataAccess.DBWriter_WEB;
+import ModelLayer.Teacher;
 import ModelLayer.Users;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -131,8 +133,14 @@ public class ManagerLogic extends ApplicationLogic{
     
     //TODO; PULL FROM DATABASE
     public int getTeacherIDFromName(String tName){
-        int teacherID =18;
         
+        CustomDataType teacher;
+        teacher = super.model.unpackData(super.model.dbRead("GetUser", tName));
+        int teacherID = -1;
+        
+        if(teacher instanceof Teacher){
+            teacherID = ((Teacher)teacher).getuID();
+        }    
         return teacherID;
     }
     
