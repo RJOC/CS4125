@@ -92,6 +92,10 @@ public class ApplicationModel {
         return dbReader.readFromDB(instruction, keyWords);
     }
     
+    public boolean CreateUser(String email, String fname, String sname, String pword, int perID, String uname) throws IOException{
+        return ((DBWriter_WEB)dbWriter).CreateUser(email, fname, sname, pword, perID, uname);
+    }
+    
     public CustomDataType unpackData(Data data){
         return dataFactory.buildData(data);
     }

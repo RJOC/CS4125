@@ -34,7 +34,7 @@ public class ManagerLogic extends ApplicationLogic{
         
         if(userType == 2){  //Create teacher
             
-            boolean success = DBWriter_WEB.CreateUser( email,  firstName,  lastName,  password,  2,  uName);
+            boolean success = super.model.CreateUser( email,  firstName,  lastName,  password,  2,  uName);
             if(success){
                 return 1;
             }else{
