@@ -22,7 +22,7 @@ body {
 
 /* --- logo --- */
 .site-logo {	
-	margin-top:40px;
+	margin-top:30px;
     float: left;
 }
 
@@ -314,3 +314,61 @@ textarea#message{
 	display:block;
 }
 
+#make-payment, #th, #td {
+    border: 1px solid black;
+  }
+
+/**
+ * The CSS shown here will not be introduced in the Quickstart guide, but shows
+ * how you can use CSS to style your Element's container.
+ */
+ .payment-form {
+    box-sizing: border-box;
+  
+    height: 40px;
+  
+    padding: 10px 12px;
+  
+    border: 1px solid transparent;
+    border-radius: 4px;
+    background-color: white;
+  
+    box-shadow: 0 1px 3px 0 #e6ebf1;
+    -webkit-transition: box-shadow 150ms ease;
+    transition: box-shadow 150ms ease;
+  }
+  
+  .payment-form--focus {
+    box-shadow: 0 1px 3px 0 #cfd7df;
+  }
+  
+  .payment-form--invalid {
+    border-color: #fa755a;
+  }
+  
+  .payment-form--webkit-autofill {
+    background-color: #fefde5 !important;
+  }
+
+/*
+* Payment table
+*
+*/
+table {
+    border-collapse: collapse;
+    width: 100%;
+    color: #588c7e;
+    font-family: monospace;
+    font-size: 25px;
+    text-align: left;
+    border: 1px solid black;
+    }
+    th {
+    background-color: #588c7e;
+    color: white;
+    border: 1px solid black;
+    }
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+        border: 1px solid black;
+    }

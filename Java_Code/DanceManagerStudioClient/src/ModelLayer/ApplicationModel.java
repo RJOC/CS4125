@@ -91,4 +91,8 @@ public class ApplicationModel {
         //Temp return
         return dbReader.readFromDB(instruction, keyWords);
     }
+    
+    public CustomDataType unpackData(Data data){
+        return dataFactory.buildData(data);
+    }
 }

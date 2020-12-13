@@ -35,6 +35,16 @@ public class DBReader_WEB implements DBReadBroker {
             } catch (IOException ex) {
                 Logger.getLogger(DBReader_WEB.class.getName()).log(Level.SEVERE, null, ex);
             }
+        }else if(instruction.equals("GetTeachers")){
+            try {
+                data = getUser("http://localhost:9699/DanceSchool/webresources/web.users/findTeachers?");
+                
+                data.setDataName("TeacherList");
+                
+            } catch (IOException ex) {
+                Logger.getLogger(DBReader_WEB.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        
         }
 
         return data;
