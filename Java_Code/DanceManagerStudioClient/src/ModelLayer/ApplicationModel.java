@@ -87,8 +87,8 @@ public class ApplicationModel {
         return 1;
     }
     
-    public CustomDataType dbRead(String instruction /* more arguments likely required */){
+    public Data dbRead(String instruction, String keyWords){
         //Temp return
-        return new Data();
+        return dbReader.readFromDB(instruction, keyWords);
     }
 }

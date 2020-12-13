@@ -186,6 +186,7 @@ public class DMSMenuFrame extends JFrame implements ActionListener {
            DMSMonitorPayments viewPayments = new DMSMonitorPayments(1,menuParent, manLogic);
        }
        else if(source == logout){
+            manLogic.logOut();
             parent.setVisible(true);
             dispose();
         }

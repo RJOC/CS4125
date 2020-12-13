@@ -8,6 +8,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Dance Manager Studio</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="js/payFunction.js"></script>
+    <script src="https://js.stripe.com/v3/"></script>
+
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/font-awesome.min.css">
@@ -15,7 +18,7 @@
     <link href="css/animate.css" rel="stylesheet" />
     <link href="css/style.css" rel="stylesheet">
     <link href="css/styleCal.css" rel="stylesheet">
-
+    <link href="css/payment.css" rel="stylesheet">
     <style>
         .centered {
             position: absolute;
@@ -28,6 +31,8 @@
             padding: 25px;
         }
     </style>
+
+
 </head>
 
 <body>
@@ -37,7 +42,7 @@
             <div class="container">
                 <div class="row">
                     <div class="site-logo">
-                        <a href="index.html" class="brand">Dance Manager Studio</a>
+                        <a href="userAccount.php" class="brand">Dance Manager Studio</a>
                     </div>
 
                     <!-- Brand and toggle get grouped for better mobile display -->
@@ -50,10 +55,10 @@
                     <div class="collapse navbar-collapse" id="menu">
                         <ul class="nav navbar-nav navbar-right">
                             <li class="active"><a href="#home">Home</a></li>
-                            <li><a href="#show-classes">View Classes</a></li>
-                            <li><a href="#view-payments">View Payments</a></li>
-                            <li><a href="#makePayments">Make a Payment</a></li>
+                            <li><a href="userAccount.php">View Classes</a></li>
+                            <li><a href="#payments">Payments</a></li>
                             <li><a href="#contact">Contact</a></li>
+                            <li><a href="index.php">Log Out</a></li>
                         </ul>
                     </div>
                     <!-- /.Navbar-collapse -->
@@ -73,19 +78,131 @@
         </div>
     </div>
 
-    <!-- View Payments -->
+    <!-- Make Payments -->
     <div id="view-payments">
         <section id="view-payments" style="background-image:url('img/dance_revolution.jpg'); background-repeat:no-repeat;background-size: 100% 100%;opacity:100%" class="home-section color-dark bg-white">
+            <form action="payments.php" method="post" id="payment-form">
+                <div class="form-row">
+                    <label for="card-element">
+                        Pay for class below:
+                    </label>
+                    <div id="card-element">
+                        <script>
+                            // Create a Stripe client.
+                            var stripe = Stripe('pk_test_TYooMQauvdEDq54NiTphI7jx');
+
+                            // Create an instance of Elements.
+                            var elements = stripe.elements();
+
+                            // Custom styling can be passed to options when creating an Element.
+                            // (Note that this demo uses a wider set of styles than the guide below.)
+                            var style = {
+                                base: {
+                                    color: '#32325d',
+                                    fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
+                                    fontSmoothing: 'antialiased',
+                                    fontSize: '16px',
+                                    '::placeholder': {
+                                        color: '#aab7c4'
+                                    }
+                                },
+                                invalid: {
+                                    color: '#fa755a',
+                                    iconColor: '#fa755a'
+                                }
+                            };
+
+                            // Create an instance of the card Element.
+                            var card = elements.create('card', {
+                                style: style
+                            });
+
+                            // Add an instance of the card Element into the `card-element` <div>.
+                            card.mount('#card-element');
+
+                            // Handle real-time validation errors from the card Element.
+                            card.on('change', function(event) {
+                                var displayError = document.getElementById('card-errors');
+                                if (event.error) {
+                                    displayError.textContent = event.error.message;
+                                } else {
+                                    displayError.textContent = '';
+                                }
+                            });
+
+                            // Handle form submission.
+                            var form = document.getElementById('payment-form');
+                            form.addEventListener('submit', function(event) {
+                                event.preventDefault();
+
+                                stripe.createToken(card).then(function(result) {
+                                    if (result.error) {
+                                        // Inform the user if there was an error.
+                                        var errorElement = document.getElementById('card-errors');
+                                        errorElement.textContent = result.error.message;
+                                    } else {
+                                        // Send the token to your server.
+                                        stripeTokenHandler(result.token);
+                                    }
+                                });
+                            });
+
+                            // Submit the form with the token ID.
+                            function stripeTokenHandler(token) {
+                                // Insert the token ID into the form so it gets submitted to the server
+                                var form = document.getElementById('payment-form');
+                                var hiddenInput = document.createElement('input');
+                                hiddenInput.setAttribute('type', 'hidden');
+                                hiddenInput.setAttribute('name', 'stripeToken');
+                                hiddenInput.setAttribute('value', token.id);
+                                form.appendChild(hiddenInput);
+
+                                // Submit the form
+                                form.submit();
+                            }
+                        </script>
+                    </div>
+
+                    <!-- Used to display form errors. -->
+                    <div id="card-errors" role="alert"></div>
+                </div>
+
+                <button type="submit" name="login_btn" class="btn btn-success btn-block">Submit Payment</button>
+            </form>
 
         </section>
     </div>
-    <!-- /View Payments -->
+    <!-- /Make Payments -->
 
 
     <!-- Section: about -->
     <div id="make-payment">
         <section id="make-payment">
-            
+            <table>
+                <tr>
+                    <th>Amount Paid</th>
+                    <th>Payment Date</th>
+                </tr>
+                <?php
+                $conn = mysqli_connect("localhost", "root", "", "dance");
+                // Check connection
+                if ($conn->connect_error) {
+                    die("Connection failed: " . $conn->connect_error);
+                }
+                $sql = "SELECT payment, date FROM payments";
+                $result = $conn->query($sql);
+                if ($result->num_rows > 0) {
+                    // output data of each row
+                    while ($row = $result->fetch_assoc()) {
+                        echo "<tr><td>" . $row["payment"] . "</td><td>" . $row["date"] . "</td><td>";
+                    }
+                    echo "</table>";
+                } else {
+                    echo "0 results";
+                }
+                $conn->close();
+                ?>
+            </table>
         </section>
     </div>
     <!-- /Section: about -->

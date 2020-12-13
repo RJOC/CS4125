@@ -25,19 +25,13 @@ import javax.xml.parsers.*;
  */
 public class DBReader_WEB implements DBReadBroker {
 
-    // private DMSWebservice proxy;
     @Override
     public Data readFromDB(String instruction, String keyWords) {
         Data data = new Data();
 
-        //DMS = new DMSWebService_Service();
-        //proxy = DMS.getDMSWebServicePort();
-        //int value = proxy.login(uname, pword);
         if (instruction.equals("GetUser")) {
             try {
-
-                ///TODO: implement return value from getUser() func
-                data = getUser(keyWords);
+                data = getUser("http://localhost:8080/DanceSchool/webresources/web.users/finduser/" + keyWords + "");
             } catch (IOException ex) {
                 Logger.getLogger(DBReader_WEB.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -79,8 +73,9 @@ public class DBReader_WEB implements DBReadBroker {
     
     /// getting all teachers == "http://localhost:9699/DanceSchool/webresources/web.users/findTeachers?" 
 
-    private static Data getUser(String username) throws IOException {
-        URL URLgetRequest = new URL("http://localhost:8080/DanceSchool/webresources/web.users/finduser/" + username + "");
+    private static Data getUser(String url) throws IOException {
+        // URL URLgetRequest = new URL("http://localhost:8080/DanceSchool/webresources/web.users/finduser/" + username + "");
+        URL URLgetRequest = new URL(url);
         Data data = new Data();
         String readLine = null;
         HttpURLConnection getConn = (HttpURLConnection) URLgetRequest.openConnection();
@@ -90,18 +85,14 @@ public class DBReader_WEB implements DBReadBroker {
         System.out.println(responseCode);
         if (responseCode == 200) {
 
-            try {
-                
-                
+            try {               
                 DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
                 DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
                 Document doc = dBuilder.parse(new URL(URLgetRequest.toString()).openStream());
                 doc.getDocumentElement().normalize();
-                /// System.out.println("Root element :" + doc.getDocumentElement().getNodeName());
+                
                 NodeList nList = doc.getElementsByTagName("users");
                 
-                /// System.out.println("----------------------------");
-
                 for (int temp = 0; temp < nList.getLength(); temp++) {
                     Node nNode = nList.item(temp);
                     //System.out.println("\nCurrent Element :" + nNode.getNodeName());
@@ -117,20 +108,13 @@ public class DBReader_WEB implements DBReadBroker {
                         data.getData().get(temp).add(eElement.getElementsByTagName("lastname").item(0).getTextContent());
                         data.getData().get(temp).add(eElement.getElementsByTagName("permID").item(0).getTextContent());
                         
-                        //System.out.println("email : " + eElement.getAttribute("email"));
-                        //System.out.println("First Name : " + eElement.getElementsByTagName("firstname").item(0).getTextContent());
-                        //System.out.println("Last Name : "+ eElement.getElementsByTagName("lastname").item(0).getTextContent());
-                        //System.out.println("Username : "+ eElement.getElementsByTagName("username").item(0).getTextContent());
-                        //System.out.println("ID : " + eElement.getElementsByTagName("id").item(0).getTextContent());
-
-                        //System.out.println("permID : " + eElement.getElementsByTagName("permID").item(0).getTextContent());
                     }
                 }
                 
                 if(data.getData().size()==1){
                     if(data.getData().get(0).get(4).equals("3")){
                         data.setDataName("Manager");
-                    }else if (data.getData().get(0).get(4).equals("3")){
+                    }else if (data.getData().get(0).get(4).equals("2")){
                         data.setDataName("Teacher");
                     }
                 }else if(data.getData().size()>1){

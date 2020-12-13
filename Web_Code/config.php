@@ -5,10 +5,10 @@ $servername = "localhost:3306";
 $username = "root";
 $password = "";
 
-$conn = new mysqli($servername, $username, $password);
+$db = new mysqli($servername, $username, $password, "dance");
 
-if($conn->connect_error){
-    die("Connection failed: " . $conn->connect_error);
+if($db->connect_error){
+    die("Connection failed: " . $db->connect_error);
 }
 
 echo "Connected successfully";

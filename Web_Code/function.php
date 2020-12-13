@@ -1,16 +1,5 @@
 <?php
-// Including the database configuration file
-$servername = "localhost:3306";
-$username = "root";
-$password = "";
-
-$db = new mysqli($servername, $username, $password, "dance");
-
-
-// Check connection
-if ($db->connect_error) {
-    die("Connection failed: " . $db->connect_error);
-}
+include('config.php');
 
 /*
  * Load function based on the Ajax request

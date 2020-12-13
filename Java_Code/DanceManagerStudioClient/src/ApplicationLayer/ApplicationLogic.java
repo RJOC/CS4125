@@ -6,6 +6,7 @@
 package ApplicationLayer;
 import ModelLayer.ApplicationModel;
 import ModelLayer.CurrentUserSingleton;
+import ModelLayer.Data;
 import ModelLayer.DataAccess.DBReader_WEB;
 import ModelLayer.DataAccess.DBWriter_WEB;
 import java.io.IOException;
@@ -28,12 +29,17 @@ public class ApplicationLogic {
     }   
     
     public boolean logIn(String uName, String pWord) throws IOException{ 
-        //call to database
-        //return for singleton
-        //CurrentUserSingleton.getInstance(uType, uID, uName, uFName, uLName);
         boolean testlog = DBReader_WEB.login(uName, pWord);
         if(testlog == true){
-        return true;
+            /// user exists so call database and get user details.
+            Data curUser = model.dbRead("GetUser", uName);
+            if(curUser.getData().size()>0){
+                CurrentUserSingleton.getInstance(curUser.getDataName(), Integer.parseInt(curUser.getData().get(0).get(0)), uName, "uFName", "uLName");
+            }else{          
+                /// user exists but was not read in correctly, assign default.
+                CurrentUserSingleton.getInstance();
+            }
+            return true;
         } else{
         return false;
         }

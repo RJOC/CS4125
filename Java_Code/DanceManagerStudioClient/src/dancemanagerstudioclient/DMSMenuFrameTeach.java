@@ -139,6 +139,7 @@ public class DMSMenuFrameTeach extends JFrame implements ActionListener {
            setVisible(false);
            DMSGenReport generateReport = new DMSGenReport();
        }else if(source == logout){
+           techLogic.logOut();
            setVisible(false);
            parent.setVisible(true);
            dispose();

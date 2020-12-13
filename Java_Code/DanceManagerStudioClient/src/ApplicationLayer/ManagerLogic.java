@@ -129,8 +129,9 @@ public class ManagerLogic extends ApplicationLogic{
         return teacherList;
     }
     
+    //TODO; PULL FROM DATABASE
     public int getTeacherIDFromName(String tName){
-        int teacherID =12;
+        int teacherID =18;
         
         return teacherID;
     }

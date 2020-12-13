@@ -42,7 +42,7 @@ include_once('function.php');
             <div class="container">
                 <div class="row">
                     <div class="site-logo">
-                        <a href="index.html" class="brand">Dance Manager Studio</a>
+                        <a href="userAccount.php" class="brand">Dance Manager Studio</a>
                     </div>
 
                     <!-- Brand and toggle get grouped for better mobile display -->
@@ -56,9 +56,9 @@ include_once('function.php');
                         <ul class="nav navbar-nav navbar-right">
                             <li class="active"><a href="#home">Home</a></li>
                             <li><a href="#show-classes">View Classes</a></li>
-                            <li><a href="#viewPayments">View Payments</a></li>
-                            <li><a href="#makePayments">Make a Payment</a></li>
+                            <li><a href="payments.php">Payments</a></li>
                             <li><a href="#contact">Contact</a></li>
+                            <li><a href="index.php">Log Out</a></li>
                         </ul>
                     </div>
                     <!-- /.Navbar-collapse -->

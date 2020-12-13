@@ -68,7 +68,7 @@
       <div class="container">
         <div class="row">
           <div class="site-logo">
-            <a href="index.html" class="brand">Dance Manager Studio</a>
+            <a href="index.php" class="brand">Dance Manager Studio</a>
           </div>
 
           <!-- Brand and toggle get grouped for better mobile display -->
