@@ -7,6 +7,7 @@ package ApplicationLayer;
 
 import ModelLayer.CustomDataType;
 import ModelLayer.DanceClass;
+import ModelLayer.Data;
 import ModelLayer.DataAccess.DBWriter_WEB;
 import ModelLayer.Teacher;
 import ModelLayer.Users;
@@ -126,12 +127,16 @@ public class ManagerLogic extends ApplicationLogic{
     
     //Need the code to pull all the teachers names (First names are fine)
     public String[] getAllTeachers(){
-        String teacherList [] ={"jjcol","Teacher2"};
- 
+        
+        Data teachers = super.model.dbRead("GetTeachers", "");
+        String teacherList [] = new String[teachers.getData().size()];
+        
+        for(int i=0;i<teacherList.length;i++){
+            teacherList[i] = teachers.getData().get(i).get(1);
+        }
         return teacherList;
     }
     
-    //TODO; PULL FROM DATABASE
     public int getTeacherIDFromName(String tName){
         
         CustomDataType teacher;
