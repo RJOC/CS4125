@@ -31,7 +31,7 @@ public class DBReader_WEB implements DBReadBroker {
 
         if (instruction.equals("GetUser")) {
             try {
-                data = getUser(keyWords);
+                data = getUser("http://localhost:8080/DanceSchool/webresources/web.users/finduser/" + keyWords + "");
             } catch (IOException ex) {
                 Logger.getLogger(DBReader_WEB.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -73,8 +73,9 @@ public class DBReader_WEB implements DBReadBroker {
     
     /// getting all teachers == "http://localhost:9699/DanceSchool/webresources/web.users/findTeachers?" 
 
-    private static Data getUser(String username) throws IOException {
-        URL URLgetRequest = new URL("http://localhost:8080/DanceSchool/webresources/web.users/finduser/" + username + "");
+    private static Data getUser(String url) throws IOException {
+        // URL URLgetRequest = new URL("http://localhost:8080/DanceSchool/webresources/web.users/finduser/" + username + "");
+        URL URLgetRequest = new URL(url);
         Data data = new Data();
         String readLine = null;
         HttpURLConnection getConn = (HttpURLConnection) URLgetRequest.openConnection();
