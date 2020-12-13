@@ -6,7 +6,7 @@ import javax.persistence.metamodel.StaticMetamodel;
 import web.Class;
 import web.Users;
 
-@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2020-12-13T00:42:02")
+@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2020-12-13T20:50:55")
 @StaticMetamodel(Attendance.class)
 public class Attendance_ { 
 
