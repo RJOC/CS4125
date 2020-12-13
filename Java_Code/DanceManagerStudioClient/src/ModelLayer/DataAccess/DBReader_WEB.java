@@ -35,8 +35,6 @@ public class DBReader_WEB implements DBReadBroker {
         //int value = proxy.login(uname, pword);
         if (instruction.equals("GetUser")) {
             try {
-
-                ///TODO: implement return value from getUser() func
                 data = getUser(keyWords);
             } catch (IOException ex) {
                 Logger.getLogger(DBReader_WEB.class.getName()).log(Level.SEVERE, null, ex);
