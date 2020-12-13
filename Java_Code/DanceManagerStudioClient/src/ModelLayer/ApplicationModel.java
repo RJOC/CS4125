@@ -95,4 +95,13 @@ public class ApplicationModel {
     public CustomDataType unpackData(Data data){
         return dataFactory.buildData(data);
     }
+    
+    public void readInClasses(){
+        if(CurrentUserSingleton.getInstance() instanceof Manager){
+            /// read in ALL classes and add to danceClasses
+        }
+        else{
+            /// use CurrentUserSingleton.getInstance().getuName() to get classes associated with teacher.
+        }
+    }
 }

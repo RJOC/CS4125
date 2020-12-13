@@ -151,7 +151,7 @@ public class ManagerLogic extends ApplicationLogic{
     }
     
     public String[] getStudentList(){
-        String studentList [] ={"cock","ryan"};
+        String studentList [] ={"Steve The Pirate","ryan"};
        
         return studentList;
     }
