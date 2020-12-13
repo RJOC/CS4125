@@ -93,15 +93,15 @@ public class AttendanceFacadeREST extends AbstractFacade<Attendance> {
     @GET
     @Path("countAttend/{id}")
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    public String countByID(@PathParam("id") Integer id) {
-        return String.valueOf(super.countbyID(id));
+    public String countAttendbyClassID(@PathParam("id") Integer id) {
+        return String.valueOf(super.countAttendbyClassID(id));
     }
     
     @GET
     @Path("showAttend/{id}")
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    public List<Attendance> AttendingbyID(@PathParam("id") Integer id) {
-        return super.AttendingbyID(id);
+    public List<Attendance> showAttendbyClassID(@PathParam("id") Integer id) {
+        return super.showAttendbyClassID(id);
     }
 
     @Override
