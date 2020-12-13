@@ -1,0 +1,412 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="java.web.service">
+  <ClassDiagramComponents>
+    <Class name="AbstractFacade" package="web.service" visibility="public" isAbstract="true" xPosition="20.0" yPosition="20.0">
+      <Fields>
+        <Field name="entityClass" type="Class&lt;T&gt;" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="Class&lt;T&gt;" name="entityClass"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getEntityManager" returnType="EntityManager" visibility="protected" isAbstract="true"/>
+        <Method name="create" returnType="void" visibility="public">
+          <Argument type="T" name="entity"/>
+        </Method>
+        <Method name="edit" returnType="void" visibility="public">
+          <Argument type="T" name="entity"/>
+        </Method>
+        <Method name="remove" returnType="void" visibility="public">
+          <Argument type="T" name="entity"/>
+        </Method>
+        <Method name="find" returnType="T" visibility="public">
+          <Argument type="Object" name="id"/>
+        </Method>
+        <Method name="findAll" returnType="List&lt;T&gt;" visibility="public"/>
+        <Method name="findRange" returnType="List&lt;T&gt;" visibility="public">
+          <Argument type="int[]" name="range"/>
+        </Method>
+        <Method name="count" returnType="int" visibility="public"/>
+        <Method name="countbyID" returnType="int" visibility="public">
+          <Argument type="int" name="id"/>
+        </Method>
+        <Method name="login" returnType="Users" visibility="public">
+          <Argument type="String" name="u"/>
+          <Argument type="String" name="p"/>
+        </Method>
+        <Method name="finduser" returnType="Users" visibility="public">
+          <Argument type="String" name="u"/>
+        </Method>
+        <Method name="findAttendee" returnType="Attendance" visibility="public">
+          <Argument type="int" name="c"/>
+          <Argument type="int" name="s"/>
+        </Method>
+        <Method name="findClassesbyTeacherID" returnType="List&lt;T&gt;" visibility="public">
+          <Argument type="int" name="id"/>
+        </Method>
+        <Method name="findWagesbyTeacherID" returnType="List&lt;T&gt;" visibility="public">
+          <Argument type="int" name="id"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="ApplicationConfig" package="web.service" visibility="public" xPosition="320.0" yPosition="20.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="getClasses" returnType="Set&lt;Class&lt;?&gt;&gt;" visibility="public"/>
+        <Method name="addRestResourceClasses" returnType="void" visibility="private">
+          <Argument type="Set&lt;Class&lt;?&gt;&gt;" name="resources"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="AttendanceFacadeREST" package="web.service" visibility="public" xPosition="620.0" yPosition="20.0">
+      <Fields>
+        <Field name="em" type="EntityManager" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="create" returnType="void" visibility="public">
+          <Argument type="Attendance" name="entity"/>
+        </Method>
+        <Method name="edit" returnType="void" visibility="public">
+          <Argument type="Integer" name="id"/>
+          <Argument type="Attendance" name="entity"/>
+        </Method>
+        <Method name="remove" returnType="void" visibility="public">
+          <Argument type="Integer" name="id"/>
+        </Method>
+        <Method name="findAttendee" returnType="Attendance" visibility="public">
+          <Argument type="Integer" name="classID"/>
+          <Argument type="Integer" name="studentID"/>
+        </Method>
+        <Method name="find" returnType="Attendance" visibility="public">
+          <Argument type="Integer" name="id"/>
+        </Method>
+        <Method name="findAll" returnType="List&lt;Attendance&gt;" visibility="public"/>
+        <Method name="findRange" returnType="List&lt;Attendance&gt;" visibility="public">
+          <Argument type="Integer" name="from"/>
+          <Argument type="Integer" name="to"/>
+        </Method>
+        <Method name="countREST" returnType="String" visibility="public"/>
+        <Method name="getEntityManager" returnType="EntityManager" visibility="protected"/>
+      </Methods>
+    </Class>
+    <Class name="ClassFacadeREST" package="web.service" visibility="public" xPosition="920.0" yPosition="20.0">
+      <Fields>
+        <Field name="em" type="EntityManager" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="create" returnType="void" visibility="public">
+          <Argument type="Class" name="entity"/>
+        </Method>
+        <Method name="edit" returnType="void" visibility="public">
+          <Argument type="Integer" name="id"/>
+          <Argument type="Class" name="entity"/>
+        </Method>
+        <Method name="remove" returnType="void" visibility="public">
+          <Argument type="Integer" name="id"/>
+        </Method>
+        <Method name="find" returnType="Class" visibility="public">
+          <Argument type="Integer" name="id"/>
+        </Method>
+        <Method name="findAll" returnType="List&lt;Class&gt;" visibility="public"/>
+        <Method name="findRange" returnType="List&lt;Class&gt;" visibility="public">
+          <Argument type="Integer" name="from"/>
+          <Argument type="Integer" name="to"/>
+        </Method>
+        <Method name="findClassesbyTeacherID" returnType="List&lt;Class&gt;" visibility="public">
+          <Argument type="Integer" name="id"/>
+        </Method>
+        <Method name="countREST" returnType="String" visibility="public"/>
+        <Method name="getEntityManager" returnType="EntityManager" visibility="protected"/>
+      </Methods>
+    </Class>
+    <Class name="PaymentsFacadeREST" package="web.service" visibility="public" xPosition="1220.0" yPosition="20.0">
+      <Fields>
+        <Field name="em" type="EntityManager" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="create" returnType="void" visibility="public">
+          <Argument type="Payments" name="entity"/>
+        </Method>
+        <Method name="edit" returnType="void" visibility="public">
+          <Argument type="Integer" name="id"/>
+          <Argument type="Payments" name="entity"/>
+        </Method>
+        <Method name="remove" returnType="void" visibility="public">
+          <Argument type="Integer" name="id"/>
+        </Method>
+        <Method name="find" returnType="Payments" visibility="public">
+          <Argument type="Integer" name="id"/>
+        </Method>
+        <Method name="findAll" returnType="List&lt;Payments&gt;" visibility="public"/>
+        <Method name="findRange" returnType="List&lt;Payments&gt;" visibility="public">
+          <Argument type="Integer" name="from"/>
+          <Argument type="Integer" name="to"/>
+        </Method>
+        <Method name="countREST" returnType="String" visibility="public"/>
+        <Method name="getEntityManager" returnType="EntityManager" visibility="protected"/>
+      </Methods>
+    </Class>
+    <Class name="PermissionsFacadeREST" package="web.service" visibility="public" xPosition="1520.0" yPosition="20.0">
+      <Fields>
+        <Field name="em" type="EntityManager" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="create" returnType="void" visibility="public">
+          <Argument type="Permissions" name="entity"/>
+        </Method>
+        <Method name="edit" returnType="void" visibility="public">
+          <Argument type="Integer" name="id"/>
+          <Argument type="Permissions" name="entity"/>
+        </Method>
+        <Method name="remove" returnType="void" visibility="public">
+          <Argument type="Integer" name="id"/>
+        </Method>
+        <Method name="find" returnType="Permissions" visibility="public">
+          <Argument type="Integer" name="id"/>
+        </Method>
+        <Method name="findAll" returnType="List&lt;Permissions&gt;" visibility="public"/>
+        <Method name="findRange" returnType="List&lt;Permissions&gt;" visibility="public">
+          <Argument type="Integer" name="from"/>
+          <Argument type="Integer" name="to"/>
+        </Method>
+        <Method name="countREST" returnType="String" visibility="public"/>
+        <Method name="getEntityManager" returnType="EntityManager" visibility="protected"/>
+      </Methods>
+    </Class>
+    <Class name="ReportFacadeREST" package="web.service" visibility="public" xPosition="1820.0" yPosition="20.0">
+      <Fields>
+        <Field name="em" type="EntityManager" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="create" returnType="void" visibility="public">
+          <Argument type="Report" name="entity"/>
+        </Method>
+        <Method name="edit" returnType="void" visibility="public">
+          <Argument type="Integer" name="id"/>
+          <Argument type="Report" name="entity"/>
+        </Method>
+        <Method name="remove" returnType="void" visibility="public">
+          <Argument type="Integer" name="id"/>
+        </Method>
+        <Method name="find" returnType="Report" visibility="public">
+          <Argument type="Integer" name="id"/>
+        </Method>
+        <Method name="findAll" returnType="List&lt;Report&gt;" visibility="public"/>
+        <Method name="findRange" returnType="List&lt;Report&gt;" visibility="public">
+          <Argument type="Integer" name="from"/>
+          <Argument type="Integer" name="to"/>
+        </Method>
+        <Method name="countREST" returnType="String" visibility="public"/>
+        <Method name="getEntityManager" returnType="EntityManager" visibility="protected"/>
+      </Methods>
+    </Class>
+    <Class name="SkillFacadeREST" package="web.service" visibility="public" xPosition="2120.0" yPosition="20.0">
+      <Fields>
+        <Field name="em" type="EntityManager" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="create" returnType="void" visibility="public">
+          <Argument type="Skill" name="entity"/>
+        </Method>
+        <Method name="edit" returnType="void" visibility="public">
+          <Argument type="Integer" name="id"/>
+          <Argument type="Skill" name="entity"/>
+        </Method>
+        <Method name="remove" returnType="void" visibility="public">
+          <Argument type="Integer" name="id"/>
+        </Method>
+        <Method name="find" returnType="Skill" visibility="public">
+          <Argument type="Integer" name="id"/>
+        </Method>
+        <Method name="findAll" returnType="List&lt;Skill&gt;" visibility="public"/>
+        <Method name="findRange" returnType="List&lt;Skill&gt;" visibility="public">
+          <Argument type="Integer" name="from"/>
+          <Argument type="Integer" name="to"/>
+        </Method>
+        <Method name="countREST" returnType="String" visibility="public"/>
+        <Method name="getEntityManager" returnType="EntityManager" visibility="protected"/>
+      </Methods>
+    </Class>
+    <Class name="testClient" package="web.service" visibility="public" xPosition="20.0" yPosition="420.0">
+      <Fields>
+        <Field name="webTarget" type="WebTarget" visibility="private"/>
+        <Field name="client" type="Client" visibility="private"/>
+        <Field name="BASE_URI" type="String" visibility="private" isStatic="true" isFinal="true"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="countREST" returnType="String" visibility="public"/>
+        <Method name="edit_XML" returnType="void" visibility="public">
+          <Argument type="Object" name="requestEntity"/>
+          <Argument type="String" name="id"/>
+        </Method>
+        <Method name="edit_JSON" returnType="void" visibility="public">
+          <Argument type="Object" name="requestEntity"/>
+          <Argument type="String" name="id"/>
+        </Method>
+        <Method name="find_XML" returnType="T" visibility="public">
+          <Argument type="Class&lt;T&gt;" name="responseType"/>
+          <Argument type="String" name="id"/>
+        </Method>
+        <Method name="find_JSON" returnType="T" visibility="public">
+          <Argument type="Class&lt;T&gt;" name="responseType"/>
+          <Argument type="String" name="id"/>
+        </Method>
+        <Method name="findRange_XML" returnType="T" visibility="public">
+          <Argument type="Class&lt;T&gt;" name="responseType"/>
+          <Argument type="String" name="from"/>
+          <Argument type="String" name="to"/>
+        </Method>
+        <Method name="findRange_JSON" returnType="T" visibility="public">
+          <Argument type="Class&lt;T&gt;" name="responseType"/>
+          <Argument type="String" name="from"/>
+          <Argument type="String" name="to"/>
+        </Method>
+        <Method name="finduser_XML" returnType="T" visibility="public">
+          <Argument type="Class&lt;T&gt;" name="responseType"/>
+          <Argument type="String" name="username"/>
+        </Method>
+        <Method name="finduser_JSON" returnType="T" visibility="public">
+          <Argument type="Class&lt;T&gt;" name="responseType"/>
+          <Argument type="String" name="username"/>
+        </Method>
+        <Method name="create_XML" returnType="void" visibility="public">
+          <Argument type="Object" name="requestEntity"/>
+        </Method>
+        <Method name="create_JSON" returnType="void" visibility="public">
+          <Argument type="Object" name="requestEntity"/>
+        </Method>
+        <Method name="login_XML" returnType="T" visibility="public">
+          <Argument type="Class&lt;T&gt;" name="responseType"/>
+          <Argument type="String" name="username"/>
+          <Argument type="String" name="password"/>
+        </Method>
+        <Method name="login_JSON" returnType="T" visibility="public">
+          <Argument type="Class&lt;T&gt;" name="responseType"/>
+          <Argument type="String" name="username"/>
+          <Argument type="String" name="password"/>
+        </Method>
+        <Method name="findAll_XML" returnType="T" visibility="public">
+          <Argument type="Class&lt;T&gt;" name="responseType"/>
+        </Method>
+        <Method name="findAll_JSON" returnType="T" visibility="public">
+          <Argument type="Class&lt;T&gt;" name="responseType"/>
+        </Method>
+        <Method name="remove" returnType="void" visibility="public">
+          <Argument type="String" name="id"/>
+        </Method>
+        <Method name="close" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="UsersFacadeREST" package="web.service" visibility="public" xPosition="320.0" yPosition="420.0">
+      <Fields>
+        <Field name="em" type="EntityManager" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="create" returnType="void" visibility="public">
+          <Argument type="Users" name="entity"/>
+        </Method>
+        <Method name="edit" returnType="void" visibility="public">
+          <Argument type="Integer" name="id"/>
+          <Argument type="Users" name="entity"/>
+        </Method>
+        <Method name="remove" returnType="void" visibility="public">
+          <Argument type="Integer" name="id"/>
+        </Method>
+        <Method name="removeUser" returnType="void" visibility="public">
+          <Argument type="String" name="username"/>
+        </Method>
+        <Method name="find" returnType="Users" visibility="public">
+          <Argument type="Integer" name="id"/>
+        </Method>
+        <Method name="countByID" returnType="int" visibility="public">
+          <Argument type="Integer" name="id"/>
+        </Method>
+        <Method name="findAll" returnType="List&lt;Users&gt;" visibility="public"/>
+        <Method name="findRange" returnType="List&lt;Users&gt;" visibility="public">
+          <Argument type="Integer" name="from"/>
+          <Argument type="Integer" name="to"/>
+        </Method>
+        <Method name="countREST" returnType="String" visibility="public"/>
+        <Method name="getEntityManager" returnType="EntityManager" visibility="protected"/>
+        <Method name="login" returnType="Users" visibility="public">
+          <Argument type="String" name="u"/>
+          <Argument type="String" name="p"/>
+        </Method>
+        <Method name="finduser" returnType="Users" visibility="public">
+          <Argument type="String" name="u"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="WagesFacadeREST" package="web.service" visibility="public" xPosition="620.0" yPosition="420.0">
+      <Fields>
+        <Field name="em" type="EntityManager" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="create" returnType="void" visibility="public">
+          <Argument type="Wages" name="entity"/>
+        </Method>
+        <Method name="edit" returnType="void" visibility="public">
+          <Argument type="Integer" name="id"/>
+          <Argument type="Wages" name="entity"/>
+        </Method>
+        <Method name="remove" returnType="void" visibility="public">
+          <Argument type="Integer" name="id"/>
+        </Method>
+        <Method name="find" returnType="Wages" visibility="public">
+          <Argument type="Integer" name="id"/>
+        </Method>
+        <Method name="findAll" returnType="List&lt;Wages&gt;" visibility="public"/>
+        <Method name="findRange" returnType="List&lt;Wages&gt;" visibility="public">
+          <Argument type="Integer" name="from"/>
+          <Argument type="Integer" name="to"/>
+        </Method>
+        <Method name="countREST" returnType="String" visibility="public"/>
+        <Method name="getEntityManager" returnType="EntityManager" visibility="protected"/>
+        <Method name="findWagesbyTeacherID" returnType="List&lt;Wages&gt;" visibility="public">
+          <Argument type="Integer" name="id"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <IsRelation name="is" source="web.service.ReportFacadeREST" target="web.service.AbstractFacade"/>
+    <IsRelation name="is" source="web.service.PaymentsFacadeREST" target="web.service.AbstractFacade"/>
+    <IsRelation name="is" source="web.service.UsersFacadeREST" target="web.service.AbstractFacade"/>
+    <IsRelation name="is" source="web.service.AttendanceFacadeREST" target="web.service.AbstractFacade"/>
+    <IsRelation name="is" source="web.service.PermissionsFacadeREST" target="web.service.AbstractFacade"/>
+    <IsRelation name="is" source="web.service.SkillFacadeREST" target="web.service.AbstractFacade"/>
+    <IsRelation name="is" source="web.service.ClassFacadeREST" target="web.service.AbstractFacade"/>
+    <IsRelation name="is" source="web.service.WagesFacadeREST" target="web.service.AbstractFacade"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

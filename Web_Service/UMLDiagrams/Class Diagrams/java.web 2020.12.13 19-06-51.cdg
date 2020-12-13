@@ -1,0 +1,849 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="java.web">
+  <ClassDiagramComponents>
+    <Class name="Attendance" package="web" visibility="public" xPosition="20.0" yPosition="20.0">
+      <Fields>
+        <Field name="serialVersionUID" type="long" visibility="private" isStatic="true" isFinal="true"/>
+        <Field name="attendID" type="Integer" visibility="private"/>
+        <Field name="classID" type="Class" visibility="private"/>
+        <Field name="studentID" type="Users" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="Integer" name="attendID"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getAttendID" returnType="Integer" visibility="public"/>
+        <Method name="setAttendID" returnType="void" visibility="public">
+          <Argument type="Integer" name="attendID"/>
+        </Method>
+        <Method name="getClassID" returnType="Class" visibility="public"/>
+        <Method name="setClassID" returnType="void" visibility="public">
+          <Argument type="Class" name="classID"/>
+        </Method>
+        <Method name="getStudentID" returnType="Users" visibility="public"/>
+        <Method name="setStudentID" returnType="void" visibility="public">
+          <Argument type="Users" name="studentID"/>
+        </Method>
+        <Method name="hashCode" returnType="int" visibility="public"/>
+        <Method name="equals" returnType="boolean" visibility="public">
+          <Argument type="Object" name="object"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Class" package="web" visibility="public" xPosition="320.0" yPosition="20.0">
+      <Fields>
+        <Field name="serialVersionUID" type="long" visibility="private" isStatic="true" isFinal="true"/>
+        <Field name="id" type="Integer" visibility="private"/>
+        <Field name="name" type="String" visibility="private"/>
+        <Field name="classDesc" type="String" visibility="private"/>
+        <Field name="maxAttend" type="Integer" visibility="private"/>
+        <Field name="teacherID" type="Users" visibility="private"/>
+        <Field name="skillID" type="Skill" visibility="private"/>
+        <Field name="attendanceCollection" type="Collection&lt;Attendance&gt;" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="Integer" name="id"/>
+        </Constructor>
+        <Constructor visibility="public">
+          <Argument type="Integer" name="id"/>
+          <Argument type="String" name="name"/>
+          <Argument type="String" name="classDesc"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getId" returnType="Integer" visibility="public"/>
+        <Method name="setId" returnType="void" visibility="public">
+          <Argument type="Integer" name="id"/>
+        </Method>
+        <Method name="getName" returnType="String" visibility="public"/>
+        <Method name="setName" returnType="void" visibility="public">
+          <Argument type="String" name="name"/>
+        </Method>
+        <Method name="getClassDesc" returnType="String" visibility="public"/>
+        <Method name="setClassDesc" returnType="void" visibility="public">
+          <Argument type="String" name="classDesc"/>
+        </Method>
+        <Method name="getMaxAttend" returnType="Integer" visibility="public"/>
+        <Method name="setMaxAttend" returnType="void" visibility="public">
+          <Argument type="Integer" name="maxAttend"/>
+        </Method>
+        <Method name="getTeacherID" returnType="Users" visibility="public"/>
+        <Method name="setTeacherID" returnType="void" visibility="public">
+          <Argument type="Users" name="teacherID"/>
+        </Method>
+        <Method name="getSkillID" returnType="Skill" visibility="public"/>
+        <Method name="setSkillID" returnType="void" visibility="public">
+          <Argument type="Skill" name="skillID"/>
+        </Method>
+        <Method name="getAttendanceCollection" returnType="Collection&lt;Attendance&gt;" visibility="public"/>
+        <Method name="setAttendanceCollection" returnType="void" visibility="public">
+          <Argument type="Collection&lt;Attendance&gt;" name="attendanceCollection"/>
+        </Method>
+        <Method name="hashCode" returnType="int" visibility="public"/>
+        <Method name="equals" returnType="boolean" visibility="public">
+          <Argument type="Object" name="object"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Payments" package="web" visibility="public" xPosition="620.0" yPosition="20.0">
+      <Fields>
+        <Field name="serialVersionUID" type="long" visibility="private" isStatic="true" isFinal="true"/>
+        <Field name="payID" type="Integer" visibility="private"/>
+        <Field name="payment" type="Integer" visibility="private"/>
+        <Field name="date" type="Date" visibility="private"/>
+        <Field name="studentID" type="Users" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="Integer" name="payID"/>
+        </Constructor>
+        <Constructor visibility="public">
+          <Argument type="Integer" name="payID"/>
+          <Argument type="Date" name="date"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getPayID" returnType="Integer" visibility="public"/>
+        <Method name="setPayID" returnType="void" visibility="public">
+          <Argument type="Integer" name="payID"/>
+        </Method>
+        <Method name="getPayment" returnType="Integer" visibility="public"/>
+        <Method name="setPayment" returnType="void" visibility="public">
+          <Argument type="Integer" name="payment"/>
+        </Method>
+        <Method name="getDate" returnType="Date" visibility="public"/>
+        <Method name="setDate" returnType="void" visibility="public">
+          <Argument type="Date" name="date"/>
+        </Method>
+        <Method name="getStudentID" returnType="Users" visibility="public"/>
+        <Method name="setStudentID" returnType="void" visibility="public">
+          <Argument type="Users" name="studentID"/>
+        </Method>
+        <Method name="hashCode" returnType="int" visibility="public"/>
+        <Method name="equals" returnType="boolean" visibility="public">
+          <Argument type="Object" name="object"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Permissions" package="web" visibility="public" xPosition="920.0" yPosition="20.0">
+      <Fields>
+        <Field name="serialVersionUID" type="long" visibility="private" isStatic="true" isFinal="true"/>
+        <Field name="permID" type="Integer" visibility="private"/>
+        <Field name="permDesc" type="String" visibility="private"/>
+        <Field name="usersCollection" type="Collection&lt;Users&gt;" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="Integer" name="permID"/>
+        </Constructor>
+        <Constructor visibility="public">
+          <Argument type="Integer" name="permID"/>
+          <Argument type="String" name="permDesc"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getPermID" returnType="Integer" visibility="public"/>
+        <Method name="setPermID" returnType="void" visibility="public">
+          <Argument type="Integer" name="permID"/>
+        </Method>
+        <Method name="getPermDesc" returnType="String" visibility="public"/>
+        <Method name="setPermDesc" returnType="void" visibility="public">
+          <Argument type="String" name="permDesc"/>
+        </Method>
+        <Method name="getUsersCollection" returnType="Collection&lt;Users&gt;" visibility="public"/>
+        <Method name="setUsersCollection" returnType="void" visibility="public">
+          <Argument type="Collection&lt;Users&gt;" name="usersCollection"/>
+        </Method>
+        <Method name="hashCode" returnType="int" visibility="public"/>
+        <Method name="equals" returnType="boolean" visibility="public">
+          <Argument type="Object" name="object"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="register" package="web" visibility="public" xPosition="1220.0" yPosition="20.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+        <Method name="postTest" returnType="void" visibility="private" isStatic="true"/>
+        <Method name="login" returnType="boolean" visibility="public" isStatic="true">
+          <Argument type="String" name="username"/>
+          <Argument type="String" name="password"/>
+        </Method>
+        <Method name="deleteTest" returnType="void" visibility="private" isStatic="true"/>
+      </Methods>
+    </Class>
+    <Class name="Report" package="web" visibility="public" xPosition="1520.0" yPosition="20.0">
+      <Fields>
+        <Field name="serialVersionUID" type="long" visibility="private" isStatic="true" isFinal="true"/>
+        <Field name="id" type="Integer" visibility="private"/>
+        <Field name="description" type="String" visibility="private"/>
+        <Field name="teacherID" type="Users" visibility="private"/>
+        <Field name="studentID" type="Users" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="Integer" name="id"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getId" returnType="Integer" visibility="public"/>
+        <Method name="setId" returnType="void" visibility="public">
+          <Argument type="Integer" name="id"/>
+        </Method>
+        <Method name="getDescription" returnType="String" visibility="public"/>
+        <Method name="setDescription" returnType="void" visibility="public">
+          <Argument type="String" name="description"/>
+        </Method>
+        <Method name="getTeacherID" returnType="Users" visibility="public"/>
+        <Method name="setTeacherID" returnType="void" visibility="public">
+          <Argument type="Users" name="teacherID"/>
+        </Method>
+        <Method name="getStudentID" returnType="Users" visibility="public"/>
+        <Method name="setStudentID" returnType="void" visibility="public">
+          <Argument type="Users" name="studentID"/>
+        </Method>
+        <Method name="hashCode" returnType="int" visibility="public"/>
+        <Method name="equals" returnType="boolean" visibility="public">
+          <Argument type="Object" name="object"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="AbstractFacade" package="web.service" visibility="public" isAbstract="true" xPosition="1820.0" yPosition="20.0">
+      <Fields>
+        <Field name="entityClass" type="Class&lt;T&gt;" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="Class&lt;T&gt;" name="entityClass"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getEntityManager" returnType="EntityManager" visibility="protected" isAbstract="true"/>
+        <Method name="create" returnType="void" visibility="public">
+          <Argument type="T" name="entity"/>
+        </Method>
+        <Method name="edit" returnType="void" visibility="public">
+          <Argument type="T" name="entity"/>
+        </Method>
+        <Method name="remove" returnType="void" visibility="public">
+          <Argument type="T" name="entity"/>
+        </Method>
+        <Method name="find" returnType="T" visibility="public">
+          <Argument type="Object" name="id"/>
+        </Method>
+        <Method name="findAll" returnType="List&lt;T&gt;" visibility="public"/>
+        <Method name="findRange" returnType="List&lt;T&gt;" visibility="public">
+          <Argument type="int[]" name="range"/>
+        </Method>
+        <Method name="count" returnType="int" visibility="public"/>
+        <Method name="countbyID" returnType="int" visibility="public">
+          <Argument type="int" name="id"/>
+        </Method>
+        <Method name="login" returnType="Users" visibility="public">
+          <Argument type="String" name="u"/>
+          <Argument type="String" name="p"/>
+        </Method>
+        <Method name="finduser" returnType="Users" visibility="public">
+          <Argument type="String" name="u"/>
+        </Method>
+        <Method name="findAttendee" returnType="Attendance" visibility="public">
+          <Argument type="int" name="c"/>
+          <Argument type="int" name="s"/>
+        </Method>
+        <Method name="findClassesbyTeacherID" returnType="List&lt;T&gt;" visibility="public">
+          <Argument type="int" name="id"/>
+        </Method>
+        <Method name="findWagesbyTeacherID" returnType="List&lt;T&gt;" visibility="public">
+          <Argument type="int" name="id"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="ApplicationConfig" package="web.service" visibility="public" xPosition="2120.0" yPosition="20.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="getClasses" returnType="Set&lt;Class&lt;?&gt;&gt;" visibility="public"/>
+        <Method name="addRestResourceClasses" returnType="void" visibility="private">
+          <Argument type="Set&lt;Class&lt;?&gt;&gt;" name="resources"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="AttendanceFacadeREST" package="web.service" visibility="public" xPosition="20.0" yPosition="420.0">
+      <Fields>
+        <Field name="em" type="EntityManager" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="create" returnType="void" visibility="public">
+          <Argument type="Attendance" name="entity"/>
+        </Method>
+        <Method name="edit" returnType="void" visibility="public">
+          <Argument type="Integer" name="id"/>
+          <Argument type="Attendance" name="entity"/>
+        </Method>
+        <Method name="remove" returnType="void" visibility="public">
+          <Argument type="Integer" name="id"/>
+        </Method>
+        <Method name="findAttendee" returnType="Attendance" visibility="public">
+          <Argument type="Integer" name="classID"/>
+          <Argument type="Integer" name="studentID"/>
+        </Method>
+        <Method name="find" returnType="Attendance" visibility="public">
+          <Argument type="Integer" name="id"/>
+        </Method>
+        <Method name="findAll" returnType="List&lt;Attendance&gt;" visibility="public"/>
+        <Method name="findRange" returnType="List&lt;Attendance&gt;" visibility="public">
+          <Argument type="Integer" name="from"/>
+          <Argument type="Integer" name="to"/>
+        </Method>
+        <Method name="countREST" returnType="String" visibility="public"/>
+        <Method name="getEntityManager" returnType="EntityManager" visibility="protected"/>
+      </Methods>
+    </Class>
+    <Class name="ClassFacadeREST" package="web.service" visibility="public" xPosition="320.0" yPosition="420.0">
+      <Fields>
+        <Field name="em" type="EntityManager" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="create" returnType="void" visibility="public">
+          <Argument type="Class" name="entity"/>
+        </Method>
+        <Method name="edit" returnType="void" visibility="public">
+          <Argument type="Integer" name="id"/>
+          <Argument type="Class" name="entity"/>
+        </Method>
+        <Method name="remove" returnType="void" visibility="public">
+          <Argument type="Integer" name="id"/>
+        </Method>
+        <Method name="find" returnType="Class" visibility="public">
+          <Argument type="Integer" name="id"/>
+        </Method>
+        <Method name="findAll" returnType="List&lt;Class&gt;" visibility="public"/>
+        <Method name="findRange" returnType="List&lt;Class&gt;" visibility="public">
+          <Argument type="Integer" name="from"/>
+          <Argument type="Integer" name="to"/>
+        </Method>
+        <Method name="findClassesbyTeacherID" returnType="List&lt;Class&gt;" visibility="public">
+          <Argument type="Integer" name="id"/>
+        </Method>
+        <Method name="countREST" returnType="String" visibility="public"/>
+        <Method name="getEntityManager" returnType="EntityManager" visibility="protected"/>
+      </Methods>
+    </Class>
+    <Class name="PaymentsFacadeREST" package="web.service" visibility="public" xPosition="620.0" yPosition="420.0">
+      <Fields>
+        <Field name="em" type="EntityManager" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="create" returnType="void" visibility="public">
+          <Argument type="Payments" name="entity"/>
+        </Method>
+        <Method name="edit" returnType="void" visibility="public">
+          <Argument type="Integer" name="id"/>
+          <Argument type="Payments" name="entity"/>
+        </Method>
+        <Method name="remove" returnType="void" visibility="public">
+          <Argument type="Integer" name="id"/>
+        </Method>
+        <Method name="find" returnType="Payments" visibility="public">
+          <Argument type="Integer" name="id"/>
+        </Method>
+        <Method name="findAll" returnType="List&lt;Payments&gt;" visibility="public"/>
+        <Method name="findRange" returnType="List&lt;Payments&gt;" visibility="public">
+          <Argument type="Integer" name="from"/>
+          <Argument type="Integer" name="to"/>
+        </Method>
+        <Method name="countREST" returnType="String" visibility="public"/>
+        <Method name="getEntityManager" returnType="EntityManager" visibility="protected"/>
+      </Methods>
+    </Class>
+    <Class name="PermissionsFacadeREST" package="web.service" visibility="public" xPosition="920.0" yPosition="420.0">
+      <Fields>
+        <Field name="em" type="EntityManager" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="create" returnType="void" visibility="public">
+          <Argument type="Permissions" name="entity"/>
+        </Method>
+        <Method name="edit" returnType="void" visibility="public">
+          <Argument type="Integer" name="id"/>
+          <Argument type="Permissions" name="entity"/>
+        </Method>
+        <Method name="remove" returnType="void" visibility="public">
+          <Argument type="Integer" name="id"/>
+        </Method>
+        <Method name="find" returnType="Permissions" visibility="public">
+          <Argument type="Integer" name="id"/>
+        </Method>
+        <Method name="findAll" returnType="List&lt;Permissions&gt;" visibility="public"/>
+        <Method name="findRange" returnType="List&lt;Permissions&gt;" visibility="public">
+          <Argument type="Integer" name="from"/>
+          <Argument type="Integer" name="to"/>
+        </Method>
+        <Method name="countREST" returnType="String" visibility="public"/>
+        <Method name="getEntityManager" returnType="EntityManager" visibility="protected"/>
+      </Methods>
+    </Class>
+    <Class name="ReportFacadeREST" package="web.service" visibility="public" xPosition="1220.0" yPosition="420.0">
+      <Fields>
+        <Field name="em" type="EntityManager" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="create" returnType="void" visibility="public">
+          <Argument type="Report" name="entity"/>
+        </Method>
+        <Method name="edit" returnType="void" visibility="public">
+          <Argument type="Integer" name="id"/>
+          <Argument type="Report" name="entity"/>
+        </Method>
+        <Method name="remove" returnType="void" visibility="public">
+          <Argument type="Integer" name="id"/>
+        </Method>
+        <Method name="find" returnType="Report" visibility="public">
+          <Argument type="Integer" name="id"/>
+        </Method>
+        <Method name="findAll" returnType="List&lt;Report&gt;" visibility="public"/>
+        <Method name="findRange" returnType="List&lt;Report&gt;" visibility="public">
+          <Argument type="Integer" name="from"/>
+          <Argument type="Integer" name="to"/>
+        </Method>
+        <Method name="countREST" returnType="String" visibility="public"/>
+        <Method name="getEntityManager" returnType="EntityManager" visibility="protected"/>
+      </Methods>
+    </Class>
+    <Class name="SkillFacadeREST" package="web.service" visibility="public" xPosition="1520.0" yPosition="420.0">
+      <Fields>
+        <Field name="em" type="EntityManager" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="create" returnType="void" visibility="public">
+          <Argument type="Skill" name="entity"/>
+        </Method>
+        <Method name="edit" returnType="void" visibility="public">
+          <Argument type="Integer" name="id"/>
+          <Argument type="Skill" name="entity"/>
+        </Method>
+        <Method name="remove" returnType="void" visibility="public">
+          <Argument type="Integer" name="id"/>
+        </Method>
+        <Method name="find" returnType="Skill" visibility="public">
+          <Argument type="Integer" name="id"/>
+        </Method>
+        <Method name="findAll" returnType="List&lt;Skill&gt;" visibility="public"/>
+        <Method name="findRange" returnType="List&lt;Skill&gt;" visibility="public">
+          <Argument type="Integer" name="from"/>
+          <Argument type="Integer" name="to"/>
+        </Method>
+        <Method name="countREST" returnType="String" visibility="public"/>
+        <Method name="getEntityManager" returnType="EntityManager" visibility="protected"/>
+      </Methods>
+    </Class>
+    <Class name="testClient" package="web.service" visibility="public" xPosition="1820.0" yPosition="420.0">
+      <Fields>
+        <Field name="webTarget" type="WebTarget" visibility="private"/>
+        <Field name="client" type="Client" visibility="private"/>
+        <Field name="BASE_URI" type="String" visibility="private" isStatic="true" isFinal="true"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="countREST" returnType="String" visibility="public"/>
+        <Method name="edit_XML" returnType="void" visibility="public">
+          <Argument type="Object" name="requestEntity"/>
+          <Argument type="String" name="id"/>
+        </Method>
+        <Method name="edit_JSON" returnType="void" visibility="public">
+          <Argument type="Object" name="requestEntity"/>
+          <Argument type="String" name="id"/>
+        </Method>
+        <Method name="find_XML" returnType="T" visibility="public">
+          <Argument type="Class&lt;T&gt;" name="responseType"/>
+          <Argument type="String" name="id"/>
+        </Method>
+        <Method name="find_JSON" returnType="T" visibility="public">
+          <Argument type="Class&lt;T&gt;" name="responseType"/>
+          <Argument type="String" name="id"/>
+        </Method>
+        <Method name="findRange_XML" returnType="T" visibility="public">
+          <Argument type="Class&lt;T&gt;" name="responseType"/>
+          <Argument type="String" name="from"/>
+          <Argument type="String" name="to"/>
+        </Method>
+        <Method name="findRange_JSON" returnType="T" visibility="public">
+          <Argument type="Class&lt;T&gt;" name="responseType"/>
+          <Argument type="String" name="from"/>
+          <Argument type="String" name="to"/>
+        </Method>
+        <Method name="finduser_XML" returnType="T" visibility="public">
+          <Argument type="Class&lt;T&gt;" name="responseType"/>
+          <Argument type="String" name="username"/>
+        </Method>
+        <Method name="finduser_JSON" returnType="T" visibility="public">
+          <Argument type="Class&lt;T&gt;" name="responseType"/>
+          <Argument type="String" name="username"/>
+        </Method>
+        <Method name="create_XML" returnType="void" visibility="public">
+          <Argument type="Object" name="requestEntity"/>
+        </Method>
+        <Method name="create_JSON" returnType="void" visibility="public">
+          <Argument type="Object" name="requestEntity"/>
+        </Method>
+        <Method name="login_XML" returnType="T" visibility="public">
+          <Argument type="Class&lt;T&gt;" name="responseType"/>
+          <Argument type="String" name="username"/>
+          <Argument type="String" name="password"/>
+        </Method>
+        <Method name="login_JSON" returnType="T" visibility="public">
+          <Argument type="Class&lt;T&gt;" name="responseType"/>
+          <Argument type="String" name="username"/>
+          <Argument type="String" name="password"/>
+        </Method>
+        <Method name="findAll_XML" returnType="T" visibility="public">
+          <Argument type="Class&lt;T&gt;" name="responseType"/>
+        </Method>
+        <Method name="findAll_JSON" returnType="T" visibility="public">
+          <Argument type="Class&lt;T&gt;" name="responseType"/>
+        </Method>
+        <Method name="remove" returnType="void" visibility="public">
+          <Argument type="String" name="id"/>
+        </Method>
+        <Method name="close" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="UsersFacadeREST" package="web.service" visibility="public" xPosition="2120.0" yPosition="420.0">
+      <Fields>
+        <Field name="em" type="EntityManager" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="create" returnType="void" visibility="public">
+          <Argument type="Users" name="entity"/>
+        </Method>
+        <Method name="edit" returnType="void" visibility="public">
+          <Argument type="Integer" name="id"/>
+          <Argument type="Users" name="entity"/>
+        </Method>
+        <Method name="remove" returnType="void" visibility="public">
+          <Argument type="Integer" name="id"/>
+        </Method>
+        <Method name="removeUser" returnType="void" visibility="public">
+          <Argument type="String" name="username"/>
+        </Method>
+        <Method name="find" returnType="Users" visibility="public">
+          <Argument type="Integer" name="id"/>
+        </Method>
+        <Method name="countByID" returnType="int" visibility="public">
+          <Argument type="Integer" name="id"/>
+        </Method>
+        <Method name="findAll" returnType="List&lt;Users&gt;" visibility="public"/>
+        <Method name="findRange" returnType="List&lt;Users&gt;" visibility="public">
+          <Argument type="Integer" name="from"/>
+          <Argument type="Integer" name="to"/>
+        </Method>
+        <Method name="countREST" returnType="String" visibility="public"/>
+        <Method name="getEntityManager" returnType="EntityManager" visibility="protected"/>
+        <Method name="login" returnType="Users" visibility="public">
+          <Argument type="String" name="u"/>
+          <Argument type="String" name="p"/>
+        </Method>
+        <Method name="finduser" returnType="Users" visibility="public">
+          <Argument type="String" name="u"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="WagesFacadeREST" package="web.service" visibility="public" xPosition="20.0" yPosition="820.0">
+      <Fields>
+        <Field name="em" type="EntityManager" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="create" returnType="void" visibility="public">
+          <Argument type="Wages" name="entity"/>
+        </Method>
+        <Method name="edit" returnType="void" visibility="public">
+          <Argument type="Integer" name="id"/>
+          <Argument type="Wages" name="entity"/>
+        </Method>
+        <Method name="remove" returnType="void" visibility="public">
+          <Argument type="Integer" name="id"/>
+        </Method>
+        <Method name="find" returnType="Wages" visibility="public">
+          <Argument type="Integer" name="id"/>
+        </Method>
+        <Method name="findAll" returnType="List&lt;Wages&gt;" visibility="public"/>
+        <Method name="findRange" returnType="List&lt;Wages&gt;" visibility="public">
+          <Argument type="Integer" name="from"/>
+          <Argument type="Integer" name="to"/>
+        </Method>
+        <Method name="countREST" returnType="String" visibility="public"/>
+        <Method name="getEntityManager" returnType="EntityManager" visibility="protected"/>
+        <Method name="findWagesbyTeacherID" returnType="List&lt;Wages&gt;" visibility="public">
+          <Argument type="Integer" name="id"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Skill" package="web" visibility="public" xPosition="320.0" yPosition="820.0">
+      <Fields>
+        <Field name="serialVersionUID" type="long" visibility="private" isStatic="true" isFinal="true"/>
+        <Field name="id" type="Integer" visibility="private"/>
+        <Field name="name" type="String" visibility="private"/>
+        <Field name="classCollection" type="Collection&lt;Class&gt;" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="Integer" name="id"/>
+        </Constructor>
+        <Constructor visibility="public">
+          <Argument type="Integer" name="id"/>
+          <Argument type="String" name="name"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getId" returnType="Integer" visibility="public"/>
+        <Method name="setId" returnType="void" visibility="public">
+          <Argument type="Integer" name="id"/>
+        </Method>
+        <Method name="getName" returnType="String" visibility="public"/>
+        <Method name="setName" returnType="void" visibility="public">
+          <Argument type="String" name="name"/>
+        </Method>
+        <Method name="getClassCollection" returnType="Collection&lt;Class&gt;" visibility="public"/>
+        <Method name="setClassCollection" returnType="void" visibility="public">
+          <Argument type="Collection&lt;Class&gt;" name="classCollection"/>
+        </Method>
+        <Method name="hashCode" returnType="int" visibility="public"/>
+        <Method name="equals" returnType="boolean" visibility="public">
+          <Argument type="Object" name="object"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Users" package="web" visibility="public" xPosition="620.0" yPosition="820.0">
+      <Fields>
+        <Field name="serialVersionUID" type="long" visibility="private" isStatic="true" isFinal="true"/>
+        <Field name="id" type="Integer" visibility="private"/>
+        <Field name="username" type="String" visibility="private"/>
+        <Field name="firstname" type="String" visibility="private"/>
+        <Field name="lastname" type="String" visibility="private"/>
+        <Field name="password" type="String" visibility="private"/>
+        <Field name="email" type="String" visibility="private"/>
+        <Field name="wagesCollection" type="Collection&lt;Wages&gt;" visibility="private"/>
+        <Field name="paymentsCollection" type="Collection&lt;Payments&gt;" visibility="private"/>
+        <Field name="reportCollection" type="Collection&lt;Report&gt;" visibility="private"/>
+        <Field name="reportCollection1" type="Collection&lt;Report&gt;" visibility="private"/>
+        <Field name="classCollection" type="Collection&lt;Class&gt;" visibility="private"/>
+        <Field name="attendanceCollection" type="Collection&lt;Attendance&gt;" visibility="private"/>
+        <Field name="permissionID" type="Permissions" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="Integer" name="id"/>
+        </Constructor>
+        <Constructor visibility="public">
+          <Argument type="Integer" name="id"/>
+          <Argument type="String" name="username"/>
+          <Argument type="String" name="password"/>
+          <Argument type="String" name="email"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getId" returnType="Integer" visibility="public"/>
+        <Method name="setId" returnType="void" visibility="public">
+          <Argument type="Integer" name="id"/>
+        </Method>
+        <Method name="getUsername" returnType="String" visibility="public"/>
+        <Method name="setUsername" returnType="void" visibility="public">
+          <Argument type="String" name="username"/>
+        </Method>
+        <Method name="getFirstname" returnType="String" visibility="public"/>
+        <Method name="setFirstname" returnType="void" visibility="public">
+          <Argument type="String" name="firstname"/>
+        </Method>
+        <Method name="getLastname" returnType="String" visibility="public"/>
+        <Method name="setLastname" returnType="void" visibility="public">
+          <Argument type="String" name="lastname"/>
+        </Method>
+        <Method name="getPassword" returnType="String" visibility="public"/>
+        <Method name="setPassword" returnType="void" visibility="public">
+          <Argument type="String" name="password"/>
+        </Method>
+        <Method name="getEmail" returnType="String" visibility="public"/>
+        <Method name="setEmail" returnType="void" visibility="public">
+          <Argument type="String" name="email"/>
+        </Method>
+        <Method name="getWagesCollection" returnType="Collection&lt;Wages&gt;" visibility="public"/>
+        <Method name="setWagesCollection" returnType="void" visibility="public">
+          <Argument type="Collection&lt;Wages&gt;" name="wagesCollection"/>
+        </Method>
+        <Method name="getPaymentsCollection" returnType="Collection&lt;Payments&gt;" visibility="public"/>
+        <Method name="setPaymentsCollection" returnType="void" visibility="public">
+          <Argument type="Collection&lt;Payments&gt;" name="paymentsCollection"/>
+        </Method>
+        <Method name="getReportCollection" returnType="Collection&lt;Report&gt;" visibility="public"/>
+        <Method name="setReportCollection" returnType="void" visibility="public">
+          <Argument type="Collection&lt;Report&gt;" name="reportCollection"/>
+        </Method>
+        <Method name="getReportCollection1" returnType="Collection&lt;Report&gt;" visibility="public"/>
+        <Method name="setReportCollection1" returnType="void" visibility="public">
+          <Argument type="Collection&lt;Report&gt;" name="reportCollection1"/>
+        </Method>
+        <Method name="getClassCollection" returnType="Collection&lt;Class&gt;" visibility="public"/>
+        <Method name="setClassCollection" returnType="void" visibility="public">
+          <Argument type="Collection&lt;Class&gt;" name="classCollection"/>
+        </Method>
+        <Method name="getAttendanceCollection" returnType="Collection&lt;Attendance&gt;" visibility="public"/>
+        <Method name="setAttendanceCollection" returnType="void" visibility="public">
+          <Argument type="Collection&lt;Attendance&gt;" name="attendanceCollection"/>
+        </Method>
+        <Method name="getPermissionID" returnType="Permissions" visibility="public"/>
+        <Method name="setPermissionID" returnType="void" visibility="public">
+          <Argument type="Permissions" name="permissionID"/>
+        </Method>
+        <Method name="hashCode" returnType="int" visibility="public"/>
+        <Method name="equals" returnType="boolean" visibility="public">
+          <Argument type="Object" name="object"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Wages" package="web" visibility="public" xPosition="920.0" yPosition="820.0">
+      <Fields>
+        <Field name="serialVersionUID" type="long" visibility="private" isStatic="true" isFinal="true"/>
+        <Field name="id" type="Integer" visibility="private"/>
+        <Field name="wage" type="Integer" visibility="private"/>
+        <Field name="date" type="Date" visibility="private"/>
+        <Field name="teacherID" type="Users" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="Integer" name="id"/>
+        </Constructor>
+        <Constructor visibility="public">
+          <Argument type="Integer" name="id"/>
+          <Argument type="Date" name="date"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getId" returnType="Integer" visibility="public"/>
+        <Method name="setId" returnType="void" visibility="public">
+          <Argument type="Integer" name="id"/>
+        </Method>
+        <Method name="getWage" returnType="Integer" visibility="public"/>
+        <Method name="setWage" returnType="void" visibility="public">
+          <Argument type="Integer" name="wage"/>
+        </Method>
+        <Method name="getDate" returnType="Date" visibility="public"/>
+        <Method name="setDate" returnType="void" visibility="public">
+          <Argument type="Date" name="date"/>
+        </Method>
+        <Method name="getTeacherID" returnType="Users" visibility="public"/>
+        <Method name="setTeacherID" returnType="void" visibility="public">
+          <Argument type="Users" name="teacherID"/>
+        </Method>
+        <Method name="hashCode" returnType="int" visibility="public"/>
+        <Method name="equals" returnType="boolean" visibility="public">
+          <Argument type="Object" name="object"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <UseRelation source="web.Class" target="web.Users" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="web.service.AbstractFacade" target="web.Attendance" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="web.service.SkillFacadeREST" target="web.Skill" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="web.Report" target="web.Users" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="web.service.AbstractFacade" target="web.Users" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="web.Attendance" target="web.Users" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="skillID" source="web.Class" target="web.Skill" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="web.service.UsersFacadeREST" target="web.service.AbstractFacade"/>
+    <UseRelation source="web.Class" target="web.Attendance" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="studentID" source="web.Report" target="web.Users" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="studentID" source="web.Payments" target="web.Users" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="web.service.ReportFacadeREST" target="web.service.AbstractFacade"/>
+    <UseRelation source="web.Permissions" target="web.Users" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="web.service.AttendanceFacadeREST" target="web.Attendance" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="web.service.WagesFacadeREST" target="web.Wages" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="web.service.AttendanceFacadeREST" target="web.service.AbstractFacade"/>
+    <HasRelation name="wagesCollection" source="web.Users" target="web.Wages" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="web.service.PermissionsFacadeREST" target="web.service.AbstractFacade"/>
+    <UseRelation source="web.Users" target="web.Report" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="usersCollection" source="web.Permissions" target="web.Users" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="paymentsCollection" source="web.Users" target="web.Payments" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="web.service.ReportFacadeREST" target="web.Report" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="classCollection" source="web.Users" target="web.Class" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="reportCollection1" source="web.Users" target="web.Report" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="teacherID" source="web.Wages" target="web.Users" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="web.Users" target="web.Payments" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="attendanceCollection" source="web.Class" target="web.Attendance" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="web.Class" target="web.Skill" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="web.service.ClassFacadeREST" target="web.service.AbstractFacade"/>
+    <IsRelation name="is" source="web.service.SkillFacadeREST" target="web.service.AbstractFacade"/>
+    <UseRelation source="web.Attendance" target="web.Class" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="web.service.ApplicationConfig" target="web.Class" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="reportCollection" source="web.Users" target="web.Report" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="web.Users" target="web.Wages" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="web.Payments" target="web.Users" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="studentID" source="web.Attendance" target="web.Users" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="teacherID" source="web.Class" target="web.Users" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="attendanceCollection" source="web.Users" target="web.Attendance" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="permissionID" source="web.Users" target="web.Permissions" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="web.service.PaymentsFacadeREST" target="web.service.AbstractFacade"/>
+    <UseRelation source="web.Users" target="web.Attendance" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="web.service.ClassFacadeREST" target="web.Class" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="web.service.UsersFacadeREST" target="web.Users" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="teacherID" source="web.Report" target="web.Users" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="web.Users" target="web.Permissions" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="web.service.PaymentsFacadeREST" target="web.Payments" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="classCollection" source="web.Skill" target="web.Class" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="web.Wages" target="web.Users" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="web.Users" target="web.Class" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="web.service.testClient" target="web.Class" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="classID" source="web.Attendance" target="web.Class" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="web.service.PermissionsFacadeREST" target="web.Permissions" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="web.Skill" target="web.Class" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="web.service.WagesFacadeREST" target="web.service.AbstractFacade"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
