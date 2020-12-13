@@ -147,6 +147,7 @@ public class ManagerLogic extends ApplicationLogic{
             teacherID = ((Teacher)teacher).getuID();
         }    
         return teacherID;
+               
     }
     
     public String[] getStudentList(){

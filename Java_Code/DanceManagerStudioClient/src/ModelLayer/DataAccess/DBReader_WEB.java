@@ -37,7 +37,7 @@ public class DBReader_WEB implements DBReadBroker {
             }
         }else if(instruction.equals("GetTeachers")){
             try {
-                data = getUser("http://localhost:9699/DanceSchool/webresources/web.users/findTeachers?");
+                data = getUser("http://localhost:8080/DanceSchool/webresources/web.users/findTeachers?");
                 
                 data.setDataName("TeacherList");
                 
