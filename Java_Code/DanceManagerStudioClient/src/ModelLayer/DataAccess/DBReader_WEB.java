@@ -128,7 +128,7 @@ public class DBReader_WEB implements DBReadBroker {
                 if(data.getData().size()==1){
                     if(data.getData().get(0).get(4).equals("3")){
                         data.setDataName("Manager");
-                    }else if (data.getData().get(0).get(4).equals("3")){
+                    }else if (data.getData().get(0).get(4).equals("2")){
                         data.setDataName("Teacher");
                     }
                 }else if(data.getData().size()>1){
