@@ -11,7 +11,7 @@ import web.Permissions;
 import web.Report;
 import web.Wages;
 
-@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2020-12-13T23:31:56")
+@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2020-12-14T09:33:15")
 @StaticMetamodel(Users.class)
 public class Users_ { 
 
