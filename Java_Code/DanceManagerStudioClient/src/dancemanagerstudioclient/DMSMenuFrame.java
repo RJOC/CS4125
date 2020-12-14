@@ -6,8 +6,6 @@
 package dancemanagerstudioclient;
 
 
-//import ttt.james.server.TTTWebService;
-//import ttt.james.server.TTTWebService_Service;
 import ApplicationLayer.ManagerLogic;
 import java.awt.BorderLayout;
 import java.awt.Font;
@@ -25,8 +23,7 @@ import javax.swing.JPanel;
 
 public class DMSMenuFrame extends JFrame implements ActionListener {
         //Webserver initialisations  & other frame calls
-    //private TTTWebService proxy;
-    //private TTTWebService_Service ttt;
+
     
     //Variables related to the frame
     private DanceManagerStudioClient parent;

@@ -6,8 +6,6 @@
 package dancemanagerstudioclient;
 
 
-//import ttt.james.server.TTTWebService;
-//import ttt.james.server.TTTWebService_Service;
 import ApplicationLayer.ApplicationLogic;
 import ApplicationLayer.ManagerLogic;
 import java.awt.BorderLayout;
@@ -31,8 +29,6 @@ import javax.swing.*;
  */
 public class DanceManagerStudioClient extends JFrame implements ActionListener{
         //Webserver initialisations
-    //private TTTWebService proxy;
-    //private TTTWebService_Service ttt;
     //JButton initialisations because they are referenced in this whole class
     private JButton regBttn , loginBttn;
    
@@ -41,8 +37,7 @@ public class DanceManagerStudioClient extends JFrame implements ActionListener{
     public DanceManagerStudioClient( ApplicationLogic appLogic ) throws IOException{
         
         this.appLogic = appLogic;
-        //ttt = new TTTWebService_Service();
-        //proxy = ttt.getTTTWebServicePort();
+
         
         //Frame Setup
         setTitle("The Ani Mje  Special");

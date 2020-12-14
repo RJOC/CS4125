@@ -5,9 +5,6 @@
  */
 package dancemanagerstudioclient;
 
-
-//import ttt.james.server.TTTWebService;
-//import ttt.james.server.TTTWebService_Service;
 import ApplicationLayer.ApplicationLogic;
 import ApplicationLayer.ManagerLogic;
 import ApplicationLayer.TeacherLogic;

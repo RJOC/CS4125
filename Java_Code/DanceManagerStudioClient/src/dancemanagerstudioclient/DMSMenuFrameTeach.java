@@ -18,8 +18,7 @@ import javax.swing.JPanel;
 
 public class DMSMenuFrameTeach extends JFrame implements ActionListener {
         //Webserver initialisations  & other frame calls
-    //private TTTWebService proxy;
-    //private TTTWebService_Service ttt;
+
     
     //Variables related to the frame
     private DanceManagerStudioClient parent;
