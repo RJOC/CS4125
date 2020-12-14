@@ -41,3 +41,5 @@ Meeting attendance:
             Everyone
         07/12/2020 13:30-14:00 & 18:00-21:00
             Everyone
+        13/12/2020 - 14/12/2020
+            Everyone
