@@ -4,8 +4,6 @@
  * and open the template in the editor.
  */
 package ModelLayer.DataAccess;
-// import DMS.darragj.server.DMSWebService;
-// import DMS.darragj.server.DMSWebService_Service;
 
 import ModelLayer.Data;
 import java.util.logging.Level;
@@ -45,10 +43,16 @@ public class DBReader_WEB implements DBReadBroker {
                 Logger.getLogger(DBReader_WEB.class.getName()).log(Level.SEVERE, null, ex);
             }
         
+        }else if(instruction.equals("GetAllStudents")){
+            ///TODO: implement method
+            /// http://localhost:9699/DanceSchool/webresources/web.users/findStudents //returns all students
+        
+        }else if(instruction.equals("GetAllClasses")){
+            ///TODO: implement method
+            /// http://localhost:9699/DanceSchool/webresources/web.class //returns all classes
         }
 
         return data;
-
     }
 
     public static boolean login(String username, String password) throws IOException {
@@ -76,18 +80,10 @@ public class DBReader_WEB implements DBReadBroker {
             return false;
         }
     }
-    
-    /// "http://localhost:8080/DanceSchool/webresources/web.users/finduser/" + username + "") getting all classes... getting all teachers 
-    
-    /// getting all classes
-    
-    /// getting all teachers == "http://localhost:9699/DanceSchool/webresources/web.users/findTeachers?" 
 
     private static Data getUser(String url) throws IOException {
-        // URL URLgetRequest = new URL("http://localhost:8080/DanceSchool/webresources/web.users/finduser/" + username + "");
         URL URLgetRequest = new URL(url);
         Data data = new Data();
-        String readLine = null;
         HttpURLConnection getConn = (HttpURLConnection) URLgetRequest.openConnection();
         getConn.setRequestMethod("GET");
         getConn.setRequestProperty("Content-Type", "application/json");
@@ -105,7 +101,6 @@ public class DBReader_WEB implements DBReadBroker {
                 
                 for (int temp = 0; temp < nList.getLength(); temp++) {
                     Node nNode = nList.item(temp);
-                    //System.out.println("\nCurrent Element :" + nNode.getNodeName());
                     
                     if (nNode.getNodeType() == Node.ELEMENT_NODE) {
                         data.getData().add(new ArrayList<>());
@@ -132,15 +127,12 @@ public class DBReader_WEB implements DBReadBroker {
                 }else{
                     data.setDataName("Student");
                 }
-                
-                
             } catch (Exception e) {
                 e.printStackTrace();
             }
         } else {
             System.out.println("GET failed");
         }
-        
         return data;
     }
 }

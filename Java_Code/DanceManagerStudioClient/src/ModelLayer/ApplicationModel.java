@@ -47,24 +47,21 @@ public class ApplicationModel {
       
     public DanceClass viewClass(int index){
         if(danceClasses.size() > index){
-            /// TODO: refactor to pass by value.
             return danceClasses.get(index);
         }
         return new DanceClass();
     }
     
-    private void dbReadBrokerFactory(String dbType){
-        
+    private void dbReadBrokerFactory(String dbType){        
         if(dbType.equals("Default")){
             dbReader = new DBReader_WEB();
         }
         else if(dbType.equals("CSV")){
-            // init new CSV_Reader
+            //TODO: init new CSV_Reader
         }
     }
     
     private void dbWriteBrokerFactory(String dbType){
-
         if(dbType.equals("Default")){
             dbWriter = new DBWriter_WEB();
         }
@@ -88,12 +85,14 @@ public class ApplicationModel {
     }
     
     public Data dbRead(String instruction, String keyWords){
-        //Temp return
         return dbReader.readFromDB(instruction, keyWords);
     }
     
     public boolean CreateUser(String email, String fname, String sname, String pword, int perID, String uname) throws IOException{
-        return ((DBWriter_WEB)dbWriter).CreateUser(email, fname, sname, pword, perID, uname);
+        if(dbWriter instanceof DBWriter_WEB){
+            return ((DBWriter_WEB)dbWriter).CreateUser(email, fname, sname, pword, perID, uname);
+        }       
+        return false;
     }
     
     public CustomDataType unpackData(Data data){
@@ -102,10 +101,10 @@ public class ApplicationModel {
     
     public void readInClasses(){
         if(CurrentUserSingleton.getInstance() instanceof Manager){
-            /// read in ALL classes and add to danceClasses
+            ///TODO: read in ALL classes and add to danceClasses
         }
         else{
-            /// use CurrentUserSingleton.getInstance().getuName() to get classes associated with teacher.
+            ///TODO: use CurrentUserSingleton.getInstance().getuName() to get classes associated with teacher.
         }
     }
 }

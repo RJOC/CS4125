@@ -15,17 +15,15 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 
-//manager =3 
-//teacher =2
-//student =1
 /**
  *
- * @author Jono
+ * @author Jono, oconn
  */
 public class ManagerLogic extends ApplicationLogic{
             
 
     public int registerUser(int userType, String uName,  String firstName, String lastName, String password, String email) throws IOException{
+        ///TODO: refactor method
         Users newUser = null;
         
         if(userType == 2){  //Create teacher
@@ -36,12 +34,6 @@ public class ManagerLogic extends ApplicationLogic{
             }else{
                 return 0;
             }
-
-            //Hard code a wage for display purposes
-            //Say 300$ on creation
-            
-            //// int uID, String uName
-           // newUser = new Teacher(2,uName);
         }
         else if(userType == 1){
             
@@ -51,18 +43,9 @@ public class ManagerLogic extends ApplicationLogic{
             }else{
                 return 0;
             }
-            /// int uID, String uName, String firstName, String lastName 
-            //newUser = new Manager(3,uName, firstName, lastName);
         }else{
             return 0;
         }
-        
-//        if(newUser != null){
-//            super.model.dbWrite("RegisterUser", newUser);
-//        }
-        
-        //If successful 
-        
     }
     
     public int removeUser (String userName, int userID) {

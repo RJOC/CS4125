@@ -11,8 +11,8 @@ package ModelLayer;
  */
 public class Student {
     String uName;
-    //medical details
-    //emergency contact
+    //TODO: add medical details
+    //TODO: add emergency contact details
     
     public Student(){
         this("Default Student");

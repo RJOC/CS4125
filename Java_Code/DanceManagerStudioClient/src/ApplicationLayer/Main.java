@@ -5,7 +5,6 @@
  */
 package ApplicationLayer;
 
-import ModelLayer.ApplicationModel;
 import dancemanagerstudioclient.DanceManagerStudioClient;
 import java.io.IOException;
 
@@ -18,8 +17,6 @@ public class Main {
     public static void main(String[] args) throws IOException {
 
         ApplicationLogic logic = new ApplicationLogic();
-        /// will need to pass logic to view layer
         DanceManagerStudioClient myInstance = new DanceManagerStudioClient(logic);
-    
     }
 }

@@ -41,6 +41,5 @@ public class Users implements CustomDataType{
     @Override
     public String dataType() {
         return("Users");
-    }
-    
+    }   
 }
