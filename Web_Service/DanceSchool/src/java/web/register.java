@@ -31,7 +31,7 @@ public class register {
     
     public static void main(String[] args) throws IOException{
        //register.postTest(); 
-       register.login("testdLogin", "test");
+       register.testGetRequest();
        //register.deleteTest();
     }
     //code below creates a manager user
@@ -68,8 +68,7 @@ public class register {
         }
     }
 
-    public static boolean login(String username, String password) throws IOException{
-        System.out.println("http://localhost:9699/DanceSchool/webresources/web.users/login/"+username+"/"+password+"?");
+    public static void testGetRequest() throws IOException{
         URL URLgetRequest = new URL ("http://localhost:9699/DanceSchool/webresources/web.users?");
         String readLine = null;
         HttpURLConnection getConn = (HttpURLConnection) URLgetRequest.openConnection();
@@ -123,10 +122,9 @@ public class register {
             
 
             System.out.println("JSON String Result " + response);
-            return true;
+
         } else {
             System.out.println("GET failed");
-            return false;
         }
     }
     
