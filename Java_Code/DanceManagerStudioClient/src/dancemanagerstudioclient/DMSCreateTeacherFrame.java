@@ -165,14 +165,7 @@ public class DMSCreateTeacherFrame extends JFrame implements ActionListener{
             lName=sname.getText();
             pass=pword.getText();
             emai=email.getText();
-           //Create the class call here
-           
-           //int userType, String uName,  String firstName, String lastName, String password, String email
-    
-               // statement(s) that handle an exception
-               // examples, closing a connection, closing
-               // file, exiting the process after writing
-               // details to a log fil
+
            int success=0;
            try {
                success = manLogic.registerUser(2, uName, fName, lName, pass, emai );

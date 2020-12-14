@@ -18,7 +18,6 @@ public class DataFactory implements CustomDataFactory{
         CustomDataType builtData = data;
          
         switch (data.getDataName()) {
-        //  userFactory()
             case "Manager": builtData = buildUser(data);
                 break;
             case "Teacher": builtData = buildUser(data);
@@ -53,7 +52,6 @@ public class DataFactory implements CustomDataFactory{
                 //// users list should not pass through this method
                 //// error.
             default:
-                //temp return
                 build = new Users();
                 break;
         }
@@ -82,7 +80,7 @@ public class DataFactory implements CustomDataFactory{
     }
     
     private Student buildStudent(ArrayList<String> raw){
-        ///TODO: refactor to add more detail to the student class.
+        ///TODO: refactor student class.
         Student student = new Student(raw.get(0));
         return student;
     }

@@ -47,6 +47,5 @@ public class Manager extends Users {
 
     public void setPermissions(int permissions) {
         this.permissions = permissions;
-    }
-    
+    }   
 }

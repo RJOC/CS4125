@@ -21,23 +21,20 @@ public class TeacherLogic extends ApplicationLogic{
             own.addAll(super.model.getDanceClasses());
         }
         else{
-            /// TODO: else if(){pass current user to database and read in class}
-            /// use singleton userID as key.
-            /// CurrentUserSingleton.getInstance().getuID();
-        }
-            
+            /// TODO: pass current user to database and read in associated class
+        }            
         return own;
     }
     
     public void reportIncident(){
-        /// generate incedent report
+        ///TODO: generate incedent report
     }
     
     public void cancelClass(){
-        /// need notify method
+        ///TODO: implement method
     }
     
     public void viewWages(){
-    
+        ///TODO: implement method
     }
 }

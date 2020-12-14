@@ -34,7 +34,6 @@ public class DataPacker implements CustomDataPacker {
         
         if(data instanceof Manager){
             packedUser.setDataName("Manager");
-            /// pack manager
             /// int uID, String uName, String firstName, String lastName
             packedUser.getData().get(0).add("" + ((Manager)(data)).getuID());
             packedUser.getData().get(0).add(((Manager)(data)).getuName());
@@ -71,7 +70,7 @@ public class DataPacker implements CustomDataPacker {
         
         /// Pack Students     
         for (int i = 0; i < data.getStudentList().size(); i++) {
-            /// first two lines taken -> i + 2
+            /// first two lines taken therfore: i + 2
             packedDClass.getData().get(i + 2).add(data.getStudentList().get(i).getuName());
         }
         
